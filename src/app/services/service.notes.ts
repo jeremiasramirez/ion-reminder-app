@@ -27,6 +27,11 @@ export class ServiceNotes{
             
     }
 
+    addNew( data:modelNotes ){
+ 
+        this.notes.unshift(data);
+        
+    }
     getItem(id:number){
         
         
@@ -58,6 +63,11 @@ export class ServiceNotes{
         console.log(this.notes)
       */
     }
+
+
+
+
+    
 
 }
 
