@@ -1,60 +1,64 @@
 import { Injectable } from "@angular/core"
+import { modelNotes } from './notes.model'
 
 @Injectable()
 
 export class ServiceNotes{
-    notes : modelNotes[] = [];
+    notes : modelNotes[] = [
+        {
+            id:1,
+            title: 'Hurracan',
+            date: null,
+            description: null
+        },
+        {
+            id:2,
+            title: 'Lluvias',
+            date: null,
+            description: null
+        }
+    ]
 
     constructor(){
-       
-        this.notes.push( {
-                id:1,
-                title: 'Hurracan',
-                date: 'June 1 2020',
-                description: 'nada por ahora'
-            })
-          
-             
-            localStorage.setItem("notes", JSON.stringify(this.notes))
+            
+        //    localStorage.setItem("notes", JSON.stringify(this.notes))
            
             //console.log(JSON.parse(localStorage.getItem("notes"))[0] )
-           this.update()
+            
     }
 
     getItem(id:number){
         
-        this.notes = JSON.parse(localStorage.getItem("notes")) 
+        
         return this.notes.find((e)=>{
-            return e.id === id
+            
+            if( e.id === id){
+                this.notes
+            }
+
         })
 
     }
 
-    update(){
-       setTimeout(()=>{
- 
+    updateItem(){
+  
+
+        /*
+        localStorage.setItem("notes", JSON.stringify(this.notes))
+        this.notes = JSON.parse(localStorage.getItem("notes")) 
+     
             this.notes.push({
                 id:3,
                 title: 'Lluvias',
                 date: 'June 3 2020',
                 description: 'lluvias baratas'
             })
-            localStorage.setItem("notes", JSON.stringify(this.notes))
-            console.log(localStorage.getItem("notes"))
-            console.log(this.notes)
-        },5000)
-
-        
+            
+        console.log(localStorage.getItem("notes"))
+        console.log(this.notes)
+      */
     }
 
 }
 
  
-interface modelNotes{
-
-    id:number;
-    title:string|number;
-    date:  any;
-    description: any;
-
-}

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { ServiceNotes } from '../services/service.notes';
+import { Router } from '@angular/router';
+ 
 
 @Component({
   selector: 'app-home',
@@ -8,9 +9,9 @@ import { ServiceNotes } from '../services/service.notes';
   
 })
 export class HomePage {
-
-  constructor(public service:ServiceNotes) {
-
+ 
+  constructor(public router:Router ) {
+    this.router.navigate(["home/notes"]);
   }
 
 }
