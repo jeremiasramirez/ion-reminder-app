@@ -1,10 +1,12 @@
-<ion-header class="ion-no-border">
+<ion-header class="ion-no-border" mode="ios">
   <ion-toolbar >
  
-    <ion-buttons slot="start" >
-      <ion-button (click)="closeModalAdd()" color="danger">Cancel</ion-button> 
-    </ion-buttons>
 
+    <ion-buttons slot="start" >
+      <ion-button (click)="closeModalAdd()"  >Cancel</ion-button> 
+    </ion-buttons>
+   
+  
     <ion-buttons slot="end" >
       <ion-button (click)="createNew()" color="success">Create</ion-button> 
     </ion-buttons>
@@ -19,5 +21,5 @@
  
 <ion-content>
   <br>
-  <ion-textarea   [(ngModel)]="itemAdd.description" placeholder="Description" rows="20"></ion-textarea>
+  <ion-textarea   [(ngModel)]="itemAdd.description" placeholder="Description" rows="15"></ion-textarea>
 </ion-content>

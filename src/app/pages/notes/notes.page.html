@@ -1,4 +1,4 @@
-<ion-header class="ion-no-border">
+<ion-header class="ion-no-border" mode="ios">
   <ion-toolbar color="light">
     <ion-buttons slot="start">
       <ion-icon slot="icon-only" name="create-outline"></ion-icon>
@@ -26,7 +26,9 @@
 
       <ion-item class="addAnimation" (click)="openNote(note,pos)" detail>
         
-        <ion-label>{{ note.title }}</ion-label>
+        <ion-label>{{ note.title }}
+          <p><span>Created </span>{{ note.date | date}}</p>
+        </ion-label>
         <ion-icon slot="start" name="chevron-forward-outline"></ion-icon> 
 
      </ion-item>
@@ -51,9 +53,9 @@
 </ion-list>
 
 
-<ion-fab vertical="bottom" horizontal="end">
+<ion-fab vertical="bottom" horizontal="end" mode="ios">
 
-  <ion-fab-button color="success" (click)="openAdd()">
+  <ion-fab-button color="tertiary" (click)="openAdd()">
     <ion-icon name="add"></ion-icon>
   </ion-fab-button>
 
