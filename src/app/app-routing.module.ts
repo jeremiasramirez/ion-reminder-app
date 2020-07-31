@@ -24,6 +24,18 @@ const routes: Routes = [
     path: 'settings',
     loadChildren: () => import('./pages/settings/settings.module').then( m => m.SettingsPageModule)
   },
+  {
+    path: 'complete',
+    loadChildren: () => import('./pages/complete/complete.module').then( m => m.CompletePageModule)
+  },
+  {
+    path: 'phone',
+    loadChildren: () => import('./pages/phone/phone.module').then( m => m.PhonePageModule)
+  },
+  {
+    path: 'lock',
+    loadChildren: () => import('./pages/lock/lock.module').then( m => m.LockPageModule)
+  },
  
 ];
 

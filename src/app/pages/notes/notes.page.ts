@@ -2,8 +2,7 @@ import { Component  } from '@angular/core';
 import { modelNotes } from 'src/app/services/notes.model';
 import { ServiceNotes } from 'src/app/services/service.notes';
 import { ModalController } from '@ionic/angular';
-import { NoteComponent } from '../../components/note/note.component';
-import { timer } from 'rxjs';
+import { NoteComponent } from '../../components/note/note.component'; 
 import { ShownoteComponent } from 'src/app/components/shownote/shownote.component';
 
 @Component({
@@ -15,6 +14,7 @@ import { ShownoteComponent } from 'src/app/components/shownote/shownote.componen
 })
 export class NotesPage   {
   public allNotes;
+  public searchShow:boolean=false;
 
   constructor(public service:ServiceNotes, public modalAdd:ModalController) { 
     this.allNotes=  this.service.notes;

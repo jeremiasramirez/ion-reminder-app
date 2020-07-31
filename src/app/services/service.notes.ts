@@ -7,11 +7,15 @@ export class ServiceNotes{
     public notes  :modelNotes[]=[];
 
     constructor(){
+        this.verifiedDataStorage()       
+    }
+
+    verifiedDataStorage(){
         
-        if (localStorage.getItem("notes")) this.notes= JSON.parse(localStorage.getItem("notes"))
+        if (localStorage.getItem("notes"))
+            this.notes= JSON.parse(localStorage.getItem("notes")) 
+        else return this.notes
        
-        //localStorage.setItem("notes", JSON.stringify(this.notes))
-        //console.log(JSON.parse(localStorage.getItem("notes"))[0] )
     }
 
     addNew( data:any ){
@@ -27,26 +31,7 @@ export class ServiceNotes{
         this.notes[pos] = data;
         this.updateStorage()
     } 
-
-    updateItem(){
-  
-
-        /*
-        localStorage.setItem("notes", JSON.stringify(this.notes))
-        this.notes = JSON.parse(localStorage.getItem("notes")) 
-     
-            this.notes.push({
-                id:3,
-                title: 'Lluvias',
-                date: 'June 3 2020',
-                description: 'lluvias baratas'
-            })
-            
-        console.log(localStorage.getItem("notes"))
-        console.log(this.notes)
-      */
-    }
-
+ 
 
 
 

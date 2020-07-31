@@ -19,6 +19,10 @@ const routes: Routes = [
       {
         path: 'settings',
         loadChildren: () => import('../pages/settings/settings.module').then( m => m.SettingsPageModule)
+      },
+      {
+        path: 'complete',
+        loadChildren: () => import('../pages/complete/complete.module').then( m => m.CompletePageModule)
       }
     ] 
   }
