@@ -2,7 +2,8 @@
   <ion-toolbar >
  
     <ion-buttons slot="start"  >
-      <ion-icon slot="icon-only" name="arrow-back-outline" color="danger" (click)="saveChange()">  </ion-icon>
+      <ion-icon (click)="closeMod()" color="success" slot="icon-only" name="checkmark-outline"></ion-icon>
+  
     </ion-buttons>
     
     <ion-title> {{ data.title }}</ion-title>
@@ -14,5 +15,7 @@
 <ion-content>
   <br>
   <br>
-  <ion-textarea [value]="data.description" [(ngModel)]="data.description" placeholder="Description" rows="20"></ion-textarea>
+  <ion-textarea [value]="data.description" 
+  (keyup)="saveChange()"
+    [(ngModel)]="data.description" placeholder="Description" rows="20"></ion-textarea>
 </ion-content>

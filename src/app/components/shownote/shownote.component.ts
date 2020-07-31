@@ -23,8 +23,10 @@ export class ShownoteComponent implements OnInit {
 
   async saveChange(){
     this.serv.updateItem_(this.posEl, this.data)
+    
+  }
+  async closeMod(){
     this.closeModalOpn.dismiss()
-
   }
 
 }

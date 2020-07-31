@@ -48,5 +48,13 @@ export class NotesPage   {
     openNotes.present()
   }
 
+
+  public deleteItem(note,pos:number){
+
+  }
+
    
+    public completed(note,pos:number){
+    
+  }
 }

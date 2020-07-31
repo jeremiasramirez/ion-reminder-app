@@ -1,5 +1,5 @@
-<ion-header>
-  <ion-toolbar>
+<ion-header class="ion-no-border">
+  <ion-toolbar color="light">
     <ion-buttons slot="start">
       <ion-icon slot="icon-only" name="create-outline"></ion-icon>
     </ion-buttons>
@@ -20,19 +20,44 @@
       <ion-input type="search" placeholder='Search'></ion-input>
       <ion-icon slot="end" name="close"></ion-icon> 
     </ion-item>     -->
-    <ion-item class="addAnimation" *ngFor="let note of allNotes; let pos=index" (click)="openNote(note,pos)" detail>
+   
+    <ion-item-sliding *ngFor="let note of allNotes; let pos=index" >
 
+
+      <ion-item class="addAnimation" (click)="openNote(note,pos)" detail>
+        
         <ion-label>{{ note.title }}</ion-label>
-        <ion-icon slot="start" name="ellipse-outline"></ion-icon>
+        <ion-icon slot="start" name="chevron-forward-outline"></ion-icon> 
 
-    </ion-item>
+     </ion-item>
+
+
+      <ion-item-options side="end" >
+
+        <ion-item-option color="danger" (click)="deleteItem(note,pos)">
+          <ion-icon slot="icon-only"  name="trash"></ion-icon>
+        </ion-item-option>
+
+        <ion-item-option color="success" (click)="completed(note,pos)">
+          <ion-icon slot="icon-only" name="checkmark-done-outline" ></ion-icon>
+        </ion-item-option>
+
+      </ion-item-options>
+ 
+ 
+     
+    </ion-item-sliding>
 
 </ion-list>
 
 
 <ion-fab vertical="bottom" horizontal="end">
+
   <ion-fab-button color="success" (click)="openAdd()">
     <ion-icon name="add"></ion-icon>
   </ion-fab-button>
+
 </ion-fab>
+
+
 </ion-content>
