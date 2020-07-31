@@ -1,16 +1,29 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>notes</ion-title>
+    <ion-buttons slot="start">
+      <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+    </ion-buttons>
+
+    <ion-title>Notes</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-icon slot="icon-only"  name="search"></ion-icon>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+   
   <ion-list>
-        
-    <ion-item *ngFor="let note of allNotes" detail>
+    <!--
+    <ion-item>
+      <ion-input type="search" placeholder='Search'></ion-input>
+      <ion-icon slot="end" name="close"></ion-icon> 
+    </ion-item>     -->
+    <ion-item class="addAnimation" *ngFor="let note of allNotes; let pos=index" (click)="openNote(note,pos)" detail>
 
         <ion-label>{{ note.title }}</ion-label>
-
+        <ion-icon slot="start" name="ellipse-outline"></ion-icon>
 
     </ion-item>
 
@@ -18,7 +31,7 @@
 
 
 <ion-fab vertical="bottom" horizontal="end">
-  <ion-fab-button (click)="openAdd()">
+  <ion-fab-button color="success" (click)="openAdd()">
     <ion-icon name="add"></ion-icon>
   </ion-fab-button>
 </ion-fab>

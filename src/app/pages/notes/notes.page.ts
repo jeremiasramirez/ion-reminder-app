@@ -3,6 +3,8 @@ import { modelNotes } from 'src/app/services/notes.model';
 import { ServiceNotes } from 'src/app/services/service.notes';
 import { ModalController } from '@ionic/angular';
 import { NoteComponent } from '../../components/note/note.component';
+import { timer } from 'rxjs';
+import { ShownoteComponent } from 'src/app/components/shownote/shownote.component';
 
 @Component({
   
@@ -12,11 +14,14 @@ import { NoteComponent } from '../../components/note/note.component';
 
 })
 export class NotesPage   {
-  public allNotes:modelNotes[] ;
+  public allNotes;
 
   constructor(public service:ServiceNotes, public modalAdd:ModalController) { 
     this.allNotes=  this.service.notes;
-
+  /*  console.log(new Date("Thu Jul 30 2020 18:08:02"))
+    timer(new Date("Thu Jul 30 2020 18:08:02")).subscribe(()=>{
+      console.log("hola")
+    })*/
   /*
       setTimeout(()=>{
           let x = {id: 3, title: 'Carro',
@@ -33,6 +38,14 @@ export class NotesPage   {
       component: NoteComponent
     })
     modalAdds.present()
+  }
+
+  async openNote(note:modelNotes, positionEl:number){
+    const openNotes = await this.modalAdd.create({
+      component: ShownoteComponent,
+      componentProps:  {data: note, posEl:positionEl}
+    })
+    openNotes.present()
   }
 
    

@@ -4,46 +4,29 @@ import { modelNotes } from './notes.model'
 @Injectable()
 
 export class ServiceNotes{
-    notes : modelNotes[] = [
-        {
-            id:1,
-            title: 'Hurracan',
-            date: null,
-            description: null
-        },
-        {
-            id:2,
-            title: 'Lluvias',
-            date: null,
-            description: null
-        }
-    ]
+    public notes  :modelNotes[]=[];
 
     constructor(){
-            
-        //    localStorage.setItem("notes", JSON.stringify(this.notes))
-           
-            //console.log(JSON.parse(localStorage.getItem("notes"))[0] )
-            
+        
+        if (localStorage.getItem("notes")) this.notes= JSON.parse(localStorage.getItem("notes"))
+       
+        //localStorage.setItem("notes", JSON.stringify(this.notes))
+        //console.log(JSON.parse(localStorage.getItem("notes"))[0] )
     }
 
-    addNew( data:modelNotes ){
- 
-        this.notes.unshift(data);
+    addNew( data:any ){
         
+        this.notes.unshift(data)
+        this.updateStorage()
     }
-    getItem(id:number){
-        
-        
-        return this.notes.find((e)=>{
-            
-            if( e.id === id){
-                this.notes
-            }
-
-        })
-
+    updateStorage(){
+        localStorage.setItem("notes", JSON.stringify(this.notes))
+        this.notes=JSON.parse(localStorage.getItem("notes"))
     }
+    updateItem_(pos:number,data){
+        this.notes[pos] = data;
+        this.updateStorage()
+    } 
 
     updateItem(){
   

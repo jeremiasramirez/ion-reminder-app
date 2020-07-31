@@ -28,7 +28,7 @@ export class NoteComponent implements OnInit {
   createNew(){
 
     if (this.itemAdd.title  !== ''){
-      
+        console.log(this.itemAdd)
       this.serv.addNew(this.itemAdd)
       this.closeModalAdd()
 

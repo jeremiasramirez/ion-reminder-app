@@ -1,0 +1,18 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar >
+ 
+    <ion-buttons slot="start"  >
+      <ion-icon slot="icon-only" name="arrow-back-outline" color="danger" (click)="saveChange()">  </ion-icon>
+    </ion-buttons>
+    
+    <ion-title> {{ data.title }}</ion-title>
+  </ion-toolbar>
+
+</ion-header>
+ 
+ 
+<ion-content>
+  <br>
+  <br>
+  <ion-textarea [value]="data.description" [(ngModel)]="data.description" placeholder="Description" rows="20"></ion-textarea>
+</ion-content>

@@ -8,8 +8,8 @@ import { NotesPageRoutingModule } from './notes-routing.module';
 
 import { NoteComponent } from "../../components/note/note.component"
 import { NotesPage } from './notes.page';
-
-
+ 
+import { ShownoteComponent } from 'src/app/components/shownote/shownote.component';
 
 @NgModule({
   imports: [
@@ -20,7 +20,8 @@ import { NotesPage } from './notes.page';
   ],
   declarations: [
     NotesPage,
-    NoteComponent
+    NoteComponent,
+    ShownoteComponent
   ]
 })
 export class NotesPageModule {}
