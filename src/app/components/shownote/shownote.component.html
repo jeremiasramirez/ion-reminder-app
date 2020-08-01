@@ -2,11 +2,16 @@
   <ion-toolbar color="light">
  
     <ion-buttons slot="start" > 
-      <ion-icon (click)="closeMod()" slot="icon-only" name="create-outline"></ion-icon>
+      <ion-icon   slot="icon-only" name="create-outline"></ion-icon>
   
     </ion-buttons>
     
     <ion-title> {{ data.title }}</ion-title>
+
+    <ion-buttons slot="end" > 
+      <ion-icon (click)="closeMod()" slot="icon-only" name="close"></ion-icon>
+  
+    </ion-buttons>
   </ion-toolbar>
 
 </ion-header>

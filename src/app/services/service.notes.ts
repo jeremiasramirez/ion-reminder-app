@@ -14,16 +14,16 @@ export class ServiceNotes{
         
         if (localStorage.getItem("notes"))
             this.notes= JSON.parse(localStorage.getItem("notes")) 
-        else return this.notes
+         
        
     }
 
     addNew( data:any ){
         
-        this.notes.unshift(data)
+        this.notes.push(data)
         this.updateStorage()
     }
-    updateStorage(){
+    updateStorage( ){
         localStorage.setItem("notes", JSON.stringify(this.notes))
         this.notes=JSON.parse(localStorage.getItem("notes"))
     }

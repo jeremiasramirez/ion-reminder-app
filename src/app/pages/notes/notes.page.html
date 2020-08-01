@@ -8,20 +8,17 @@
 
     <ion-buttons slot="end">
       
-      <ion-icon slot="icon-only" (click)="searchShow = true"  name="search"></ion-icon>
+      <ion-icon slot="icon-only" (click)="searchShow == true? searchShow=false:searchShow=true"  name="search"></ion-icon>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
+<ion-toolbar color="light"  *ngIf="searchShow">
+  <ion-searchbar class="addAnimation" type="search" placeholder='Search'></ion-searchbar>
+</ion-toolbar>
 
-<ion-content>
-   
+<ion-content> 
   <ion-list>
-    
-    <ion-item class="addAnimation" *ngIf="searchShow">
-      <ion-input type="search" placeholder='Search'></ion-input>
-      <ion-icon (click)="searchShow = false" slot="end"  name="close-circle-outline"></ion-icon>
- 
-    </ion-item>   
+     
    
     <ion-item-sliding *ngFor="let note of allNotes; let pos=index" >
 
@@ -55,7 +52,7 @@
 </ion-list>
 
 
-<ion-fab vertical="bottom" horizontal="end" mode="ios">
+<ion-fab vertical="bottom"  slot="fixed" horizontal="end" mode="ios">
 
   <ion-fab-button color="tertiary" (click)="openAdd()">
     <ion-icon name="add"></ion-icon>
