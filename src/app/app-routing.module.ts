@@ -36,6 +36,22 @@ const routes: Routes = [
     path: 'lock',
     loadChildren: () => import('./pages/lock/lock.module').then( m => m.LockPageModule)
   },
+  {
+    path: 'analize',
+    loadChildren: () => import('./pages/analize/analize.module').then( m => m.AnalizePageModule)
+  },
+  {
+    path: 'report',
+    loadChildren: () => import('./pages/report/report.module').then( m => m.ReportPageModule)
+  },
+  {
+    path: 'plan',
+    loadChildren: () => import('./pages/plan/plan.module').then( m => m.PlanPageModule)
+  },
+  {
+    path: 'notification',
+    loadChildren: () => import('./pages/notification/notification.module').then( m => m.NotificationPageModule)
+  },
  
 ];
 

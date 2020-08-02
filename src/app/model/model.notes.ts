@@ -4,5 +4,5 @@ export interface modelNotes{
     title:string|number;
     date:  any;
     description: any;
-
+    color: any;
 }

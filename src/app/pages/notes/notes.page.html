@@ -12,7 +12,8 @@
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-<ion-toolbar color="light"  *ngIf="searchShow">
+
+<ion-toolbar mode="ios" color="light"  *ngIf="searchShow">
   <ion-searchbar class="addAnimation" type="search" placeholder='Search'></ion-searchbar>
 </ion-toolbar>
 
@@ -24,12 +25,14 @@
 
 
       <ion-item class="addAnimation" (click)="openNote(note,pos)" detail>
-        
+ 
         <ion-label>{{ note.title }}
-          <p><span>Created </span>{{ note.date | date}}</p>
-        </ion-label>
-        <ion-icon color="tertiary" slot="start" name="chevron-forward-outline"></ion-icon> 
-
+          <p>
+            <small>Creado </small>
+            {{ note.date | date}}
+          </p>
+        </ion-label>  
+        <ion-icon color="medium" slot="start" name="ellipse"></ion-icon>
      </ion-item>
 
 
@@ -57,7 +60,6 @@
   <ion-fab-button color="tertiary" (click)="openAdd()">
     <ion-icon name="add"></ion-icon>
   </ion-fab-button>
-
 </ion-fab>
 
 

@@ -15,6 +15,13 @@
 
 </ion-header>
 
+<ion-toolbar  mode="ios">  
+  <ion-buttons slot="end" >
+    <ion-label> <p>Color</p></ion-label>
+    <ion-icon slot="icon-only" name="ellipse" color="medium" (click)="openColorPalette($event)"></ion-icon>
+  </ion-buttons>
+</ion-toolbar>
+
 <ion-toolbar>
   <ion-input    [(ngModel)]="itemAdd.title" placeholder="Title"></ion-input>
 </ion-toolbar>

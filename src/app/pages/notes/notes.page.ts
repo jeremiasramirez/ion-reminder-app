@@ -1,6 +1,5 @@
-import { Component  } from '@angular/core';
-import { modelNotes } from 'src/app/services/notes.model';
-import { ServiceNotes } from 'src/app/services/service.notes';
+import { Component  } from '@angular/core'; 
+import { ServiceNotes,modelNotes } from 'src/app/services/service.notes';
 import { ModalController } from '@ionic/angular';
 import { NoteComponent } from '../../components/note/note.component'; 
 import { ShownoteComponent } from 'src/app/components/shownote/shownote.component';

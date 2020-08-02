@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core"
-import { modelNotes } from './notes.model'
 
+import { modelNotes } from '../model/model.notes'
 @Injectable()
 
 export class ServiceNotes{
@@ -20,7 +20,7 @@ export class ServiceNotes{
 
     addNew( data:any ){
         
-        this.notes.push(data)
+        this.notes.unshift(data)
         this.updateStorage()
     }
     updateStorage( ){
@@ -40,3 +40,4 @@ export class ServiceNotes{
 }
 
  
+export { modelNotes } from '../model/model.notes'

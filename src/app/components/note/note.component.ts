@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
-import { modelNotes } from 'src/app/services/notes.model';
-import { ServiceNotes } from 'src/app/services/service.notes';
+import { ModalController, PopoverController } from '@ionic/angular';
+ 
+import { ServiceNotes,modelNotes } from 'src/app/services/service.notes';
+import { ColorPaletteComponent } from '../color-palette/color-palette.component';
+import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-note',
@@ -10,9 +12,10 @@ import { ServiceNotes } from 'src/app/services/service.notes';
 })
 export class NoteComponent implements OnInit {
   
-  constructor(public serv:ServiceNotes,public modalCloseAdd:ModalController) { }
+  constructor(public popoverColor:PopoverController,
+    public serv:ServiceNotes,public modalCloseAdd:ModalController) { }
    
-  public itemAdd : modelNotes = {
+  public itemAdd  = {
     id:0,
     title: '',
     date: new Date(),
@@ -22,7 +25,7 @@ export class NoteComponent implements OnInit {
   ngOnInit() {}
 
   async closeModalAdd(){
-    this.modalCloseAdd.dismiss()
+    timer(200).subscribe(()=>this.modalCloseAdd.dismiss())
   }
 
   createNew(){
@@ -30,10 +33,18 @@ export class NoteComponent implements OnInit {
     if (this.itemAdd.title  !== ''){
       
       this.serv.addNew(this.itemAdd)
-      this.closeModalAdd()
+      timer(500).subscribe(()=>this.closeModalAdd())
 
     }
 
+  }
+
+  async openColorPalette(color){
+    console.log(color);
+    
+    const popColor = await this.popoverColor.create({
+      component: ColorPaletteComponent,
+    })
   }
 
 }

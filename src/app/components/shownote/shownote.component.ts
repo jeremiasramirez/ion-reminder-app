@@ -1,14 +1,13 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { modelNotes } from 'src/app/services/notes.model';
+import { Component,  Input } from '@angular/core'; 
 import { ModalController } from '@ionic/angular';
-import { ServiceNotes } from 'src/app/services/service.notes';
+import { ServiceNotes,modelNotes } from 'src/app/services/service.notes';
 
 @Component({
   selector: 'app-shownote',
   templateUrl: './shownote.component.html',
   styleUrls: ['./shownote.component.scss']
 })
-export class ShownoteComponent implements OnInit {
+export class ShownoteComponent  {
 
   @Input() data: modelNotes;
   @Input() posEl:number;
@@ -16,10 +15,7 @@ export class ShownoteComponent implements OnInit {
 
   }
 
-  ngOnInit() {
-    console.log(this.data);
-    console.log(this.posEl);
-  }
+ 
 
   async saveChange(){
     this.serv.updateItem_(this.posEl, this.data)
