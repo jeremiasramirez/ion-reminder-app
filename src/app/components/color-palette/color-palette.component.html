@@ -16,7 +16,7 @@
 
   <ion-list>
 
-    <ion-item *ngFor="let color_ of colors " (click)="sendColorToNote(color_.name)">
+    <ion-item class="addAnimation" *ngFor="let color_ of colors " (click)="sendColorToNote(color_.name)">
      
       <ion-icon slot="start" [color]="color_.name" name="ellipse"></ion-icon>
       <ion-label>{{ color_.colorName }}</ion-label>

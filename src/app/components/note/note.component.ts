@@ -54,8 +54,7 @@ export class NoteComponent implements OnInit {
 
     popColor.present();
     this.colorPred= (await popColor.onDidDismiss()).data.colorToNote  
-    this.itemAdd.color = this.colorPred
-    console.log("color elegido:", this.colorPred);
+    this.itemAdd.color = this.colorPred 
   }
 
 }
