@@ -19,8 +19,11 @@ export class NoteComponent implements OnInit {
     id:0,
     title: '',
     date: new Date(),
-    description: null
+    description: null,
+    color: 'medium'
   };
+
+  public colorPred:string = "medium"
 
   ngOnInit() {}
 
@@ -39,12 +42,20 @@ export class NoteComponent implements OnInit {
 
   }
 
-  async openColorPalette(color){
-    console.log(color);
+  async openColorPalette(color:MouseEvent){
+     
     
-    const popColor = await this.popoverColor.create({
+     const popColor = await this.popoverColor.create({
       component: ColorPaletteComponent,
+      componentProps: {color: color},
+      mode:"ios",
+      event: color
     })
+
+    popColor.present();
+    this.colorPred= (await popColor.onDidDismiss()).data.colorToNote  
+    this.itemAdd.color = this.colorPred
+    console.log("color elegido:", this.colorPred);
   }
 
 }

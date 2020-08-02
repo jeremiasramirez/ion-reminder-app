@@ -18,7 +18,7 @@
 <ion-toolbar  mode="ios">  
   <ion-buttons slot="end" >
     <ion-label> <p>Color</p></ion-label>
-    <ion-icon slot="icon-only" name="ellipse" color="medium" (click)="openColorPalette($event)"></ion-icon>
+    <ion-icon slot="icon-only" name="ellipse" [color]="colorPred" (click)="openColorPalette($event)"></ion-icon>
   </ion-buttons>
 </ion-toolbar>
 
@@ -28,5 +28,5 @@
  
 <ion-content>
   <br>
-  <ion-textarea   [(ngModel)]="itemAdd.description" placeholder="Description" rows="15"></ion-textarea>
+  <ion-textarea   [(ngModel)]="itemAdd.description" placeholder="Description" rows="10"></ion-textarea>
 </ion-content>

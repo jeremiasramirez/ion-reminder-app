@@ -7,9 +7,10 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { ColorPaletteComponent } from './components/color-palette/color-palette.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, ColorPaletteComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
   providers: [
