@@ -41,7 +41,9 @@ export class SignPage  {
         timer(2000).subscribe( ()=> { 
           sessionStorage.setItem("opened", JSON.stringify([ {open:'true'} ]))
           this.guard.opn=true
+          history.replaceState(null, "Reminder","/home/notes")
           this.router.navigate(["home/notes"])
+          
          })
         
       }
