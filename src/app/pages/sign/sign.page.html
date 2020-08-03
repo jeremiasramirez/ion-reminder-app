@@ -1,9 +1,24 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>sign</ion-title>
+<ion-header class="ion-no-border" mode="ios">
+  <ion-toolbar >
+ 
+
+     <ion-title>Lock</ion-title>
+    
+    
   </ion-toolbar>
+
 </ion-header>
-
+ 
+ 
 <ion-content>
-
+  
+  <ion-img src="../../assets/lock/caps-lock.svg"></ion-img>
+ 
+  
+ <ion-toolbar>
+  <ion-input  type="password" mode="ios"  placeholder="0000" [(ngModel)]="pass" (keyup)="analizePass()"></ion-input>
+ </ion-toolbar>
+    
+     
+   
 </ion-content>
