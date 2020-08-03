@@ -9,6 +9,8 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ColorPaletteComponent } from './components/color-palette/color-palette.component';
 import {LockGuard} from "./guard/lock.guard"
+ 
+import { ServiceLock } from './services/service.lock';
 @NgModule({
   declarations: [AppComponent, ColorPaletteComponent],
   entryComponents: [],
@@ -17,7 +19,7 @@ import {LockGuard} from "./guard/lock.guard"
     StatusBar,
     SplashScreen,
     LockGuard,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy } 
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },ServiceLock 
   ],
   bootstrap: [AppComponent]
 })

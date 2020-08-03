@@ -1,22 +1,43 @@
-<ion-header class="ion-no-border" mode="ios">
-  <ion-toolbar >
+<ion-header class="ion-no-border" color="tertiary" mode="ios">
+  <ion-toolbar color="tertiary">
  
 
-     <ion-title>Lock</ion-title>
-    
+     <ion-title> {{ openLock.text }} </ion-title>
+
+     <ion-buttons  slot="end">
+      <ion-icon  *ngIf="!openLock.on" class="addAnimation" slot="icon-only" name="lock-closed"></ion-icon>
+      <ion-icon  *ngIf="openLock.on" class="addAnimation"  slot="icon-only" name="lock-open"></ion-icon>
+     </ion-buttons>
+ 
     
   </ion-toolbar>
 
-</ion-header>
+</ion-header >
  
+
+<ion-content   color="tertiary">
+  <!-- spaces -->
+  <br><br>
+
+
+  <!-- img lock -->
+  <ion-img class="showImage" src="../../assets/lock/lock.svg"></ion-img>
  
-<ion-content>
-  
-  <ion-img src="../../assets/lock/caps-lock.svg"></ion-img>
- 
-  
- <ion-toolbar>
-  <ion-input  type="password" mode="ios"  placeholder="0000" [(ngModel)]="pass" (keyup)="analizePass()"></ion-input>
+
+
+  <!-- input loading -->
+ <ion-toolbar *ngIf="!openLock.on" mode="ios" color="tertiary" >
+    <ion-label>
+      <p style="text-align: center;margin: 5px 0">PIN</p>
+    </ion-label> 
+    <ion-input mode="ios" type="password" mode="ios" placeholder="0000" [(ngModel)]="pass" (keyup)="analizePass()"></ion-input>
+ </ion-toolbar>
+
+
+
+ <!-- spinner loading -->
+ <ion-toolbar style="text-align:center" *ngIf="openLock.on" mode="ios" color="tertiary" >
+   <ion-spinner class="spinnerLoad"  color="light"></ion-spinner>
  </ion-toolbar>
     
      

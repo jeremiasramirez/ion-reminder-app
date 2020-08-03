@@ -1,10 +1,54 @@
 ion-input{
-    text-align:center;
-    font-weight: 600;
+    text-align:center; 
+    font-family: fantasy;
+    color: white;
+    font-size: 20px;
     border-radius: 8px;
-    background-color: #eee;
+    background-color: rgb(85, 31, 187);
 }
 ion-img{
-    transform: scale(.5);
-    height: 200px;
+    transform: scale(.7);
+    height: 300px;
+}
+ 
+@keyframes error{
+    10%{
+        transform:translateX(10px);
+    }
+    30%{
+        transform:translateX(-10px);
+    }
+   
+    100%{
+        transform:translateX(0);
+    }
+}
+
+.showImage{
+    animation: showImg 1.8s linear;
+}
+@keyframes showImg{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+.spinnerLoad{
+   
+    animation: spinn 1s infinite linear;
+     
+}
+@keyframes spinn{
+    to{
+        transform: rotate(360deg)
+    }
+    20%{
+        color: rgb(233, 19, 233)
+    }
+    100%{
+        color: yellow 
+    }
 }
