@@ -21,15 +21,24 @@ export class ServiceNotes{
     addNew( data:any ){
         
         this.notes.unshift(data)
-        this.updateStorage()
+        
+        this.getLocalItem()
+      
+       
+
+    }
+    getLocalItem(){
+        return  localStorage.setItem("notes",JSON.stringify(this.notes))
     }
     updateStorage( ){
+        
         localStorage.setItem("notes", JSON.stringify(this.notes))
-        this.notes=JSON.parse(localStorage.getItem("notes"))
+        ///this.notes= JSON.parse(localStorage.getItem("notes")) 
+       
     }
     updateItem_(pos:number,data){
         this.notes[pos] = data;
-        this.updateStorage()
+        //this.updateStorage()
     } 
  
 

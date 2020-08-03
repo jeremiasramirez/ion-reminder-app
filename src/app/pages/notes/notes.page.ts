@@ -17,7 +17,8 @@ export class NotesPage   {
 
   constructor(public service:ServiceNotes, public modalAdd:ModalController) { 
     this.allNotes=  this.service.notes;
-    
+ 
+ 
   /*  console.log(new Date("Thu Jul 30 2020 18:08:02"))
     timer(new Date("Thu Jul 30 2020 18:08:02")).subscribe(()=>{
       console.log("hola")
