@@ -8,7 +8,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ColorPaletteComponent } from './components/color-palette/color-palette.component';
-
+import {LockGuard} from "./guard/lock.guard"
 @NgModule({
   declarations: [AppComponent, ColorPaletteComponent],
   entryComponents: [],
@@ -16,6 +16,7 @@ import { ColorPaletteComponent } from './components/color-palette/color-palette.
   providers: [
     StatusBar,
     SplashScreen,
+    LockGuard,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy } 
   ],
   bootstrap: [AppComponent]

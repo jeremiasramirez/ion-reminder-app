@@ -1,13 +1,8 @@
-import { Injectable } from "@angular/core" 
+import { Injectable } from "@angular/core"
+
 
 @Injectable()
 
-export class ServiceNotes{
- 
-
-
+export class ServiceLock{
     
-
 }
-
- 

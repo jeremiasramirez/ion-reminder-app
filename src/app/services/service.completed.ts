@@ -15,7 +15,7 @@ export class ServiceCompleted{
         
         if (localStorage.getItem("completed"))
             this.completed= JSON.parse(localStorage.getItem("completed")) 
-         
+            
        
     }
 
@@ -33,7 +33,7 @@ export class ServiceCompleted{
     }
     updateStorage( ){
         localStorage.setItem("completed", JSON.stringify(this.completed))
-        this.completed=JSON.parse(localStorage.getItem("completed"))
+      //  this.completed=JSON.parse(localStorage.getItem("completed"))
     }
 
   /*  updateItem_(pos:number,data){

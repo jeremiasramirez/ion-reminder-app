@@ -9,3 +9,42 @@
 
   </ion-toolbar>
 </ion-header>
+
+<ion-content>
+  <ion-list>
+     
+   
+    <ion-item-sliding *ngFor="let note of completeItems; let pos=index" >
+
+
+      <ion-item class="addAnimation" (click)="openNote(note,pos)" detail>
+ 
+        <ion-label>{{ note.title }}
+          <p>
+            <small>Creado </small>
+            {{ note.date | date}}
+          </p>
+        </ion-label>  
+        <ion-icon [color]="note.color" slot="start" name="ellipse"></ion-icon>
+     </ion-item>
+
+
+      <ion-item-options side="end" >
+
+        <ion-item-option color="danger" (click)="deleteItem(note,pos)">
+          <ion-icon slot="icon-only"  name="trash"></ion-icon>
+        </ion-item-option>
+
+        <ion-item-option color="success" (click)="restore(note,pos)"> 
+          <ion-icon slot="icon-only" name="reload-outline"></ion-icon>
+        </ion-item-option>
+
+      </ion-item-options>
+ 
+ 
+     
+    </ion-item-sliding>
+
+</ion-list>
+
+</ion-content>

@@ -3,19 +3,22 @@ import { ServiceNotes,modelNotes } from 'src/app/services/service.notes';
 import { ModalController } from '@ionic/angular';
 import { NoteComponent } from '../../components/note/note.component'; 
 import { ShownoteComponent } from 'src/app/components/shownote/shownote.component';
+import { ServiceCompleted } from 'src/app/services/service.completed';
+import { timer } from 'rxjs';
 
 @Component({
   
   selector: 'app-notes',
   templateUrl: './notes.page.html',
-  styleUrls: ['./notes.page.scss']
+  styleUrls: ['./notes.page.scss'],
+  providers: [ServiceCompleted]
 
 })
 export class NotesPage   {
   public allNotes;
   public searchShow:boolean=false;
 
-  constructor(public service:ServiceNotes, public modalAdd:ModalController) { 
+  constructor(public service:ServiceNotes,public serviceCompl:ServiceCompleted, public modalAdd:ModalController) { 
     this.allNotes=  this.service.notes;
  
  
@@ -56,7 +59,13 @@ export class NotesPage   {
   }
 
    
-    public completed(note,pos:number){
+  public completed(note,pos:number){
+    this.serviceCompl.addNewComplete(note);
     
+    this.serviceCompl.addNewComplete(note)
+    this.service.deleteItem(pos,note)
+     
+
   }
+
 }

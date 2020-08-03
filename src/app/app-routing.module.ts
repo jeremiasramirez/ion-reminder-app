@@ -1,17 +1,20 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { LockGuard } from './guard/lock.guard';
 
 const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule) 
-     
+    ,
+    canActivate: [LockGuard]
   },
   {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  /*
   {
     path: 'notes',
     loadChildren: () => import('./pages/notes/notes.module').then( m => m.NotesPageModule)
@@ -51,6 +54,10 @@ const routes: Routes = [
   {
     path: 'notification',
     loadChildren: () => import('./pages/notification/notification.module').then( m => m.NotificationPageModule)
+  },*/
+  {
+    path: 'sign',
+    loadChildren: () => import('./pages/sign/sign.module').then( m => m.SignPageModule)
   },
  
 ];

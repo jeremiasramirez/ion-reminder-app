@@ -7,7 +7,7 @@
 
             <ion-tab-button tab="notes" >
 
-                <ion-badge>12</ion-badge>
+                <ion-badge>{{ lenNotes }}</ion-badge>
                 <ion-icon name="book-outline"></ion-icon>
                 <ion-label>Notas
                 </ion-label>
@@ -15,6 +15,7 @@
 
 
             <ion-tab-button tab="complete" >
+                <ion-badge>{{ lenComplet }}</ion-badge>
                 <ion-icon name="checkmark-done-outline"></ion-icon>
                 <ion-label>Completado</ion-label>
             </ion-tab-button>

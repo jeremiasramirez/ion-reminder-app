@@ -35,7 +35,7 @@ export class NoteComponent implements OnInit {
 
     if (this.itemAdd.title  !== ''){
       
-      this.serv.addNew(this.itemAdd)
+       this.serv.addNew(this.itemAdd)
       timer(500).subscribe(()=>this.closeModalAdd())
 
     }
