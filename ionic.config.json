@@ -1,5 +1,7 @@
 {
   "name": "reminderApk",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

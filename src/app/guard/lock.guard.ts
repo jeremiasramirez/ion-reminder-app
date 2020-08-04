@@ -5,16 +5,16 @@ import { ServiceLock } from '../services/service.lock';
 
 @Injectable({providedIn: 'root'})
 export class LockGuard implements CanActivate {
-    public opn:boolean;
+    public opn:boolean=true;
     constructor(private lockServ:ServiceLock, private router:Router) {
         
-        if (!sessionStorage.getItem("opened")){
-            this.opn = false;
-            this.router.navigate(["sign"])
+        if (!sessionStorage.getItem("lock")){
+            this.opn = true;
+            this.router.navigate(["home/notes"])
         }
         else{
-            this.opn=true
-            this.router.navigate(["home/notes"])
+            this.opn=false
+            this.router.navigate(["sign"])
         }
 
      }

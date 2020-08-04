@@ -22,10 +22,8 @@ export class SignPage  {
 
   constructor(private lockService:ServiceLock, private router:Router, public guard:LockGuard) { 
       
-    if (sessionStorage.getItem("opened")){
     
-      this.router.navigate(["home/notes"])
-  }
+   
    }
  
 
@@ -39,7 +37,7 @@ export class SignPage  {
         this.openLock.text= "Unlock" 
 
         timer(2000).subscribe( ()=> { 
-          sessionStorage.setItem("opened", JSON.stringify([ {open:'true'} ]))
+         
           this.guard.opn=true
           history.replaceState(null, "Reminder","/home/notes")
           this.router.navigate(["home/notes"])
