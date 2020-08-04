@@ -39,7 +39,7 @@ export class ServiceNotes{
     }
     updateItem_(pos:number,data){
         this.notes[pos] = data;
-        //this.updateStorage()
+        this.updateStorage()
     } 
 
     deleteItem(pos,note){

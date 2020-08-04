@@ -56,7 +56,7 @@ export class NotesPage   {
   
 
   public deleteItem(note,pos:number){
-
+    this.service.deleteItem(pos,note)
   }
 
    

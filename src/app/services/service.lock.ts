@@ -6,7 +6,7 @@ import { Injectable } from "@angular/core"
 export class ServiceLock{
     
     constructor(){
-        this.setPassword({pass:"0847", email:"jeremias@gmail.com"})
+         
     }
 
     setPassword(password:{pass:string;email:string|number}){
