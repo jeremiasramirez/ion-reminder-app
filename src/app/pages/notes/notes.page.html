@@ -12,18 +12,18 @@
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-<!--
+
 <ion-toolbar mode="ios" color="light"  *ngIf="searchShow">
   <ion-searchbar class="searchbarFade" [(ngModel)]="searchData" type="search" placeholder='Search'></ion-searchbar>
 </ion-toolbar>
--->
+
 <ion-content> 
-<!--
+
   <ion-refresher color="tertiary" closeDuration="1000"  slot="fixed" mode="ios" (ionRefresh)="refresherContent($event)">
     <ion-refresher-content  refreshingSpinner="lines"></ion-refresher-content>
   </ion-refresher>
--->
-  <ion-list >
+
+  <ion-list *ngIf="!searchData">
      
    
     <ion-item-sliding *ngFor="let note of allNotes; let pos=index " >
@@ -58,7 +58,7 @@
     </ion-item-sliding>
 
 </ion-list>
-<!--
+
 <ion-list *ngIf="searchData">
      
    
@@ -94,7 +94,7 @@
   </ion-item-sliding>
 
 </ion-list>
--->
+
 
 <ion-fab vertical="bottom"  slot="fixed" horizontal="end" mode="ios">
 
