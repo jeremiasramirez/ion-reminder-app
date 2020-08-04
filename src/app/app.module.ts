@@ -9,8 +9,9 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ColorPaletteComponent } from './components/color-palette/color-palette.component';
 import {LockGuard} from "./guard/lock.guard"
- 
+
 import { ServiceLock } from './services/service.lock';
+ 
 @NgModule({
   declarations: [AppComponent, ColorPaletteComponent],
   entryComponents: [],

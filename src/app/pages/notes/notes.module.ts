@@ -10,6 +10,7 @@ import { NoteComponent } from "../../components/note/note.component"
 import { NotesPage } from './notes.page';
  
 import { ShownoteComponent } from 'src/app/components/shownote/shownote.component';
+import { SearchPipe } from 'src/app/pipes/search.pipe';
 
 @NgModule({
   imports: [
@@ -21,6 +22,7 @@ import { ShownoteComponent } from 'src/app/components/shownote/shownote.componen
   declarations: [
     NotesPage,
     NoteComponent,
+    SearchPipe,
     ShownoteComponent
   ]
 })

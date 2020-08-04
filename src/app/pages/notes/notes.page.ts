@@ -4,7 +4,7 @@ import { ModalController } from '@ionic/angular';
 import { NoteComponent } from '../../components/note/note.component'; 
 import { ShownoteComponent } from 'src/app/components/shownote/shownote.component';
 import { ServiceCompleted } from 'src/app/services/service.completed';
-import { timer } from 'rxjs';
+ 
 
 @Component({
   
@@ -16,7 +16,8 @@ import { timer } from 'rxjs';
 })
 export class NotesPage   {
   public allNotes;
-  public searchShow:boolean=false;
+  public searchData : any = ""
+  public searchShow:boolean=true;
 
   constructor(public service:ServiceNotes,public serviceCompl:ServiceCompleted, public modalAdd:ModalController) { 
     this.allNotes=  this.service.notes;
