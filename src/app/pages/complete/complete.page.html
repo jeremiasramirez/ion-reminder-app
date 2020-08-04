@@ -17,7 +17,7 @@
     <ion-item-sliding *ngFor="let note of completeItems; let pos=index" >
 
 
-      <ion-item class="addAnimation" (click)="openNote(note,pos)" detail>
+      <ion-item class="addAnimation"   detail>
  
         <ion-label>{{ note.title }}
           <p>
@@ -35,7 +35,7 @@
           <ion-icon slot="icon-only"  name="trash"></ion-icon>
         </ion-item-option>
 
-        <ion-item-option color="success" (click)="restore(note,pos)"> 
+        <ion-item-option color="success" (click)="restore(note, pos)"> 
           <ion-icon slot="icon-only" name="reload-outline"></ion-icon>
         </ion-item-option>
 

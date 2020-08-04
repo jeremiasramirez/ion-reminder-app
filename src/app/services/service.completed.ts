@@ -27,7 +27,7 @@ export class ServiceCompleted{
 
     deleteNoteComplete(pos){
  
-        this.completed.splice(pos,pos)
+        this.completed.splice(pos,1)
         this.updateStorage()
 
     }

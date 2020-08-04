@@ -4,6 +4,9 @@ import { ModalController } from '@ionic/angular';
 import { NoteComponent } from '../../components/note/note.component'; 
 import { ShownoteComponent } from 'src/app/components/shownote/shownote.component';
 import { ServiceCompleted } from 'src/app/services/service.completed';
+import { FeatureService } from 'src/app/services/service.feature';
+import { timer } from 'rxjs';
+ 
  
 
 @Component({
@@ -11,15 +14,18 @@ import { ServiceCompleted } from 'src/app/services/service.completed';
   selector: 'app-notes',
   templateUrl: './notes.page.html',
   styleUrls: ['./notes.page.scss'],
-  providers: [ServiceCompleted]
+  providers: [ServiceCompleted,FeatureService]
 
 })
 export class NotesPage   {
   public allNotes;
+  
   public searchData : any = ""
   public searchShow:boolean=true;
 
-  constructor(public service:ServiceNotes,public serviceCompl:ServiceCompleted, public modalAdd:ModalController) { 
+  constructor(
+    public service:ServiceNotes,public serviceCompl:ServiceCompleted,
+    public feature:FeatureService, public modalAdd:ModalController) { 
     this.allNotes=  this.service.notes;
  
  
@@ -48,19 +54,27 @@ export class NotesPage   {
   async openNote(note:modelNotes, positionEl:number){
     const openNotes = await this.modalAdd.create({
       component: ShownoteComponent,
+      mode: "ios",
       componentProps:  {data: note, posEl:positionEl}
     })
     openNotes.present()
   }
 
+  refresherContent(e){
+    
+    this.allNotes= JSON.parse(localStorage.getItem("notes"))
+    timer(1000).subscribe(()=> e.target.complete())
+  }
   
 
   public deleteItem(note,pos:number){
+    this.feature.createToast("Delete", note.title+" Ha sido borrada", "danger");
     this.service.deleteItem(pos,note)
   }
 
    
   public completed(note,pos:number){
+    this.feature.createToast("Completed", note.title+" Ha sido completada", "success");
     this.serviceCompl.addNewComplete(note);
     
     this.serviceCompl.addNewComplete(note)

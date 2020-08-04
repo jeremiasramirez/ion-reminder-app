@@ -18,6 +18,11 @@
 </ion-toolbar>
 
 <ion-content> 
+
+  <ion-refresher closeDuration="1000"  slot="fixed" mode="ios" (ionRefresh)="refresherContent($event)">
+    <ion-refresher-content  refreshingSpinner="lines"></ion-refresher-content>
+  </ion-refresher>
+
   <ion-list *ngIf="!searchData">
      
    
