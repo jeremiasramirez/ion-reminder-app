@@ -42,11 +42,9 @@ export class ServiceNotes{
         this.updateStorage()
     } 
 
-    deleteItem(pos,note){
+    deleteItem(pos){
         this.notes.splice(pos,1)
         this.updateStorage();
-        
-         
     }
  
 

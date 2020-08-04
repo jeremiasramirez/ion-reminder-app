@@ -11,6 +11,11 @@
 </ion-header>
 
 <ion-content>
+
+  <ion-refresher color="tertiary" closeDuration="1000"  slot="fixed" mode="ios" (ionRefresh)="refresherContent($event)">
+    <ion-refresher-content  refreshingSpinner="lines"></ion-refresher-content>
+  </ion-refresher>
+  
   <ion-list>
      
    

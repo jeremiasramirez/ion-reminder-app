@@ -3,6 +3,7 @@ import { ServiceCompleted } from 'src/app/services/service.completed';
 import { modelNotes } from 'src/app/model/model.notes';
 import { ServiceNotes } from 'src/app/services/service.notes';
 import { FeatureService } from 'src/app/services/service.feature';
+import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-complete',
@@ -17,10 +18,9 @@ export class CompletePage implements OnInit {
   public completeItems:modelNotes[];
   constructor(public feature:FeatureService,
     public completedNot:ServiceCompleted, public noteServ:ServiceNotes) {
-
+      
     this.completeItems = this.completedNot.completed
-    console.log(this.completeItems);
-    
+ 
   }
 
   ngOnInit() {
@@ -31,9 +31,23 @@ export class CompletePage implements OnInit {
     this.completedNot.deleteNoteComplete(pos)
   }
   restore(note, pos){
-    this.feature.createToast("Restore",note.title+" Ha sido restaurada", "tertiary");
+    this.feature.createToast("Restore",note.title+" Ha sido restaurada", "success");
     this.completedNot.deleteNoteComplete(pos)
     this.noteServ.addNew(note)
   }
+
+  refresherContent(e){
+    if (this.completeItems.length>=1){
+      this.completeItems = []
+      timer(800).subscribe(()=> {
+        e.target.complete()
+        this.completeItems= JSON.parse(localStorage.getItem("completed"))
+      })
+    }
+    else{
+      e.target.complete()
+    }
+  }
+  
 
 }
