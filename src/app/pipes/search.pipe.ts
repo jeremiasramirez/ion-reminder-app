@@ -7,13 +7,13 @@ import { modelNotes } from '../model/model.notes'
 
 export class SearchPipe implements PipeTransform{
     
-    transform(arr:modelNotes[],data:any){
+    transform(arr,data:any){
 
         return arr.filter((resp:modelNotes)=>{
             if (data !== ""){
                 return resp.title.toString().toLocaleLowerCase().includes(data.toLocaleLowerCase())
             }
-            return  arr;
+             
 
         })
 
