@@ -4,6 +4,8 @@ import { modelNotes } from 'src/app/model/model.notes';
 import { ServiceNotes } from 'src/app/services/service.notes';
 import { FeatureService } from 'src/app/services/service.feature';
 import { timer } from 'rxjs';
+import { ModalController } from '@ionic/angular';
+import { ShownoteComponent } from 'src/app/components/shownote/shownote.component';
 
 @Component({
   selector: 'app-complete',
@@ -16,7 +18,7 @@ import { timer } from 'rxjs';
 })
 export class CompletePage implements OnInit {
   public completeItems:modelNotes[];
-  constructor(public feature:FeatureService,
+  constructor(public feature:FeatureService,public modalAddFromTrash:ModalController,
     public completedNot:ServiceCompleted, public noteServ:ServiceNotes) {
       
     this.completeItems = this.completedNot.completed
@@ -36,18 +38,16 @@ export class CompletePage implements OnInit {
     this.noteServ.addNew(note)
   }
 
-  refresherContent(e){
-    if (this.completeItems.length>=1){
-      this.completeItems = []
-      timer(800).subscribe(()=> {
-        e.target.complete()
-        this.completeItems= JSON.parse(localStorage.getItem("completed"))
-      })
-    }
-    else{
-      e.target.complete()
-    }
+  async openNote(note:modelNotes, positionEl:number){
+    const openNotes = await this.modalAddFromTrash.create({
+      component: ShownoteComponent,
+      mode: "ios",
+      componentProps:  {data: note, posEl:positionEl}
+    })
+    openNotes.present()
   }
+
+   
   
 
 }

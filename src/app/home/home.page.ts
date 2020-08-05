@@ -8,14 +8,19 @@ import { ServiceCompleted } from '../services/service.completed';
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss']  
-  ,providers:[ServiceCompleted]
+  ,providers:[ ]
 })
 export class HomePage {
   public lenNotes :number=0;
   public lenComplet :number=0;
   constructor(public router:Router,public servComp:ServiceCompleted, public servNote:ServiceNotes ) {
-    this.lenNotes= this.servNote.notes.length
-    this.lenComplet= this.servComp.completed.length
+    setInterval(()=>{
+
+      this.lenNotes= this.servNote.notes.length
+      this.lenComplet= this.servComp.completed.length
+      
+    },4000)
+ 
     this.router.navigate(["home/notes"]);
   }
 

@@ -18,10 +18,7 @@
 </ion-toolbar>
 
 <ion-content> 
-
-  <ion-refresher color="tertiary" closeDuration="1000"  slot="fixed" mode="ios" (ionRefresh)="refresherContent($event)">
-    <ion-refresher-content  refreshingSpinner="lines"></ion-refresher-content>
-  </ion-refresher>
+ 
 
   <ion-list *ngIf="!searchData">
      
@@ -31,25 +28,26 @@
 
       <ion-item class="addAnimation" (click)="openNote(note,pos)" detail>
  
-        <ion-label>{{ note.title }}
+        <ion-label>{{ note.title }} 
           <p>
-            <small>Creado </small>
-            {{ note.date | date}}
+            <small>{{ note.description }} </small>
           </p>
+
+          <p style="margin-top: -2px">
+            <small style="color: #222; margin-top: -2px"> {{ note.date | date}}  </small>
+          </p>
+
         </ion-label>  
         <ion-icon [color]="note.color" slot="start" name="ellipse"></ion-icon>
      </ion-item>
 
 
-      <ion-item-options side="end" >
+      <ion-item-options side="end" *ngIf="!searchData">
 
         <ion-item-option color="danger" (click)="deleteItem(note,pos)">
           <ion-icon slot="icon-only"  name="trash"></ion-icon>
         </ion-item-option>
-
-        <ion-item-option color="success" (click)="completed(note,pos)">
-          <ion-icon slot="icon-only" name="checkmark-done-outline" ></ion-icon>
-        </ion-item-option>
+ 
 
       </ion-item-options>
  
@@ -58,7 +56,7 @@
     </ion-item-sliding>
 
 </ion-list>
-
+ 
 <ion-list *ngIf="searchData">
      
    
@@ -66,26 +64,26 @@
 
 
     <ion-item class="addAnimation" (click)="openNote(note,pos)" detail>
-
-      <ion-label>{{ note.title }}
+ 
+      <ion-label>{{ note.title }} 
         <p>
-          <small>Creado </small>
-          {{ note.date | date}}
+          <small>{{ note.description }} </small>
         </p>
+
+        <p style="margin-top: -2px">
+          <small style="color: #222; margin-top: -2px"> {{ note.date | date}}  </small>
+        </p>
+
       </ion-label>  
       <ion-icon [color]="note.color" slot="start" name="ellipse"></ion-icon>
    </ion-item>
 
-
-    <ion-item-options side="end" >
+    <ion-item-options side="end" *ngIf="!searchData">
 
       <ion-item-option color="danger" (click)="deleteItem(note,pos)">
         <ion-icon slot="icon-only"  name="trash"></ion-icon>
       </ion-item-option>
-
-      <ion-item-option color="success" (click)="completed(note,pos)">
-        <ion-icon slot="icon-only" name="checkmark-done-outline" ></ion-icon>
-      </ion-item-option>
+ 
 
     </ion-item-options>
 

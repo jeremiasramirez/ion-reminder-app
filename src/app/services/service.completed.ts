@@ -23,8 +23,12 @@ export class ServiceCompleted{
         
         this.completed.unshift(data)
         this.updateStorage()
+       
     }
 
+    getAll(){
+        return this.completed
+    }
     deleteNoteComplete(pos){
  
         this.completed.splice(pos,1)

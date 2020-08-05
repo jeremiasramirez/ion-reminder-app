@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
 import { ServiceNotes } from "../services/service.notes"
 import { HomePageRoutingModule } from './home-routing.module';
+import { ServiceCompleted } from '../services/service.completed';
 
 
 @NgModule({
@@ -15,7 +16,7 @@ import { HomePageRoutingModule } from './home-routing.module';
     HomePageRoutingModule
   ],
   providers: [
-    ServiceNotes
+    ServiceNotes,ServiceCompleted
   ],
   declarations: [HomePage]
 })

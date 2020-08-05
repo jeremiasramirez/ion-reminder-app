@@ -4,15 +4,19 @@ import { ModalController, PopoverController } from '@ionic/angular';
 import { ServiceNotes,modelNotes } from 'src/app/services/service.notes';
 import { ColorPaletteComponent } from '../color-palette/color-palette.component';
 import { timer } from 'rxjs';
+import { ServiceCompleted } from 'src/app/services/service.completed';
 
 @Component({
   selector: 'app-note',
   templateUrl: './note.component.html',
   styleUrls: ['./note.component.scss'],
+  providers: [
+    ServiceCompleted
+  ]
 })
 export class NoteComponent implements OnInit {
   
-  constructor(public popoverColor:PopoverController,
+  constructor(public popoverColor:PopoverController,public compl:ServiceCompleted,
     public serv:ServiceNotes,public modalCloseAdd:ModalController) { }
    
   public itemAdd  = {
@@ -36,7 +40,11 @@ export class NoteComponent implements OnInit {
     if (this.itemAdd.title  !== ''){
       
        this.serv.addNew(this.itemAdd)
-      timer(500).subscribe(()=>this.closeModalAdd())
+        
+      timer(500).subscribe(()=>{
+        this.closeModalAdd()
+        
+      })
 
     }
 

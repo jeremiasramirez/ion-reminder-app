@@ -60,26 +60,15 @@ export class NotesPage   {
     openNotes.present()
   }
 
-  refresherContent(e){
-      if(this.allNotes.length>=1){
-        this.allNotes = []
-        timer(800).subscribe(()=> {
-          e.target.complete()
-          this.allNotes= JSON.parse(localStorage.getItem("notes"))
-        })
-      }
-      else{
-        e.target.complete()
-      }
-  }
-  
+   
 
   public deleteItem(note,pos:number){
     this.feature.createToast("Delete", note.title+" Ha sido borrada", "danger");
+    this.serviceCompl.addNewComplete(note); 
     this.service.deleteItem(pos)
   }
 
-   
+   /*
   public completed(note,pos:number){
     this.feature.createToast("Completed", note.title+" Ha sido completada", "success");
     this.serviceCompl.addNewComplete(note); 
@@ -87,5 +76,5 @@ export class NotesPage   {
      
 
   }
-
+*/
 }
