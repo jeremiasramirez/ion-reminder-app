@@ -39,6 +39,9 @@ export class ServiceCompleted{
         localStorage.setItem("completed", JSON.stringify(this.completed))
       //  this.completed=JSON.parse(localStorage.getItem("completed"))
     }
+    removeItm(){
+        localStorage.removeItem("completed");
+    }
 
   /*  updateItem_(pos:number,data){
         this.notes[pos] = data;

@@ -24,4 +24,13 @@ export class ServiceLock{
        if (sessionStorage.getItem("lock"))
         return JSON.parse(sessionStorage.getItem("lock"))
     }
+
+    verifiedPass(pass:any){
+        if (pass === this.getPassword()){
+            return true
+        }
+        else{
+            return false
+        }
+    }
 }

@@ -29,7 +29,7 @@ export class SignPage  {
 
  private analizePass(){
 
-    if(this.pass.length === 4 ){ 
+   // if(this.pass.length === 4 ){ 
       if (this.pass == this.lockService.getPassword()[0].pass){
 
         
@@ -45,21 +45,21 @@ export class SignPage  {
          })
         
       }
-      else{
+   /*  else{
 
         this.pass = "";
         this.openLock.on= false
         this.openLock.text= "Lock" 
 
       }
-    }
-    else{
+    //}
+   /* else{
 
       this.openLock.on= false
       this.openLock.text= "Lock" 
 
     }
-   
+   */
   }
 
 }

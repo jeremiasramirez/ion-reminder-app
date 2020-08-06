@@ -24,6 +24,19 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+.animIcon{
+  animation: icons .8s  linear;
+}
+@keyframes icons {
+  from {
+      opacity: 0; 
+  }
+  to{
+      opacity: 1;
+   
+  }
+}
 .addAnimation{
     animation: adds .5s  linear;
 }
