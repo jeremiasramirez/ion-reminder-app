@@ -21,10 +21,10 @@ const routes: Routes = [
         path: 'trash',
         loadChildren: () => import('../pages/trash/trash.module').then( m => m.TrashPageModule)
       },
-      {
+ /*     {
         path: 'settings/trash',
         component: TrashPage
-      },
+      },*/
       {
         path: 'settings',
         loadChildren: () => import('../pages/settings/settings.module').then( m => m.SettingsPageModule)

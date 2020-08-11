@@ -7,7 +7,11 @@ const routes: Routes = [
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule) 
     ,
-    canActivate: [LockGuard]
+    canActivate: [LockGuard] 
+  },
+  {
+    path: 'home/settings/trash',
+    loadChildren: () => import('./pages/trash/trash.module').then( m => m.TrashPageModule)
   },
   {
     path: '',

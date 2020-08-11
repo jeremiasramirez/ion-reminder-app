@@ -12,22 +12,24 @@ import { timer } from 'rxjs';
   templateUrl: './trash.page.html',
   styleUrls: ['./trash.page.scss'],
   providers: [
-    FeatureService
+    FeatureService,ServiceNotes
   ]
 })
 export class TrashPage implements OnInit {
 
   public completeItems:modelNotes[];
+  public show :boolean= false
   constructor(public feature:FeatureService,public modalAddFromTrash:ModalController,
     public completedNot:ServiceCompleted, public noteServ:ServiceNotes) {
       
    
       this.completeItems = this.completedNot.completed
-   
+      this.completeItems = JSON.parse(localStorage.getItem("completed")) 
       
   }
 
   ngOnInit() {
+    timer(800).subscribe(()=>this.show=true)
   }
 
   deleteItem(note,pos){
@@ -52,10 +54,11 @@ export class TrashPage implements OnInit {
 
   refresh(e:MouseEvent){
     this.completeItems = []
-     
+    this.show=false
       timer(800).subscribe(()=>{
         this.completeItems = JSON.parse(localStorage.getItem("completed")) 
         e.target.complete()
+        this.show=true
       })
     
   }
