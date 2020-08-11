@@ -1,19 +1,18 @@
 <ion-header class="ion-no-border" mode="ios">
   <ion-toolbar color="light">
     <ion-buttons slot="start">
-      <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+      <ion-menu-button   mode="ios"></ion-menu-button>
     </ion-buttons>
 
     <ion-title>Notes</ion-title>
 
     <ion-buttons slot="end">
-      <ion-icon  class="searchbarFade" color="danger" slot="icon-only" *ngIf="searchShow" (click)="searchShow == true? searchShow=false:searchShow=true"  name="close"></ion-icon>
-      <ion-icon  class="searchbarFade"  color="tertiary" slot="icon-only" *ngIf="!searchShow"(click)="searchShow == true? searchShow=false:searchShow=true"  name="search"></ion-icon>
+      <ion-icon slot="icon-only" name="create-outline"></ion-icon>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-toolbar mode="ios" color="light"  *ngIf="searchShow">
+<ion-toolbar mode="ios" color="light">
   <ion-searchbar class="searchbarFade" [(ngModel)]="searchData" type="search" placeholder='Search'></ion-searchbar>
 </ion-toolbar>
 

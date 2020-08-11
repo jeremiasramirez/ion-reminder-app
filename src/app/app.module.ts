@@ -11,9 +11,10 @@ import { ColorPaletteComponent } from './components/color-palette/color-palette.
 import {LockGuard} from "./guard/lock.guard"
 
 import { ServiceLock } from './services/service.lock';
+import { SettingHeaderComponent } from './components/setting-header/setting-header.component';
  
 @NgModule({
-  declarations: [AppComponent, ColorPaletteComponent],
+  declarations: [AppComponent, ColorPaletteComponent, SettingHeaderComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
   providers: [

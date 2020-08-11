@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { PhonePageRoutingModule } from './phone-routing.module';
 
 import { PhonePage } from './phone.page';
+import { SettingHeaderComponent } from 'src/app/components/setting-header/setting-header.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { PhonePage } from './phone.page';
     IonicModule,
     PhonePageRoutingModule
   ],
-  declarations: [PhonePage]
+  declarations: [PhonePage,SettingHeaderComponent]
 })
 export class PhonePageModule {}
