@@ -1,19 +1,12 @@
-<ion-header color="tertiary">
-  <ion-toolbar color="tertiary">
-    <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
-    </ion-buttons>
-    <ion-title>{{cleanImg.title}}</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-setting-header [title]="cleanImg.title"></app-setting-header>
 
 <ion-content color="tertiary">
 
-  <ion-img class="animIcon" style="transform:scale(.5)" [src]="cleanImg.success"></ion-img>
+  <ion-img class="animIcon iconSettings" [src]="cleanImg.success"></ion-img>
   
 
   <div>
-    <ion-button (click)="clean()" expand="block" [disabled]="cleanImg.activatedButton" color="light">Limpiar</ion-button> 
+    <ion-button  (click)="clean()" expand="block" [disabled]="cleanImg.activatedButton" color="light">Limpiar</ion-button> 
     <br>
   </div>
 

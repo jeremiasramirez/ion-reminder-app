@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
-
+import { ServiceCompleted } from 'src/app/services/service.completed';
 import { CompletePageRoutingModule } from './complete-routing.module';
 
 import { CompletePage } from './complete.page';
@@ -15,6 +15,9 @@ import { CompletePage } from './complete.page';
     IonicModule,
     CompletePageRoutingModule
   ],
-  declarations: [CompletePage]
+  declarations: [CompletePage],
+  providers: [
+    ServiceCompleted
+  ]
 })
 export class CompletePageModule {}

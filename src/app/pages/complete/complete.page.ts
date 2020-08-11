@@ -21,8 +21,10 @@ export class CompletePage implements OnInit {
   constructor(public feature:FeatureService,public modalAddFromTrash:ModalController,
     public completedNot:ServiceCompleted, public noteServ:ServiceNotes) {
       
-    this.completeItems = this.completedNot.completed
- 
+    setInterval(()=>{
+      this.completeItems = this.completedNot.completed
+    },1000)
+      
   }
 
   ngOnInit() {

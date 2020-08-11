@@ -30,7 +30,7 @@ export class SignPage  {
  private analizePass(){
 
    // if(this.pass.length === 4 ){ 
-      if (this.pass == this.lockService.getPassword()[0].pass){
+      if (parseInt(this.pass )== this.lockService.getPassword()[0].pass){
 
         
         this.openLock.on= true

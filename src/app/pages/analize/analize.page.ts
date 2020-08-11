@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ServiceLock } from 'src/app/services/service.lock';
 import { timer } from 'rxjs';
 import { ServiceCompleted } from 'src/app/services/service.completed';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-analize',
@@ -21,12 +22,13 @@ export class AnalizePage implements OnInit {
     note:0,
     trash:0
   }
-
-  constructor(public locks:ServiceLock, public rem:ServiceCompleted) { }
+ 
+  constructor(public alert:AlertController,
+    public locks:ServiceLock, public rem:ServiceCompleted) { }
 
   ngOnInit() {
 
-    timer(4000).subscribe(()=>{
+    timer(2000).subscribe(()=>{
 
       this.cleanImg.spinner = false;
       this.cleanImg.title = "Analizado"
@@ -59,13 +61,61 @@ export class AnalizePage implements OnInit {
 
   }
 
+  async failedPin(){
+    const alertErr = await this.alert.create({
+      header: "Pin",
+      subHeader:  "Incorrecto",
+      message: "Introduzca de nuevo el pin",
+      buttons: [
+        {text:"Intentar", handler: ()=>{ this.alertPass()}},
+        {text: "Cancelar", role: "cancel"}
+        
+      ]
+    })
+    alertErr.present()
+  }
+  async alertPass(){
+    
+    const alerts = await this.alert.create({
+      header: "PIN",
+      message: "Introduzca su pin para confirmar",
+      inputs: [
+        {type: "password", name: "pass"}
+      ],
+      buttons: [
+        {text: "Confirmar",  handler: (e)=>{
+        
+          console.log(e)
+          if (this.locks.getPassword()[0].pass == parseInt(e.pass)){
+            console.log(this.locks.getPassword())
+            
+          }
+          else{
+            this.failedPin()
+          }
+          
+         }},
+        {text: "Cancelar", role: "cancel"}
+      ]
+    })
+
+    alerts.present()
+
+  }
   clean(){
-    this.cleaning()
-    /*
-    if (this.locks.existPassword()===true){
-      console.log("no se puede, HAY PASSWORD!")
+
+    
+      if (this.locks.existPassword()===true){
+        this.alertPass()
+      }
+      else{
+    
+      timer(300).subscribe(()=>{
+        this.cleaning()
+      }) 
+
     }
-     */
+    
 
   }
 

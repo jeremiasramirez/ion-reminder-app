@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { AnalizePageRoutingModule } from './analize-routing.module';
 
 import { AnalizePage } from './analize.page';
+import { SettingHeaderComponent } from 'src/app/components/setting-header/setting-header.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { AnalizePage } from './analize.page';
     IonicModule,
     AnalizePageRoutingModule
   ],
-  declarations: [AnalizePage]
+  declarations: [AnalizePage, SettingHeaderComponent]
 })
 export class AnalizePageModule {}
