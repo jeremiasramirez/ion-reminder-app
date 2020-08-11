@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { TrashPageRoutingModule } from './trash-routing.module';
 
 import { TrashPage } from './trash.page';
+import { SettingHeaderComponent } from 'src/app/components/setting-header/setting-header.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { TrashPage } from './trash.page';
     IonicModule,
     TrashPageRoutingModule
   ],
-  declarations: [TrashPage]
+  declarations: [TrashPage,SettingHeaderComponent]
 })
 export class TrashPageModule {}

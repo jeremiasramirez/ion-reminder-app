@@ -17,39 +17,7 @@ import { ShownoteComponent } from 'src/app/components/shownote/shownote.componen
   ]
 })
 export class CompletePage implements OnInit {
-  public completeItems:modelNotes[];
-  constructor(public feature:FeatureService,public modalAddFromTrash:ModalController,
-    public completedNot:ServiceCompleted, public noteServ:ServiceNotes) {
-      
-    setInterval(()=>{
-      this.completeItems = this.completedNot.completed
-    },1000)
-      
-  }
-
-  ngOnInit() {
-  }
-
-  deleteItem(note,pos){
-    this.feature.createToast("Delete",note.title+" ha sido borrada", "danger");
-    this.completedNot.deleteNoteComplete(pos)
-  }
-  restore(note, pos){
-    this.feature.createToast("Restore",note.title+" Ha sido restaurada", "success");
-    this.completedNot.deleteNoteComplete(pos)
-    this.noteServ.addNew(note)
-  }
-
-  async openNote(note:modelNotes, positionEl:number){
-    const openNotes = await this.modalAddFromTrash.create({
-      component: ShownoteComponent,
-      mode: "ios",
-      componentProps:  {data: note, posEl:positionEl}
-    })
-    openNotes.present()
-  }
-
-   
+ 
   
 
 }

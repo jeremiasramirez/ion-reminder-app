@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomePage } from './home.page';
 import { LockGuard } from '../guard/lock.guard';
+import { SettingsPage } from '../pages/settings/settings.page';
+import { TrashPage } from '../pages/trash/trash.page';
 
 
 const routes: Routes = [
@@ -20,6 +22,10 @@ const routes: Routes = [
         loadChildren: () => import('../pages/trash/trash.module').then( m => m.TrashPageModule)
       },
       {
+        path: 'settings/trash',
+        component: TrashPage
+      },
+      {
         path: 'settings',
         loadChildren: () => import('../pages/settings/settings.module').then( m => m.SettingsPageModule)
       },
@@ -31,6 +37,7 @@ const routes: Routes = [
         path: 'settings/analize',
         loadChildren: () => import('../pages/analize/analize.module').then( m => m.AnalizePageModule)
       },
+
       {
         path: 'settings/plan',
         loadChildren: () => import('../pages/plan/plan.module').then( m => m.PlanPageModule)

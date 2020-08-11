@@ -4,7 +4,7 @@
     <ion-tabs  mode="ios" >
         <ion-tab-bar slot="bottom" color="tertiary">
 
-            <ion-tab-button tab="notes" >
+            <ion-tab-button  tab="notes" >
 
                 <ion-badge>{{ lenNotes }}</ion-badge>
                 <ion-icon name="book-outline"></ion-icon>
@@ -12,18 +12,8 @@
                 </ion-label>
             </ion-tab-button>
 
+  
  
-            <ion-tab-button >
-                <ion-badge color="tertiary">{{ lenComplet }}</ion-badge>
-                <ion-icon style="transform: scale(1.3);" name="add-outline"></ion-icon>
-                <ion-label>Nueva</ion-label>
-            </ion-tab-button>
-
-            <ion-tab-button tab="complete" >
-                <ion-badge color="danger">{{ lenComplet }}</ion-badge>
-                <ion-icon   name="trash"></ion-icon>
-                <ion-label>Eliminadas</ion-label>
-            </ion-tab-button>
            
 <!--
             <ion-tab-button tab="settings" >
