@@ -7,16 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { LockPageRoutingModule } from './lock-routing.module';
 
 import { LockPage } from './lock.page';
-import { SettingHeaderComponent } from 'src/app/components/setting-header/setting-header.component';
+import { ComponentModule } from 'src/app/components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    LockPageRoutingModule
+    LockPageRoutingModule,
+    ComponentModule
   ],
-  declarations: [LockPage,
-    SettingHeaderComponent]
+  declarations: [LockPage]
 })
 export class LockPageModule {}

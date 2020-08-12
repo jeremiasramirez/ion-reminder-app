@@ -7,14 +7,18 @@ import { IonicModule } from '@ionic/angular';
 import { TrashPageRoutingModule } from './trash-routing.module';
 
 import { TrashPage } from './trash.page';
-import {ModuleComponent } from "../../components/module.component"
+import { ComponentModule } from 'src/app/components/components.module';
+import { ServiceNotes } from 'src/app/services/service.notes';
+ 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    TrashPageRoutingModule,ModuleComponent
+    TrashPageRoutingModule,
+    ComponentModule 
   ],
+  providers: [ServiceNotes],
   declarations: [TrashPage]
 })
 export class TrashPageModule {}

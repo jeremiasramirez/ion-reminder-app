@@ -12,7 +12,7 @@ import { timer } from 'rxjs';
   templateUrl: './trash.page.html',
   styleUrls: ['./trash.page.scss'],
   providers: [
-    FeatureService,ServiceNotes
+    FeatureService,ServiceCompleted
   ]
 })
 export class TrashPage implements OnInit {
@@ -20,7 +20,7 @@ export class TrashPage implements OnInit {
   public completeItems:modelNotes[];
   public show :boolean= false
   constructor(public feature:FeatureService,public modalAddFromTrash:ModalController,
-    public completedNot:ServiceCompleted, public noteServ:ServiceNotes) {
+    public completedNot:ServiceCompleted ) {
       
    
       this.completeItems = this.completedNot.completed
@@ -35,6 +35,7 @@ export class TrashPage implements OnInit {
   deleteItem(note,pos){
     this.feature.createToast("Delete",note.title+" ha sido borrada", "danger");
     this.completedNot.deleteNoteComplete(pos)
+    this.completeItems.splice(pos,1)
   }
   restore(note, pos){
     this.feature.createToast("Restore",note.title+" Ha sido restaurada", "success");

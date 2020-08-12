@@ -11,7 +11,8 @@ const routes: Routes = [
   },
   {
     path: 'home/settings/trash',
-    loadChildren: () => import('./pages/trash/trash.module').then( m => m.TrashPageModule)
+    loadChildren: () => import('./pages/trash/trash.module').then( m => m.TrashPageModule),
+    canActivate: [LockGuard] 
   },
   {
     path: '',
@@ -19,29 +20,33 @@ const routes: Routes = [
     pathMatch: 'full',
     canActivate: [LockGuard]
   },
-  /*
+  
   {
-    path: 'notes',
+    path: 'home/notes',
     loadChildren: () => import('./pages/notes/notes.module').then( m => m.NotesPageModule)
+     ,
+    canActivate: [LockGuard] 
   },
   {
-    path: 'trash',
+    path: 'home/settings/trash',
     loadChildren: () => import('./pages/trash/trash.module').then( m => m.TrashPageModule)
+    ,
+    canActivate: [LockGuard] 
   },
-  {
+/*  {
     path: 'settings',
     loadChildren: () => import('./pages/settings/settings.module').then( m => m.SettingsPageModule)
   },
-  {
+  /*{
     path: 'complete',
     loadChildren: () => import('./pages/complete/complete.module').then( m => m.CompletePageModule)
-  },
+  },*/
   {
-    path: 'phone',
+    path: 'home/settings/phone',
     loadChildren: () => import('./pages/phone/phone.module').then( m => m.PhonePageModule)
   },
   {
-    path: 'lock',
+    path: 'home/settings/lock',
     loadChildren: () => import('./pages/lock/lock.module').then( m => m.LockPageModule)
   },
   {
@@ -49,17 +54,17 @@ const routes: Routes = [
     loadChildren: () => import('./pages/analize/analize.module').then( m => m.AnalizePageModule)
   },
   {
-    path: 'report',
+    path: 'home/settings/report',
     loadChildren: () => import('./pages/report/report.module').then( m => m.ReportPageModule)
   },
   {
-    path: 'plan',
+    path: 'home/settings/plan',
     loadChildren: () => import('./pages/plan/plan.module').then( m => m.PlanPageModule)
   },
   {
-    path: 'notification',
+    path: 'home/settings/notification',
     loadChildren: () => import('./pages/notification/notification.module').then( m => m.NotificationPageModule)
-  },*/
+  }, 
   {
     path: 'sign',
     loadChildren: () => import('./pages/sign/sign.module').then( m => m.SignPageModule)

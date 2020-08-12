@@ -11,15 +11,15 @@ import { ColorPaletteComponent } from './components/color-palette/color-palette.
 import {LockGuard} from "./guard/lock.guard"
 
 import { ServiceLock } from './services/service.lock';
-import { SettingHeaderComponent } from './components/setting-header/setting-header.component';
+import { ServiceNotes } from './services/service.notes';
  
 @NgModule({
-  declarations: [AppComponent, ColorPaletteComponent, SettingHeaderComponent],
+  declarations: [AppComponent, ColorPaletteComponent ],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
   providers: [
     StatusBar,
-    SplashScreen,
+    SplashScreen,ServiceNotes,
     LockGuard,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },ServiceLock 
   ],

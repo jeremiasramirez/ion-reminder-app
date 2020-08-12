@@ -8,14 +8,16 @@ import { PhonePageRoutingModule } from './phone-routing.module';
 
 import { PhonePage } from './phone.page';
 import { SettingHeaderComponent } from 'src/app/components/setting-header/setting-header.component';
+import { ComponentModule } from 'src/app/components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    PhonePageRoutingModule
+    PhonePageRoutingModule,
+    ComponentModule
   ],
-  declarations: [PhonePage,SettingHeaderComponent]
+  declarations: [PhonePage]
 })
 export class PhonePageModule {}

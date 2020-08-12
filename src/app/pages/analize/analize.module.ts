@@ -8,14 +8,16 @@ import { AnalizePageRoutingModule } from './analize-routing.module';
 
 import { AnalizePage } from './analize.page';
 import { SettingHeaderComponent } from 'src/app/components/setting-header/setting-header.component';
+import { ComponentModule } from 'src/app/components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    AnalizePageRoutingModule
+    AnalizePageRoutingModule,
+    ComponentModule
   ],
-  declarations: [AnalizePage, SettingHeaderComponent]
+  declarations: [AnalizePage]
 })
 export class AnalizePageModule {}

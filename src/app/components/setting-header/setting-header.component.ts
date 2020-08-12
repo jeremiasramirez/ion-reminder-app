@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-setting-header',
@@ -8,8 +9,10 @@ import { Component, OnInit, Input } from '@angular/core';
 export class SettingHeaderComponent implements OnInit {
   @Input() title: string;
   
-  constructor() { }
+  constructor(public router:Router) { }
 
   ngOnInit() {}
-
+  back(){
+    this.router.navigate(["/home/notes"])
+  }
 }
