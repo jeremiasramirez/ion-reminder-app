@@ -40,7 +40,7 @@ export class TrashPage implements OnInit {
   restore(note, pos){
     this.feature.createToast("Restore",note.title+" Ha sido restaurada", "success");
     this.completedNot.deleteNoteComplete(pos)
-    this.noteServ.addNew(note)
+   // this.noteServ.addNew(note)
   }
 
   async openNote(note:modelNotes, positionEl:number){
@@ -58,7 +58,7 @@ export class TrashPage implements OnInit {
     this.show=false
       timer(800).subscribe(()=>{
         this.completeItems = JSON.parse(localStorage.getItem("completed")) 
-        e.target.complete()
+       // e.target.complete()
         this.show=true
       })
     

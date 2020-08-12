@@ -18,6 +18,6 @@ import { ShownoteComponent } from 'src/app/components/shownote/shownote.componen
 })
 export class CompletePage implements OnInit {
  
-  
+  ngOnInit(){}
 
 }
