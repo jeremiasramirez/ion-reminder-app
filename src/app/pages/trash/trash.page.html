@@ -15,13 +15,13 @@
 
       <ion-item class="addAnimation" (click)="openNote(note,pos)" detail>
  
-        <ion-label>{{ note.title }} 
+        <ion-label class="noteTitle">{{ note.title }} 
           <p>
-            <small>{{ note.description }} </small>
+            <small class="noteContent">{{ note.description }} </small>
           </p>
 
           <p style="margin-top: -2px">
-            <small style="color: #222; margin-top: -2px"> {{ note.date | date}}  </small>
+            <small color="medium"> {{ note.date | date}}  </small>
           </p>
 
         </ion-label>  
@@ -46,7 +46,7 @@
 </ion-list>
 
 <ion-list *ngIf="!show">
-  <ion-item *ngFor="let falsy of [1,1,1,1,1]">
+  <ion-item *ngFor="let falsy of [1,1,1,1,1,1,1,1,1]">
     <ion-label>
 
       <ion-skeleton-text style="width: 70%;"></ion-skeleton-text>

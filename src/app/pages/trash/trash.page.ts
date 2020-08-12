@@ -29,7 +29,7 @@ export class TrashPage implements OnInit {
   }
 
   ngOnInit() {
-    timer(800).subscribe(()=>this.show=true)
+    timer(400).subscribe(()=>this.show=true)
   }
 
   deleteItem(note,pos){
