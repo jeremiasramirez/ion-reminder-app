@@ -5,7 +5,7 @@ import { NoteComponent } from '../../components/note/note.component';
 import { ShownoteComponent } from 'src/app/components/shownote/shownote.component';
 import { ServiceCompleted } from 'src/app/services/service.completed';
 import { FeatureService } from 'src/app/services/service.feature';
-import { timer } from 'rxjs';
+ 
  
  
 
@@ -43,14 +43,14 @@ export class NotesPage   {
   */
 
   }
-
+/*
   async openAdd(){
     const modalAdds = await this.modalAdd.create({
       component: NoteComponent
     })
     modalAdds.present()
   }
-
+*/
   async openNote(note:modelNotes, positionEl:number){
     const openNotes = await this.modalAdd.create({
       component: ShownoteComponent,

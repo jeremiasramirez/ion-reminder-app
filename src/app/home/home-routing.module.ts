@@ -18,7 +18,7 @@ const routes: Routes = [
         loadChildren: () => import('../pages/notes/notes.module').then( m => m.NotesPageModule)
       },
         {
-        path: 'trash',
+        path: 'home/settings/trash',
         loadChildren: () => import('../pages/trash/trash.module').then( m => m.TrashPageModule)
       },
  /*     {

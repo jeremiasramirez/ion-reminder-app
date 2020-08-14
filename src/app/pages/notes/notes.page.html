@@ -66,11 +66,11 @@
  
       <ion-label>{{ note.title }} 
         <p>
-          <small class="noteContent">{{ note.description }} </small>
+          <small color="medium">{{ note.description }} </small>
         </p>
 
-        <p style="margin-top: -2px">
-          <small style="color: #222; margin-top: -2px"> {{ note.date | date}}  </small>
+        <p >
+          <small color="medium"> {{ note.date | date}}  </small>
         </p>
 
       </ion-label>  
@@ -92,13 +92,5 @@
 
 </ion-list>
 
-
-<ion-fab vertical="bottom"  slot="fixed" horizontal="end" mode="ios">
-
-  <ion-fab-button color="tertiary" (click)="openAdd()">
-    <ion-icon name="add"></ion-icon>
-  </ion-fab-button>
-</ion-fab>
-
-
+ 
 </ion-content>
