@@ -63,9 +63,9 @@ export class LockPage implements OnInit {
    
     const toasts = await this.toast.create({
 
-      message: message,
-      position:"top",
-      color:"danger",
+      message: message, 
+      color:"tertiary",
+      position: "top",
       duration: 5000,
       buttons: [{text:'OK',  handler: ()=>toasts.dismiss()}]
 
