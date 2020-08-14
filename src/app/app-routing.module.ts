@@ -47,7 +47,8 @@ const routes: Routes = [
   },
   {
     path: 'home/settings/lock',
-    loadChildren: () => import('./pages/lock/lock.module').then( m => m.LockPageModule)
+    loadChildren: () => import('./pages/lock/lock.module').then( m => m.LockPageModule),
+    canActivate: [LockGuard] 
   },
   {
     path: 'analize',
