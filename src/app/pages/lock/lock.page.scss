@@ -1,3 +1,32 @@
 ion-item{
     text-align: center; 
 }
+
+.show__add__pin{
+    padding-top: 0 !important;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    animation: showPin .5s ease-in-out;
+    transition: .8s
+}
+
+@keyframes showPin{
+    from{
+        transform: scale(0)
+    }
+    to{
+        transform: scale(1);
+    }
+}
+
+.hideFormPin{
+    animation: hidePin .5s ease-in-out;
+}
+@keyframes hidePin{
+    from{
+        transform: scale(1)
+    }
+    to{
+        transform: scale(0);
+    }
+}

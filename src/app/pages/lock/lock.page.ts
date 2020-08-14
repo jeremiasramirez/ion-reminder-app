@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ServiceLock } from 'src/app/services/service.lock';
 import { FormGroup, FormControl, Validators } from "@angular/forms"
 import { ToastController } from '@ionic/angular';
+import { timer } from 'rxjs';
 
 
 
@@ -17,7 +18,10 @@ export class LockPage implements OnInit {
   public formGroups :FormGroup
   public validators = Validators
   public existLock : boolean;
+  
 
+  hideForm = null
+  showPin:boolean;
   constructor(
     private lock:ServiceLock,
     private toast:ToastController
@@ -90,6 +94,14 @@ export class LockPage implements OnInit {
     
   }
 
+  showAddPin(){
+    if (this.showPin === true){
+      this.hideForm="hideFormPin";
+      timer(400).subscribe(()=>this.showPin = false);
+    }
+    else{ this.showPin = true; this.hideForm="";} 
+  }
+//this.showPin = true;
 
 
 }

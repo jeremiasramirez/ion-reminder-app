@@ -6,26 +6,26 @@
 
 
   <br>
-  <ion-button [disabled]="existLock" expand="block"  size="small" mode="ios">Nuevo pin</ion-button>
+  <ion-button (click)="showAddPin()" [disabled]="existLock" expand="block"  size="small" mode="ios">Nuevo pin</ion-button>
   <ion-button [disabled]="!existLock" expand="block"  size="small" mode="ios">Cambiar pin</ion-button>
   <ion-button [disabled]="!existLock" expand="block"  size="small" mode="ios">Eliminar pin</ion-button>
   <br>
  
 
-  <ion-list *ngIf="!existLock" [formGroup]="formGroups">
+  <ion-list color="light" *ngIf="!existLock &&  showPin" class="show__add__pin {{hideForm}}" [formGroup]="formGroups">
     
-    <ion-item>
-      <ion-icon slot="start" name="sync"></ion-icon>
+    <ion-item color="light">
+      <ion-icon color="dark" slot="start" name="sync"></ion-icon>
       <ion-input type="email" placeholder="Email de recuperación"  formControlName="email"></ion-input>
     </ion-item>
 
-    <ion-item>
-      <ion-icon slot="start" name="lock-closed"></ion-icon>
+    <ion-item color="light">
+      <ion-icon color="dark" slot="start" name="lock-closed"></ion-icon>
       <ion-input type="password" placeholder="Nuevo pin" formControlName="pin"></ion-input>
     </ion-item>
 
-    <ion-item>
-      <ion-icon slot="start" name="lock-closed"></ion-icon>
+    <ion-item color="light">
+      <ion-icon color="dark" slot="start" name="lock-closed"></ion-icon>
       <ion-input type="password" placeholder="Confirmar pin" formControlName="pinConfirm"></ion-input>
     </ion-item>
     <br>
