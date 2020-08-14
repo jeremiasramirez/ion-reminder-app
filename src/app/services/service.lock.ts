@@ -1,12 +1,17 @@
 import { Injectable } from "@angular/core"
+import { Router } from '@angular/router'
 
 
 @Injectable()
 
 export class ServiceLock{
     
-    constructor(){
+    constructor(public router:Router){
     
+    }
+
+    setRouter(where:string){
+        this.router.navigate([where])
     }
 
     setPassword(password:{pass:string;email:string|number}){

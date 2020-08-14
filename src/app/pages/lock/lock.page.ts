@@ -20,8 +20,11 @@ export class LockPage implements OnInit {
   public existLock : boolean;
   
 
+  changeTruthy : boolean;
   hideForm = null
   showPin:boolean;
+  hideForm2 = null
+  showPin2:boolean;
   constructor(
     private lock:ServiceLock,
     private toast:ToastController
@@ -76,12 +79,21 @@ export class LockPage implements OnInit {
   }
 
   addPin(){
-    console.log(this.formGroups.controls)
+   
     if (this.formGroups.controls.email.valid && this.formGroups.controls.pin.valid && this.formGroups.controls.pinConfirm.valid){
       
       if(this.formGroups.value.pin === this.formGroups.value.pinConfirm){
 
-          this.changeToast("Perfecto")
+
+          let data = {
+            pass: this.formGroups.controls.pin.value,
+            email: this.formGroups.controls.email.value
+          }
+         
+          this.lock.setPassword(data);
+          this.existLock =  this.lock.existPassword()
+          this.showAddPin()
+          timer(300).subscribe(()=>this.lock.setRouter("/sign"))
       }
       else{
         this.changeToast("El pin debe ser el mismo.")
@@ -101,7 +113,44 @@ export class LockPage implements OnInit {
     }
     else{ this.showPin = true; this.hideForm="";} 
   }
-//this.showPin = true;
+
+  showUpdatePin(){
+    if (this.showPin2 === true){
+      this.hideForm2="hideFormPin";
+      timer(400).subscribe(()=>this.showPin2 = false);
+    }
+    else{ this.showPin2 = true; this.hideForm2="";} 
+  }
+  
+  changePin(){
+    this.showUpdatePin()
+  }
+  updatePin(){
+    if (this.formGroups.controls.email.valid && this.formGroups.controls.pin.valid && this.formGroups.controls.pinConfirm.valid){
+      
+      if(this.formGroups.value.pin === this.formGroups.value.pinConfirm){
+
+
+          let data = {
+            pass: this.formGroups.controls.pin.value,
+            email: this.formGroups.controls.email.value
+          }
+         
+          this.lock.setPassword(data);
+          this.existLock =  this.lock.existPassword()
+          this.showUpdatePin()
+          timer(300).subscribe(()=> this.changeToast("Pin actualizado"))
+      }
+      else{
+        this.changeToast("El pin debe ser el mismo.")
+      }
+
+    }
+    else{
+      this.changeToast("Pin o Email Invalido.")
+    }
+    
+  }
 
 
 }

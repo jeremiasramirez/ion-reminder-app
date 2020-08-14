@@ -7,12 +7,12 @@
 
   <br>
   <ion-button (click)="showAddPin()" [disabled]="existLock" expand="block"  size="small" mode="ios">Nuevo pin</ion-button>
-  <ion-button [disabled]="!existLock" expand="block"  size="small" mode="ios">Cambiar pin</ion-button>
+  <ion-button [disabled]="!existLock" expand="block"  size="small" mode="ios" (click)="changePin()">Cambiar pin</ion-button>
   <ion-button [disabled]="!existLock" expand="block"  size="small" mode="ios">Eliminar pin</ion-button>
   <br>
  
-
-  <ion-list color="light" *ngIf="!existLock &&  showPin" class="show__add__pin {{hideForm}}" [formGroup]="formGroups">
+  <!-- add pin -->
+  <ion-list color="light" *ngIf="showPin " class="show__add__pin {{hideForm}}" [formGroup]="formGroups">
     
     <ion-item color="light">
       <ion-icon color="dark" slot="start" name="sync"></ion-icon>
@@ -44,6 +44,40 @@
 
   </ion-list>
 
+
+  <!-- update pin -->
+
+  <ion-list color="light" *ngIf="showPin2" class="show__add__pin {{hideForm2}}" [formGroup]="formGroups">
+    
+    <ion-item color="light">
+      <ion-icon color="dark" slot="start" name="sync"></ion-icon>
+      <ion-input type="email" placeholder="Email de recuperación"  formControlName="email"></ion-input>
+      <ion-icon slot="end" *ngIf="formGroups.controls.email.touched &&formGroups.controls.email.valid" name="checkmark-outline"></ion-icon>
+      <ion-icon slot="end" *ngIf="formGroups.controls.email.touched && formGroups.controls.email.invalid" name="close"></ion-icon>
+    </ion-item>
+ 
+    <ion-item color="light">
+      <ion-icon color="dark" slot="start" name="lock-closed"></ion-icon>
+      <ion-input type="password" placeholder="Actualizar pin" formControlName="pin"></ion-input>
+      <ion-icon slot="end" *ngIf="formGroups.controls.pin.touched &&formGroups.controls.pin.valid" name="checkmark-outline"></ion-icon>
+      <ion-icon slot="end" *ngIf="formGroups.controls.pin.touched && formGroups.controls.pin.invalid" name="close"></ion-icon>
+  
+    </ion-item>
+
+    <ion-item color="light">
+      <ion-icon color="dark" slot="start" name="lock-closed"></ion-icon>
+      <ion-input type="password" placeholder="Confirmar pin" formControlName="pinConfirm"></ion-input>
+      <ion-icon slot="end" *ngIf="formGroups.controls.pinConfirm.touched &&formGroups.controls.pinConfirm.valid" name="checkmark-outline"></ion-icon>
+      <ion-icon slot="end" *ngIf="formGroups.controls.pinConfirm.touched && formGroups.controls.pinConfirm.invalid" name="close"></ion-icon>
+  
+    </ion-item>
+    <br>
+    <ion-button color="tertiary"
+    [disabled]="!formGroups.controls.email.valid || !formGroups.controls.pin.valid || !formGroups.controls.pinConfirm.valid"
+    expand="block" (click)="updatePin()">Actualizar pin</ion-button>
+
+
+  </ion-list>
 </ion-content>
 
  
