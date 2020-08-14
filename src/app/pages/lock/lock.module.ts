@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
+import { ReactiveFormsModule} from "@angular/forms"
 import { IonicModule } from '@ionic/angular';
 
 import { LockPageRoutingModule } from './lock-routing.module';
@@ -15,7 +15,8 @@ import { ComponentModule } from 'src/app/components/components.module';
     FormsModule,
     IonicModule,
     LockPageRoutingModule,
-    ComponentModule
+    ComponentModule,
+    ReactiveFormsModule
   ],
   declarations: [LockPage]
 })

@@ -5,6 +5,7 @@ import { ServiceNotes,modelNotes } from 'src/app/services/service.notes';
 import { ColorPaletteComponent } from '../color-palette/color-palette.component';
 import { timer } from 'rxjs';
 import { ServiceCompleted } from 'src/app/services/service.completed';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-note',
@@ -16,7 +17,9 @@ import { ServiceCompleted } from 'src/app/services/service.completed';
 })
 export class NoteComponent implements OnInit {
   
-  constructor(public popoverColor:PopoverController,public compl:ServiceCompleted,
+  constructor(
+    public popoverColor:PopoverController,public compl:ServiceCompleted,
+    public router:Router,
     public serv:ServiceNotes,public modalCloseAdd:ModalController) { }
    
   public itemAdd  = {
@@ -43,6 +46,7 @@ export class NoteComponent implements OnInit {
         
       timer(500).subscribe(()=>{
         this.closeModalAdd()
+        this.router.navigate(["home/notes"])
         
       })
 
