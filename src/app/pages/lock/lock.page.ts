@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ServiceLock } from 'src/app/services/service.lock';
 import { FormGroup, FormControl, Validators } from "@angular/forms"
 import { ToastController } from '@ionic/angular';
-import { timer } from 'rxjs';
+import { timer, interval } from 'rxjs';
 
 
 
@@ -58,7 +58,7 @@ export class LockPage implements OnInit {
 
   }
   ngOnInit() {
-    this.existLock = this.lock.existPassword()
+    interval(1000).subscribe(()=> this.existLock = this.lock.existPassword())
   }
 
 
@@ -78,6 +78,11 @@ export class LockPage implements OnInit {
 
   }
 
+  private resetForm(){
+    this.formGroups.value.pin = null
+    this.formGroups.value.pinConfirm = null 
+    this.formGroups.value.email = null 
+  }
   addPin(){
    
     if (this.formGroups.controls.email.valid && this.formGroups.controls.pin.valid && this.formGroups.controls.pinConfirm.valid){
@@ -90,10 +95,11 @@ export class LockPage implements OnInit {
             email: this.formGroups.controls.email.value
           }
          
-          this.lock.setPassword(data);
+          this.lock.setPassword(data); 
           this.existLock =  this.lock.existPassword()
           this.showAddPin()
-          timer(300).subscribe(()=>this.lock.setRouter("/sign"))
+          this.resetForm()
+        
       }
       else{
         this.changeToast("El pin debe ser el mismo.")
@@ -128,21 +134,23 @@ export class LockPage implements OnInit {
   updatePin(){
     if (this.formGroups.controls.email.valid && this.formGroups.controls.pin.valid && this.formGroups.controls.pinConfirm.valid){
       
-      if(this.formGroups.value.pin === this.formGroups.value.pinConfirm){
+      if((this.formGroups.value.pin == this.lock.getPassword()[0].pass) && this.formGroups.value.pinConfirm){
 
 
           let data = {
-            pass: this.formGroups.controls.pin.value,
+            pass: this.formGroups.controls.pinConfirm.value,
             email: this.formGroups.controls.email.value
           }
-         
+          
           this.lock.setPassword(data);
           this.existLock =  this.lock.existPassword()
           this.showUpdatePin()
           timer(300).subscribe(()=> this.changeToast("Pin actualizado"))
+          this.resetForm()
+
       }
       else{
-        this.changeToast("El pin debe ser el mismo.")
+        this.changeToast("Pin actual incorrecto.")
       }
 
     }
@@ -150,6 +158,10 @@ export class LockPage implements OnInit {
       this.changeToast("Pin o Email Invalido.")
     }
     
+  }
+  private deletePassword(){
+    this.lock.removePassword()
+   
   }
 
 

@@ -8,7 +8,7 @@
   <br>
   <ion-button (click)="showAddPin()" [disabled]="existLock" expand="block"  size="small" mode="ios">Nuevo pin</ion-button>
   <ion-button [disabled]="!existLock" expand="block"  size="small" mode="ios" (click)="changePin()">Cambiar pin</ion-button>
-  <ion-button [disabled]="!existLock" expand="block"  size="small" mode="ios">Eliminar pin</ion-button>
+  <ion-button (click)="deletePassword()" color="danger" [disabled]="!existLock" expand="block"  size="small" mode="ios">Eliminar pin</ion-button>
   <br>
  
   <!-- add pin -->
@@ -58,7 +58,7 @@
  
     <ion-item color="light">
       <ion-icon color="dark" slot="start" name="lock-closed"></ion-icon>
-      <ion-input type="password" placeholder="Actualizar pin" formControlName="pin"></ion-input>
+      <ion-input type="password" placeholder="Pin actual" formControlName="pin"></ion-input>
       <ion-icon slot="end" *ngIf="formGroups.controls.pin.touched &&formGroups.controls.pin.valid" name="checkmark-outline"></ion-icon>
       <ion-icon slot="end" *ngIf="formGroups.controls.pin.touched && formGroups.controls.pin.invalid" name="close"></ion-icon>
   
@@ -66,7 +66,7 @@
 
     <ion-item color="light">
       <ion-icon color="dark" slot="start" name="lock-closed"></ion-icon>
-      <ion-input type="password" placeholder="Confirmar pin" formControlName="pinConfirm"></ion-input>
+      <ion-input type="password" placeholder="Nuevo pin" formControlName="pinConfirm"></ion-input>
       <ion-icon slot="end" *ngIf="formGroups.controls.pinConfirm.touched &&formGroups.controls.pinConfirm.valid" name="checkmark-outline"></ion-icon>
       <ion-icon slot="end" *ngIf="formGroups.controls.pinConfirm.touched && formGroups.controls.pinConfirm.invalid" name="close"></ion-icon>
   

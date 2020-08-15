@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceLock } from 'src/app/services/service.lock';
 import { Router } from '@angular/router'; 
-import { timer } from 'rxjs';
+import { timer, interval } from 'rxjs';
 import { LockGuard } from 'src/app/guard/lock.guard';
 
 @Component({
@@ -23,6 +23,7 @@ export class SignPage  {
   constructor(private lockService:ServiceLock, private router:Router, public guard:LockGuard) { 
       
     
+   
    
    }
  
