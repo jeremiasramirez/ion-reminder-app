@@ -17,29 +17,53 @@
 
 <ion-content   color="tertiary">
   <!-- spaces -->
-  <br><br>
+  <br> 
 
 
   <!-- img lock -->
-  <ion-img class="showImage" src="../../assets/lock/lock.svg"></ion-img>
+  <ion-img class="showImage" style="height: 100px;" src="../../assets/icon/favicon.png"></ion-img>
  
+  <br>
 
-
-  <!-- input loading -->
+  <!-- input loading 
  <ion-toolbar *ngIf="!openLock.on" mode="ios" color="tertiary" >
     <ion-label>
       <p style="text-align: center;margin: 5px 0">PIN</p>
     </ion-label> 
     <ion-input mode="ios" type="password" mode="ios" placeholder="0000" [(ngModel)]="pass" (keyup)="analizePass()"></ion-input>
  </ion-toolbar>
+ <ion-label>
+  <p style="text-align: center;margin: 5px 0">PIN</p>
+</ion-label> -->
+ <section class="pins" *ngIf="!openLock.on">
+
+    <ion-button  disabled color="tertiary" > {{ pinOne}}</ion-button>
+    <ion-button  disabled color="tertiary" >{{ pinTwo}}</ion-button>
+    <ion-button  disabled color="tertiary" >{{ pinThre}}</ion-button>
+    <ion-button  disabled color="tertiary" >{{pinFour }}</ion-button>
+ </section>
+
+ <br><br>
+ <div class="gridButtonPin" *ngIf="!openLock.on">
+  <ion-button (click)="one($event)" color="tertiary">1</ion-button>
+  <ion-button (click)="two($event)" color="tertiary">2</ion-button>
+  <ion-button (click)="thre($event)" color="tertiary">3</ion-button>
+  <ion-button (click)="four($event)" color="tertiary">4</ion-button>
+  <ion-button (click)="five($event)" color="tertiary">5</ion-button>
+  <ion-button (click)="six($event)" color="tertiary">6</ion-button>
+  <ion-button (click)="seven($event)" color="tertiary">7</ion-button>
+  <ion-button (click)="eight($event)" color="tertiary">8</ion-button>
+  <ion-button (click)="nine($event)" color="tertiary">9</ion-button>
+  <ion-button  (click)="resetPin()" color="danger"><ion-icon  name="backspace-outline"></ion-icon></ion-button>
+  <ion-button (click)="zero($event)"  color="tertiary">0</ion-button>
+  
+</div>
 
 
-
- <!-- spinner loading -->
+ 
  <ion-toolbar style="text-align:center" *ngIf="openLock.on" mode="ios" color="tertiary" >
    <ion-button expand="block" color="primary" routerLink="/home/notes">Continuar</ion-button>
  </ion-toolbar>
-    
-     
+ 
    
 </ion-content>

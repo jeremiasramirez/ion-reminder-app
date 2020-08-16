@@ -52,3 +52,31 @@ ion-img{
         color: yellow 
     }
 }
+
+
+.gridButtonPin{
+    display: grid;
+    justify-items: center;
+    justify-content: center;
+   
+    grid-template-columns: 90px 90px 90px;
+    grid-template-rows: 80px 80px 80px 130px;
+}
+
+.gridButtonPin ion-button{
+    font-size: 20px !important;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+} 
+ 
+.pins{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.pins ion-button{
+    width: 53px; 
+    background-color: #5260ff;
+    font-size: 20px;
+    height: 45px; 
+    border-bottom-color: #eee !important;
+}

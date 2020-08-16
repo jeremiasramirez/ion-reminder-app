@@ -14,53 +14,111 @@ import { LockGuard } from 'src/app/guard/lock.guard';
 })
 export class SignPage  {
   public pass = ""
+  pinOne:number  = null;
+  pinTwo:number = null;
+  pinThre:number = null;
+  pinFour:number = null;
+
+  private passToString :string;
 
   public openLock  = {
     on:false,
     text:'Lock'
   }
 
-  constructor(private lockService:ServiceLock, private router:Router, public guard:LockGuard) { 
-      
+constructor(private lockService:ServiceLock, private router:Router, public guard:LockGuard) {  }
+ 
+ private open(){
+
+ 
+    this.guard.opn=true
+    this.openLock.on= true
+    this.openLock.text= "Unlock" 
+    history.replaceState(null, "Reminder","/home/notes")
+    this.router.navigate(["home/notes"])
+  
     
+  }
+
+  private resetPin(){
+    this.pinOne  = null;
+    this.pinTwo = null;
+    this.pinThre = null;
+    this.pinFour = null;
+    this.passToString = null
+  }
+  private unlock(){
    
-   
-   }
+    if(this.lockService.getPassword()[0].pass==this.passToString) timer(200).subscribe(()=>this.open())
+    else timer(200).subscribe(()=>this.resetPin())
+    
+  }
+  private verified(num:number){
  
 
- private analizePass(){
+    if(!this.pinOne){
+      this.pinOne = num;
+    }
+    else if(!this.pinTwo){
+      this.pinTwo  = num;
+    }
+    else if(!this.pinThre){
+      this.pinThre  = num;
+    }
+    else if(!this.pinFour){
+      this.pinFour  = num;
+      
+      this.passToString = this.pinOne+""+this.pinTwo+""+this.pinThre+""+this.pinFour
+      this.unlock()
+    }
+    
+   
+    
+    
 
-   // if(this.pass.length === 4 ){ 
-      if (parseInt(this.pass )== this.lockService.getPassword()[0].pass){
 
-        this.guard.opn=true
-        this.openLock.on= true
-        this.openLock.text= "Unlock" 
-        history.replaceState(null, "Reminder","/home/notes")
-      /*  timer(2000).subscribe( ()=> { 
-         
-          this.guard.opn=true
-          history.replaceState(null, "Reminder","/home/notes")
-          this.router.navigate(["home/notes"])
-          
-         })*/
-        
-      }
-   /*  else{
+  }
+  private one(e:any){
 
-        this.pass = "";
-        this.openLock.on= false
-        this.openLock.text= "Lock" 
+    this.verified(parseInt(e.target.textContent));
 
-      }
-    //}
-   /* else{
+  }
+  private two(e:any){  
+    this.verified(parseInt(e.target.textContent));
 
-      this.openLock.on= false
-      this.openLock.text= "Lock" 
+   }
+  private thre(e:any){ 
+    this.verified(parseInt(e.target.textContent));
 
     }
-   */
-  }
+  private four(e:any){  
+    this.verified(parseInt(e.target.textContent));
+
+   }
+  private five(e:any){  
+    this.verified(parseInt(e.target.textContent));
+     
+   }
+  private six(e:any){ 
+    this.verified(parseInt(e.target.textContent));
+     
+   }
+  private seven(e:any){ 
+    this.verified(parseInt(e.target.textContent));
+     
+   }
+  private eight(e:any){ 
+    this.verified(parseInt(e.target.textContent));
+
+    }
+  private nine(e:any){ 
+    this.verified(parseInt(e.target.textContent));
+     
+   }
+  private zero(e:any){ 
+    this.verified(e.target.textContent);
+    
+   }
+
 
 }
