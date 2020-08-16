@@ -43,14 +43,14 @@ export class NotesPage   {
   */
 
   }
-/*
+ 
   async openAdd(){
     const modalAdds = await this.modalAdd.create({
       component: NoteComponent
     })
     modalAdds.present()
   }
-*/
+ 
   async openNote(note:modelNotes, positionEl:number){
     const openNotes = await this.modalAdd.create({
       component: ShownoteComponent,

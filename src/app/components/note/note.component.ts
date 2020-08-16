@@ -35,7 +35,7 @@ export class NoteComponent implements OnInit {
   ngOnInit() {}
 
   async closeModalAdd(){
-    timer(200).subscribe(()=>this.modalCloseAdd.dismiss())
+    timer(100).subscribe(()=>this.modalCloseAdd.dismiss())
   }
 
   createNew(){
@@ -44,7 +44,7 @@ export class NoteComponent implements OnInit {
       
        this.serv.addNew(this.itemAdd)
         
-      timer(500).subscribe(()=>{
+      timer(100).subscribe(()=>{
         this.closeModalAdd()
         this.router.navigate(["home/notes"])
         
