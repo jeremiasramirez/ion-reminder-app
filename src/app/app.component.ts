@@ -4,6 +4,7 @@ import { Platform, MenuController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx'; 
 import { DarkMode } from './services/service.dark';
+import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -63,6 +64,6 @@ export class AppComponent {
   }
 
   closeMenu(){
-    this.menu.close()
+    timer(200).subscribe(()=>this.menu.close())
   }
 }

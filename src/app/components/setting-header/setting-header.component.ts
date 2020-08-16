@@ -13,6 +13,6 @@ export class SettingHeaderComponent implements OnInit {
 
   ngOnInit() {}
   back(){
-    this.router.navigate(["/home/notes"])
+    this.router.navigate(["/home/settings"])
   }
 }

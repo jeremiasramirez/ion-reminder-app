@@ -1,9 +1,21 @@
 <ion-menu  type="overlay" contentId="menu" menuId="menu" color="tertiary">
 
   <ion-header class="ion-no-border" color="tertiary">
+
+    
     <ion-toolbar   color="tertiary">
+
+    
+      <ion-buttons  mode="md">
+        <ion-button (click)="closeMenu()" color="tertiary" routerLink="/home/settings/lock" color="light" side="top">
+          <ion-icon name="lock-closed"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+
       <ion-img src="../assets/icon/favicon.png" class="animIcon iconSettings" style="transform:scale(.5)" ></ion-img>
+   
     </ion-toolbar>
+
   </ion-header>
  
   <ion-content class="animIcon">
@@ -30,6 +42,15 @@
         </ion-label> 
       </ion-item>
 
+
+      <ion-item  (click)="closeMenu()" routerLink="/home/notes" mode="md"> 
+        <ion-badge slot="end" color="success">0</ion-badge>
+        <ion-icon slot="start" name="star"></ion-icon> 
+        <ion-label class="fadeIn"> Favoritos
+         <p>Todas las notas marcada en favorito</p>
+        </ion-label> 
+      </ion-item>
+
         
       <ion-item (click)="closeMenu()" routerLink="/home/settings/trash" mode="md"> 
         <ion-badge slot="end" color="danger">{{ numTrash }}</ion-badge>
@@ -39,14 +60,7 @@
         </ion-label> 
       </ion-item>
 
-  
-      <ion-item detail (click)="closeMenu()" routerLink="/home/settings/lock" mode="md"> 
-        <ion-icon slot="start" name="lock-closed"></ion-icon> 
-        <ion-label class="fadeIn"> Pin
-         <p>Agregar, Eliminar</p>
-        </ion-label> 
-      </ion-item>
-  
+ 
   
       <ion-item detail (click)="closeMenu()" routerLink="/home/settings/analize" mode="md">   
         <ion-icon slot="start" name="speedometer"></ion-icon>
@@ -69,40 +83,17 @@
       </ion-item> 
   
   
-      <ion-item detail  (click)="closeMenu()" routerLink="/home/settings/plan" mode="md">
-        <ion-icon color="warning" slot="start" name="flash"></ion-icon>
-        <ion-label class="fadeIn"> 
-          Plan
-          <p color="medium">Basic, Premium</p>
-         </ion-label>
-         <ion-buttons slot="end">
-          <ion-label color="light">Basic</ion-label> 
-         </ion-buttons> 
-      </ion-item> 
-  
+ 
+      <ion-item detail (click)="closeMenu()" routerLink="/home/settings" mode="md">   
       
-      <ion-item detail (click)="closeMenu()" routerLink="/home/settings/report" mode="md">   
-        <ion-icon slot="start" name="chatbubble"></ion-icon>
-        <ion-label class="fadeIn"> Reportar 
-          <p>Fallos, Agregar mejoras</p>
-        </ion-label> 
-      </ion-item>
-  
-   
-      <ion-item detail (click)="closeMenu()" >    
-        <ion-icon slot="start" name="reload"></ion-icon>
-        <ion-label class="fadeIn"> Resetear ajustes
-          <p>Tema, Notificaciones, Pin</p>
-        </ion-label> 
-      </ion-item>
-  
-  
-      <ion-item detail (click)="closeMenu()" routerLink="/home/settings/phone" mode="md">  
-        <ion-icon slot="start" name="hardware-chip"></ion-icon>
-        <ion-label class="fadeIn"> Mi phone
-          <p>Información, versión</p>
-        </ion-label> 
-      </ion-item>
+        <ion-icon slot="start"  name="construct-outline"></ion-icon>
+        <ion-label class="fadeIn"> 
+           Más herramientas y opciones
+          <p >Todas las opciones y herramientas disponibles </p>
+         </ion-label> 
+      </ion-item> 
+     
+
     </ion-list>
      
   </ion-content>

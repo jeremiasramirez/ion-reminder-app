@@ -15,6 +15,11 @@ const routes: Routes = [
     canActivate: [LockGuard] 
   },
   {
+    path: 'home/settings',
+    loadChildren: () => import('./pages/settings/settings.module').then( m => m.SettingsPageModule),
+    canActivate: [LockGuard] 
+  },
+  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full',
