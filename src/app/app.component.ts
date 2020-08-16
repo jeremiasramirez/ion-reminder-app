@@ -25,8 +25,8 @@ export class AppComponent {
     private dark:DarkMode
   ) {
     this.initializeApp();
-
-
+ 
+ 
 
    this.checkedDark = this.dark.existDark()
     this.setterNums()
@@ -56,6 +56,8 @@ export class AppComponent {
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
+      this.statusBar.overlaysWebView(false); 
+      this.statusBar.backgroundColorByHexString('#5260ff');
       this.splashScreen.hide();
     });
   }

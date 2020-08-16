@@ -8,7 +8,7 @@ export class LockGuard implements CanActivate {
     public opn:boolean=true;
     constructor(private lockServ:ServiceLock, private router:Router) {
         
-        if (!sessionStorage.getItem("lock")){
+        if (!localStorage.getItem("lock")){
             this.opn = true;
             this.router.navigate(["home/notes"])
         }

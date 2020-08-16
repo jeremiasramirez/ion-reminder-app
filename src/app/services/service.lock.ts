@@ -18,11 +18,11 @@ export class ServiceLock{
     }
 
     setPassword(password:{pass:string;email:string|number}){
-        sessionStorage.setItem("lock", JSON.stringify([ password ]))
+        localStorage.setItem("lock", JSON.stringify([ password ]))
     }
     existPassword(){
         
-        if (sessionStorage.getItem("lock"))
+        if (localStorage.getItem("lock"))
             return true 
         else false
         
@@ -87,12 +87,12 @@ export class ServiceLock{
  
    }
    removePin(){
-        sessionStorage.removeItem("lock")
+        localStorage.removeItem("lock")
     
    }
     getPassword(){
-       if (sessionStorage.getItem("lock"))
-        return JSON.parse(sessionStorage.getItem("lock"))
+       if (localStorage.getItem("lock"))
+        return JSON.parse(localStorage.getItem("lock"))
     }
 
     verifiedPass(pass:any){

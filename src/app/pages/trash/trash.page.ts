@@ -7,6 +7,7 @@ import { ServiceCompleted } from 'src/app/services/service.completed';
 import { ShownoteComponent } from 'src/app/components/shownote/shownote.component';
 import { timer } from 'rxjs';
 
+import { StatusBar } from '@ionic-native/status-bar/ngx'; 
 @Component({
   selector: 'app-trash',
   templateUrl: './trash.page.html',
@@ -19,9 +20,11 @@ export class TrashPage implements OnInit {
 
   public completeItems:modelNotes[];
   public show :boolean= false
-  constructor(public feature:FeatureService,public modalAddFromTrash:ModalController,
+  constructor(private status:StatusBar,
+    public feature:FeatureService,public modalAddFromTrash:ModalController,
     public completedNot:ServiceCompleted ) {
       
+      this.status.backgroundColorByHexString("#ad071d")
    
       this.completeItems = this.completedNot.completed
       this.completeItems = JSON.parse(localStorage.getItem("completed")) 

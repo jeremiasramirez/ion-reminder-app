@@ -33,17 +33,17 @@ export class SignPage  {
    // if(this.pass.length === 4 ){ 
       if (parseInt(this.pass )== this.lockService.getPassword()[0].pass){
 
-        
+        this.guard.opn=true
         this.openLock.on= true
         this.openLock.text= "Unlock" 
-
-        timer(2000).subscribe( ()=> { 
+        history.replaceState(null, "Reminder","/home/notes")
+      /*  timer(2000).subscribe( ()=> { 
          
           this.guard.opn=true
           history.replaceState(null, "Reminder","/home/notes")
           this.router.navigate(["home/notes"])
           
-         })
+         })*/
         
       }
    /*  else{
