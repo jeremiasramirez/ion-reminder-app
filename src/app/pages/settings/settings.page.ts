@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+import { StatusBar } from '@ionic-native/status-bar/ngx'; 
 @Component({
   selector: 'app-settings',
   templateUrl: './settings.page.html',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SettingsPage implements OnInit {
 
-  constructor() { }
+  constructor(  private status:StatusBar) { 
+    this.status.backgroundColorByHexString('#5260ff');
+  }
 
   ngOnInit() {
   }

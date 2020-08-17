@@ -6,6 +6,7 @@ import { ShownoteComponent } from 'src/app/components/shownote/shownote.componen
 import { ServiceCompleted } from 'src/app/services/service.completed';
 import { FeatureService } from 'src/app/services/service.feature';
  
+import { StatusBar } from '@ionic-native/status-bar/ngx'; 
  
  
 
@@ -24,11 +25,12 @@ export class NotesPage   {
   public searchShow:boolean=true;
 
   constructor(
+    private status:StatusBar,
     public service:ServiceNotes,public serviceCompl:ServiceCompleted,
     public feature:FeatureService, public modalAdd:ModalController) { 
     this.allNotes=  this.service.notes;
- 
- 
+    this.status.backgroundColorByHexString('#5260ff');
+  
   /*  console.log(new Date("Thu Jul 30 2020 18:08:02"))
     timer(new Date("Thu Jul 30 2020 18:08:02")).subscribe(()=>{
       console.log("hola")

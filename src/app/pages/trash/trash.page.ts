@@ -24,8 +24,8 @@ export class TrashPage implements OnInit {
     public feature:FeatureService,public modalAddFromTrash:ModalController,
     public completedNot:ServiceCompleted ) {
       
-      this.status.backgroundColorByHexString("#ad071d")
-   
+     // this.status.backgroundColorByHexString("#fa1474")
+      this.status.backgroundColorByName("danger")
       this.completeItems = this.completedNot.completed
       this.completeItems = JSON.parse(localStorage.getItem("completed")) 
       
@@ -33,6 +33,9 @@ export class TrashPage implements OnInit {
 
   ngOnInit() {
     timer(400).subscribe(()=>this.show=true)
+  }
+  ngOnDestroy(){
+    this.status.backgroundColorByHexString('#5260ff');
   }
 
   deleteItem(note,pos){

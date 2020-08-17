@@ -58,6 +58,7 @@ export class LockPage implements OnInit {
 
   }
   ngOnInit() {
+    this.existLock = this.lock.existPassword()
     interval(1000).subscribe(()=> this.existLock = this.lock.existPassword())
   }
 

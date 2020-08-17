@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class SettingHeaderComponent implements OnInit {
   @Input() title: string;
-  @Input() color: string = "light";
+  @Input() colorHeader: string = "tertiary";
   constructor(public router:Router) { }
 
   ngOnInit() {}
