@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
+import { AndroidFullScreen } from '@ionic-native/android-full-screen/ngx';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -21,6 +22,7 @@ import { ServiceNotes } from './services/service.notes';
     StatusBar,
     SplashScreen,ServiceNotes,
     LockGuard,
+    AndroidFullScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },ServiceLock 
   ],
   bootstrap: [AppComponent]

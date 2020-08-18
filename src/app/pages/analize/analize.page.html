@@ -1,19 +1,18 @@
 <app-setting-header [title]="cleanImg.title"></app-setting-header>
 
-<ion-content color="tertiary">
+<ion-content>
 
   <ion-img class="animIcon iconSettings" [src]="cleanImg.success"></ion-img>
   
-
   <div>
-    <ion-button mode="ios" (click)="clean()" expand="block" [disabled]="cleanImg.activatedButton" color="light">Limpiar</ion-button> 
+    <ion-button mode="ios" (click)="clean()" expand="block" [disabled]="cleanImg.activatedButton" color="primary">Limpiar</ion-button> 
     <br>
   </div>
 
-  <ion-list color="tertiary">
-    <ion-item color="tertiary">
+  <ion-list>
+    <ion-item>
 
-      <ion-spinner mode="ios" slot="end" color="light" *ngIf="cleanImg.spinner"></ion-spinner>
+      <ion-spinner mode="ios" slot="end" color="tertiary" *ngIf="cleanImg.spinner"></ion-spinner>
       <ion-label>Notas
         <p>Caché</p>
        
@@ -22,17 +21,26 @@
       <p *ngIf="!cleanImg.spinner" slot="end">{{ cleanImg.trash}} </p>
     </ion-item>
 
-    <ion-item color="tertiary">
+    <ion-item>
 
-      <ion-spinner slot="end" mode="ios" color="light" *ngIf="cleanImg.spinner"></ion-spinner>
+      <ion-spinner slot="end" mode="ios" color="tertiary" *ngIf="cleanImg.spinner"></ion-spinner>
       <ion-label>Papelera
         <p>Caché</p>
       
       </ion-label>
       <p *ngIf="!cleanImg.spinner" slot="end">{{ cleanImg.trash}} </p>
-     
-       
+  
+    </ion-item>
 
+    <ion-item>
+
+      <ion-spinner slot="end" mode="ios" color="tertiary" *ngIf="cleanImg.spinner"></ion-spinner>
+      <ion-label>Otras
+        <p>Caché</p>
+      
+      </ion-label>
+      <p *ngIf="!cleanImg.spinner" slot="end">{{ 0 }} </p>
+  
     </ion-item>
   </ion-list>
 </ion-content>

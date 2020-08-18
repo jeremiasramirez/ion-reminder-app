@@ -24,8 +24,8 @@ export class TrashPage implements OnInit {
     public feature:FeatureService,public modalAddFromTrash:ModalController,
     public completedNot:ServiceCompleted ) {
       
-     // this.status.backgroundColorByHexString("#fa1474")
-      this.status.backgroundColorByName("danger")
+      this.status.backgroundColorByHexString("#eb445a")
+      
       this.completeItems = this.completedNot.completed
       this.completeItems = JSON.parse(localStorage.getItem("completed")) 
       

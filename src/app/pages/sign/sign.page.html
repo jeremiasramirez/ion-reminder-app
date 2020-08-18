@@ -21,20 +21,10 @@
 
 
   <!-- img lock -->
-  <ion-img class="showImage" style="height: 100px;" src="../../assets/icon/favicon.png"></ion-img>
+  <ion-img class="showImage" style="height: 100px;" src="../../assets/icon/favicon.svg"></ion-img>
  
   <br>
-
-  <!-- input loading 
- <ion-toolbar *ngIf="!openLock.on" mode="ios" color="tertiary" >
-    <ion-label>
-      <p style="text-align: center;margin: 5px 0">PIN</p>
-    </ion-label> 
-    <ion-input mode="ios" type="password" mode="ios" placeholder="0000" [(ngModel)]="pass" (keyup)="analizePass()"></ion-input>
- </ion-toolbar>
- <ion-label>
-  <p style="text-align: center;margin: 5px 0">PIN</p>
-</ion-label> -->
+ 
  <section class="pins" *ngIf="!openLock.on">
 
     <ion-button  disabled color="tertiary" > {{ pinOne}}</ion-button>
