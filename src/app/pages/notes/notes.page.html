@@ -1,26 +1,29 @@
 <ion-header class="ion-no-border" mode="ios">
-  <ion-toolbar color="light">
+  <ion-toolbar color="tertiary">
     <ion-buttons slot="start">
-      <ion-menu-button   mode="ios"></ion-menu-button>
+      <ion-menu-button   mode="md"></ion-menu-button>
     </ion-buttons>
 
     <ion-title>Notes</ion-title>
 
     <ion-buttons slot="end" mode="md">
-      <ion-button color="tertiary" routerLink="/home/settings">
-        <ion-icon  color="tertiary" slot="icon-only" name="settings-outline"></ion-icon>
+      <ion-button color="light" routerLink="/home/settings">
+        <ion-icon  color="light" slot="icon-only" name="settings-outline"></ion-icon>
       </ion-button>
     </ion-buttons> 
 
   </ion-toolbar>
 </ion-header>
 
-<ion-toolbar mode="ios" color="light">
-  <ion-searchbar class="searchbarFade" [(ngModel)]="searchData" type="search" placeholder='Search'></ion-searchbar>
+<ion-toolbar mode="ios" color="tertiary">
+  <ion-searchbar color="light" class="searchbarFade" [(ngModel)]="searchData" type="search" placeholder='Search'></ion-searchbar>
 </ion-toolbar>
 
 <ion-content> 
- 
+  
+  <ion-chip color="tertiary">
+    <ion-label>Nueva categoria</ion-label>
+  </ion-chip>
 
   <ion-list *ngIf="!searchData">
      
@@ -32,13 +35,17 @@
  
         <ion-label>{{ note.title }} 
           <p>
-            <small>{{ note.description }} </small>
+            <small style="font-size:14px; font-weight: 500;">{{ note.description }} </small>
           </p>
 
+          <p style="color:#e0ac08">
+            <span>EDUCATIONAL</span>
+          </p>
+          <!--
           <p style="margin-top: -2px">
             <small style="color: #222; margin-top: -2px"> {{ note.date | date}}  </small>
           </p>
-
+-->
         </ion-label>  
         <ion-icon [color]="note.color" slot="start" name="ellipse"></ion-icon>
      </ion-item>
@@ -47,10 +54,16 @@
       <ion-item-options side="end" *ngIf="!searchData">
 
         <ion-item-option color="danger" (click)="deleteItem(note,pos)">
-          <ion-icon slot="icon-only"  name="trash"></ion-icon>
+          <ion-icon   slot="icon-only"  name="trash"></ion-icon>
+        </ion-item-option>
+
+        <ion-item-option color="primary">
+          <ion-icon slot="icon-only"  name="information-circle-outline"></ion-icon>
         </ion-item-option>
  
+ 
 
+       
       </ion-item-options>
  
  
@@ -69,13 +82,17 @@
  
       <ion-label>{{ note.title }} 
         <p>
-          <small color="medium">{{ note.description }} </small>
+          <small style="font-size:14px; font-weight: 500;" color="medium">{{ note.description }} </small>
         </p>
 
-        <p >
+        <!--
+          <p >
           <small color="medium"> {{ note.date | date}}  </small>
         </p>
-
+        -->
+        <p style="color:#e0ac08">
+          <span>EDUCATIONAL</span>
+        </p>
       </ion-label>  
       <ion-icon [color]="note.color" slot="start" name="ellipse"></ion-icon>
    </ion-item>
@@ -88,7 +105,6 @@
  
 
     </ion-item-options>
-
 
    
   </ion-item-sliding>

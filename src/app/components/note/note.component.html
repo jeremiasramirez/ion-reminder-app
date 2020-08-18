@@ -1,5 +1,5 @@
 <ion-header class="ion-no-border" mode="ios">
-  <ion-toolbar color="light">
+  <ion-toolbar color="tertiary">
  
 
     <ion-buttons slot="start" mode="md">
@@ -8,31 +8,33 @@
    
   
     <ion-buttons slot="end" mode="md">
-      <ion-button (click)="createNew()" color="success">Create</ion-button> 
+      <ion-button (click)="createNew()" >Create</ion-button> 
     </ion-buttons>
     
   </ion-toolbar>
 
 </ion-header>
 
-<ion-toolbar  mode="ios">  
+<ion-toolbar  mode="ios" color="tertiary">  
 
+  <ion-button>
+   
+      <ion-label>Categoria</ion-label>
+      <ion-select multiple="false" interface="action-sheet" value="none">
+        <ion-select-option value="bird">Bird</ion-select-option>
+      </ion-select>
+ 
+  </ion-button>
+
+  <ion-button slot="end" (click)="openColorPalette($event)">
+    <ion-label> <p>Color</p></ion-label>
+    <ion-icon slot="icon-only" name="ellipse" [color]="colorPred" ></ion-icon>
+  
+  </ion-button>
   <ion-buttons slot="end" >
-
-    <ion-button>
-
-      <ion-label> <p>Color</p></ion-label>
-      <ion-icon slot="icon-only" name="ellipse" [color]="colorPred" (click)="openColorPalette($event)"></ion-icon>  
-    </ion-button>
-
-    <ion-button>
-      
-      <ion-label> <p>Color</p></ion-label>
-      <ion-icon slot="icon-only" name="ellipse" [color]="colorPred" (click)="openColorPalette($event)"></ion-icon>  
-    </ion-button>
-
+     
+    
   </ion-buttons>
-
 
 </ion-toolbar>
 
