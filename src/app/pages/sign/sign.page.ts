@@ -27,7 +27,8 @@ export class SignPage  {
   }
 
 constructor(private lockService:ServiceLock, private router:Router, public guard:LockGuard) {  }
- 
+  
+  
  private open(){
 
  
