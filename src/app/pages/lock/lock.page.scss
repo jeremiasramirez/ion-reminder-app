@@ -12,7 +12,7 @@ ion-item{
 
 @keyframes showPin{
     from{
-        transform: translateY(100px);
+        transform: translateY(10px);
         opacity: 0;
     }
     to{
@@ -30,7 +30,7 @@ ion-item{
         opacity: 1;
     }
     to{
-        transform: translateY(100px);
+        transform: translateY(10px);
         opacity: 0;
     }
    

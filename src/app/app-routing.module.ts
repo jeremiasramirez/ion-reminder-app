@@ -75,6 +75,10 @@ const routes: Routes = [
     path: 'sign',
     loadChildren: () => import('./pages/sign/sign.module').then( m => m.SignPageModule)
   },
+  {
+    path: 'help',
+    loadChildren: () => import('./pages/help/help.module').then( m => m.HelpPageModule)
+  },
  
 ];
 

@@ -50,6 +50,10 @@ const routes: Routes = [
         path: 'settings/phone',
         loadChildren: () => import('../pages/phone/phone.module').then( m => m.PhonePageModule)
       },
+            {
+        path: 'settings/help',
+        loadChildren: () => import('../pages/help/help.module').then( m => m.HelpPageModule)
+      },
       {
         path: 'settings/notification',
         loadChildren: () => import('../pages/notification/notification.module').then( m => m.NotificationPageModule)
