@@ -81,19 +81,21 @@
 
  
  
-  <ion-list mode="ios" *ngIf="!showPin2 && !showPin">
+  <ion-list mode="md" *ngIf="!showPin2 && !showPin">
 
 
     <ion-item  (click)="showAddPin()"  [disabled]="existLock"   detail> 
       <ion-icon slot="start" name="add"></ion-icon>
       <ion-label>Nuevo pin
-        <p>Agregar nuevo pin</p>
+        <p>Protege tus notas agregando un nuevo PIN</p>
       </ion-label>
     </ion-item>
 
     <ion-item  (click)="changePin()"  [disabled]="!existLock"   detail> 
       <ion-icon slot="start" name="refresh"></ion-icon>
-      <ion-label>Cambiar pin</ion-label>
+      <ion-label>Cambiar pin
+        <p>Recuerda cambiar el pin al menos cada 6 meses</p>
+      </ion-label>
     </ion-item>
 
     <ion-item  (click)="deletePassword()"  [disabled]="!existLock"   detail> 

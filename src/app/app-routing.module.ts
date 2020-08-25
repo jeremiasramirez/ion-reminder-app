@@ -87,6 +87,10 @@ const routes: Routes = [
     path: 'licence',
     loadChildren: () => import('./pages/licence/licence.module').then( m => m.LicencePageModule)
   },
+  {
+    path: 'face',
+    loadChildren: () => import('./pages/face/face.module').then( m => m.FacePageModule)
+  },
  
 ];
 
