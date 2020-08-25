@@ -62,6 +62,11 @@ export class LockPage implements OnInit {
     interval(1000).subscribe(()=> this.existLock = this.lock.existPassword())
   }
 
+  ngOnDestroy(){
+    this.showPin=false;
+    this.showPin2=false
+  }
+
 
   async changeToast(message:string){
    
@@ -162,7 +167,14 @@ export class LockPage implements OnInit {
   }
   private deletePassword(){
     this.lock.removePassword()
-   
+    this.showPin=false;
+    this.showPin2=false
+ 
+  }
+
+  public cancelPin(){
+    this.showPin=false;
+    this.showPin2=false
   }
 
 

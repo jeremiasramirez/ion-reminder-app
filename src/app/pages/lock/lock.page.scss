@@ -7,15 +7,17 @@ ion-item{
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     animation: showPin .5s ease-in-out;
-    transition: .8s
+    transition: 1s
 }
 
 @keyframes showPin{
     from{
-        transform: scale(0)
+        transform: translateY(100px);
+        opacity: 0;
     }
     to{
-        transform: scale(1);
+        transform: translateY(0);
+        opacity: 1;
     }
 }
 
@@ -24,10 +26,12 @@ ion-item{
 }
 @keyframes hidePin{
     from{
-        transform: scale(1)
+        transform: translateY(0);
+        opacity: 1;
     }
     to{
-        transform: scale(0);
+        transform: translateY(100px);
+        opacity: 0;
     }
    
 }

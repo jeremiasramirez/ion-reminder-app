@@ -5,12 +5,6 @@
   <ion-img src="../../../assets/img-clean/pin.svg" class="animIcon iconSettings" style="transform:scale(.5)" ></ion-img>
 
 
-  <br>
-  <ion-button (click)="showAddPin()" [disabled]="existLock" expand="block"  size="small" mode="ios">Nuevo pin</ion-button>
-  <ion-button [disabled]="!existLock" expand="block"  size="small" mode="ios" (click)="changePin()">Cambiar pin</ion-button>
-  <ion-button (click)="deletePassword()" color="danger" [disabled]="!existLock" expand="block"  size="small" mode="ios">Eliminar pin</ion-button>
-  <br>
- 
   <!-- add pin -->
   <ion-list color="light" *ngIf="showPin " class="show__add__pin {{hideForm}}" [formGroup]="formGroups">
     
@@ -37,10 +31,12 @@
   
     </ion-item>
     <br>
-    <ion-button color="tertiary"
+    <ion-button color="tertiary" mode="ios"
     [disabled]="!formGroups.controls.email.valid || !formGroups.controls.pin.valid || !formGroups.controls.pinConfirm.valid"
     expand="block" (click)="addPin()">Agregar pin</ion-button>
-
+    <ion-button  expand="block" color="light" mode="ios" (click)="cancelPin()">
+      Cancelar
+    </ion-button> 
 
   </ion-list>
 
@@ -74,9 +70,45 @@
     <br>
     <ion-button color="tertiary"
     [disabled]="!formGroups.controls.email.valid || !formGroups.controls.pin.valid || !formGroups.controls.pinConfirm.valid"
-    expand="block" (click)="updatePin()">Actualizar pin</ion-button>
+    expand="block" mode="ios" (click)="updatePin()">Actualizar pin</ion-button>
+    <ion-button  expand="block" color="light" mode="ios" (click)="cancelPin()">
+      Cancelar
+    </ion-button> 
+
+  </ion-list>
 
 
+
+ 
+ 
+  <ion-list mode="ios" *ngIf="!showPin2 && !showPin">
+
+
+    <ion-item  (click)="showAddPin()"  [disabled]="existLock"   detail> 
+      <ion-icon slot="start" name="add"></ion-icon>
+      <ion-label>Nuevo pin
+        <p>Agregar nuevo pin</p>
+      </ion-label>
+    </ion-item>
+
+    <ion-item  (click)="changePin()"  [disabled]="!existLock"   detail> 
+      <ion-icon slot="start" name="refresh"></ion-icon>
+      <ion-label>Cambiar pin</ion-label>
+    </ion-item>
+
+    <ion-item  (click)="deletePassword()"  [disabled]="!existLock"   detail> 
+      <ion-icon slot="start" name="trash"></ion-icon>
+      <ion-label>Eliminar pin</ion-label>
+    </ion-item>
+
+    <ion-item  (click)="deletePassword()"   routerLink="/home/settings/lock/face"  detail> 
+      <ion-icon slot="start"  name="medical"></ion-icon>
+      <ion-label>FaceWidget
+        <p>Relog, icon</p>
+      </ion-label>
+    </ion-item>
+    
+    
   </ion-list>
 </ion-content>
 
