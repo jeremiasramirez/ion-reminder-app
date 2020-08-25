@@ -21,8 +21,8 @@
 
 <ion-content> 
   
-  <ion-chip  color="tertiary" mode="md">
-    <ion-label>Nueva categoria</ion-label>
+  <ion-chip (click)="newCategorie()" color="tertiary" mode="md">
+    <ion-label> Categorías</ion-label>
   </ion-chip>
 
   <ion-list *ngIf="!searchData">
@@ -39,7 +39,7 @@
           </p>
 
           <p style="color:#e0ac08">
-            <span>{{note.categorie}}</span>
+            <span>{{note.categorie | lowercase}}</span>
           </p>
           <!--
           <p style="margin-top: -2px">
@@ -91,7 +91,7 @@
         </p>
         -->
         <p style="color:#e0ac08">
-          <span>EDUCATIONAL</span>
+          <span>{{note.categorie | lowercase}}</span>
         </p>
       </ion-label>  
       <ion-icon [color]="note.color" slot="start" name="ellipse"></ion-icon>

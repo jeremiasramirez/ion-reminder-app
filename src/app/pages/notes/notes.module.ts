@@ -11,6 +11,7 @@ import { NotesPage } from './notes.page';
  
 import { ShownoteComponent } from 'src/app/components/shownote/shownote.component';
 import { SearchPipe } from 'src/app/pipes/search.pipe';
+import { CategoriesComponent } from 'src/app/components/categories/categories.component';
 
 @NgModule({
   imports: [
@@ -23,6 +24,7 @@ import { SearchPipe } from 'src/app/pipes/search.pipe';
     NotesPage,
     NoteComponent,
     SearchPipe,
+    CategoriesComponent,
     ShownoteComponent
   ]
 })

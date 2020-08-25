@@ -7,6 +7,7 @@ import { ServiceCompleted } from 'src/app/services/service.completed';
 import { FeatureService } from 'src/app/services/service.feature';
  
 import { StatusBar } from '@ionic-native/status-bar/ngx'; 
+import { CategoriesComponent } from 'src/app/components/categories/categories.component';
  
  
 
@@ -28,7 +29,9 @@ export class NotesPage   {
     private status:StatusBar,
     public service:ServiceNotes,public serviceCompl:ServiceCompleted,
     public feature:FeatureService, public modalAdd:ModalController,
-    private action:ActionSheetController) { 
+    private action:ActionSheetController,
+    private categorieModal:ModalController
+    ) { 
     this.allNotes=  this.service.notes;
     this.status.backgroundColorByHexString('#5260ff');
   
@@ -96,4 +99,11 @@ export class NotesPage   {
 
   }
 */
+
+  async newCategorie(){
+    const cat = await this.categorieModal.create({
+      component: CategoriesComponent
+    })
+    cat.present()
+  }
 }

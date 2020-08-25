@@ -8,11 +8,15 @@ import { Router } from '@angular/router';
 })
 export class SettingHeaderComponent implements OnInit {
   @Input() title: string;
+  @Input() routing: string="/home/settings" ;
   @Input() colorHeader: string = "tertiary";
+
   constructor(public router:Router) { }
 
   ngOnInit() {}
+
   back(){
-    this.router.navigate(["/home/settings"])
+    this.router.navigate([this.routing])
   }
+  
 }
