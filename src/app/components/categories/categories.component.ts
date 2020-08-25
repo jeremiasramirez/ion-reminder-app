@@ -17,7 +17,9 @@ export class CategoriesComponent implements OnInit {
     private service:ServiceNotes)  { }
 
   ngOnInit() {
+    
     this.categories= this.service.getCategories()
+     
   }
  
   closeModal(){
@@ -25,11 +27,11 @@ export class CategoriesComponent implements OnInit {
   }
 
 
-  add(){
-    if (this.valueCategorie != ""){ 
+  add(data){
+    if (data != ""){ 
        
-      this.categories.unshift({name:this.valueCategorie})
-      timer(1000).subscribe(()=>this.valueCategorie = null)
+      this.categories.unshift({name:data})
+      timer(1000).subscribe(()=>data = null)
       this.service.setCategories(this.categories)
 
     }
@@ -37,7 +39,9 @@ export class CategoriesComponent implements OnInit {
 
 
   removeCateg(pos:number){
-    this.categories.splice(pos,1)
-    this.service.setCategories(this.categories)
+    if (this.categories.length > 1){
+      this.categories.splice(pos,1)
+      this.service.setCategories(this.categories)
+    }
   }
 }

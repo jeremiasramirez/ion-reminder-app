@@ -79,6 +79,14 @@ const routes: Routes = [
     path: 'help',
     loadChildren: () => import('./pages/help/help.module').then( m => m.HelpPageModule)
   },
+  {
+    path: 'glosario',
+    loadChildren: () => import('./pages/glosario/glosario.module').then( m => m.GlosarioPageModule)
+  },
+  {
+    path: 'licence',
+    loadChildren: () => import('./pages/licence/licence.module').then( m => m.LicencePageModule)
+  },
  
 ];
 

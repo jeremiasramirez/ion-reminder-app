@@ -8,8 +8,7 @@ export class ServiceNotes{
   
     constructor(){
         this.verifiedDataStorage()    
-        
-        console.log(this.getCategories())    
+        this.setCategories([{name:"Work"}])
     }
 
     verifiedDataStorage(){
