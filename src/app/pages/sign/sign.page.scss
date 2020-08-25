@@ -65,6 +65,7 @@ ion-img{
 
 .gridButtonPin ion-button{
     font-size: 20px !important;
+    width: 59px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 } 
  
@@ -74,7 +75,8 @@ ion-img{
     align-items: center;
 }
 .pins ion-button{
-    max-width: 53px; 
+  
+    width: 59px;
     background-color: #5260ff;
     font-size: 20px;
     height: 45px; 
