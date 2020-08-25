@@ -1,6 +1,6 @@
 import { Component  } from '@angular/core'; 
 import { ServiceNotes,modelNotes } from 'src/app/services/service.notes';
-import { ModalController } from '@ionic/angular';
+import { ModalController, ActionSheetController } from '@ionic/angular';
 import { NoteComponent } from '../../components/note/note.component'; 
 import { ShownoteComponent } from 'src/app/components/shownote/shownote.component';
 import { ServiceCompleted } from 'src/app/services/service.completed';
@@ -27,7 +27,8 @@ export class NotesPage   {
   constructor(
     private status:StatusBar,
     public service:ServiceNotes,public serviceCompl:ServiceCompleted,
-    public feature:FeatureService, public modalAdd:ModalController) { 
+    public feature:FeatureService, public modalAdd:ModalController,
+    private action:ActionSheetController) { 
     this.allNotes=  this.service.notes;
     this.status.backgroundColorByHexString('#5260ff');
   
@@ -62,7 +63,23 @@ export class NotesPage   {
     openNotes.present()
   }
 
-   
+  async openSheetMore(){
+
+    const actions = await this.action.create({
+      header: "Opciones",
+      mode:"ios",
+      buttons:  [
+        
+        {text: "Agregar a favoritos"},
+        {text: "Detalles"},
+        {text: "Cancel", role:"cancel"}
+
+      ]
+
+    })
+    actions.present()
+
+  } 
 
   public deleteItem(note,pos:number){
     this.feature.createToast("Delete", note.title+" Ha sido borrada", "danger");

@@ -39,7 +39,7 @@
           </p>
 
           <p style="color:#e0ac08">
-            <span>EDUCATIONAL</span>
+            <span>{{note.categorie}}</span>
           </p>
           <!--
           <p style="margin-top: -2px">
@@ -57,8 +57,8 @@
           <ion-icon   slot="icon-only"  name="trash"></ion-icon>
         </ion-item-option>
 
-        <ion-item-option color="primary">
-          <ion-icon slot="icon-only"  name="information-circle-outline"></ion-icon>
+        <ion-item-option color="primary" (click)="openSheetMore()">
+          <ion-icon slot="icon-only"  name="ellipsis-horizontal-outline"></ion-icon>
         </ion-item-option>
  
  

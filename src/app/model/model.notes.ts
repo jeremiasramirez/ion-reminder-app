@@ -5,6 +5,7 @@ export interface modelNotes{
     date:  any;
     description: any;
     color: any;
+    categorie: string|number;
 }
 
  

@@ -20,9 +20,9 @@
   <ion-button>
    
       <ion-label>Categoria</ion-label>
-      <ion-select multiple="false" interface="action-sheet" value="none">
-        <ion-select-option value="bird">Bird</ion-select-option>
-      </ion-select>
+      <ion-select multiple="false" interface="action-sheet" value="none" [(ngModel)]="itemAdd.categorie">
+        <ion-select-option *ngFor="let cat of categories" [value]="cat.name" >{{cat.name}}</ion-select-option>
+      </ion-select> 
  
   </ion-button>
 

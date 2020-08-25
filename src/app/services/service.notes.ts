@@ -7,7 +7,7 @@ export class ServiceNotes{
     public notes  :modelNotes[]=[];
   
     constructor(){
-        this.verifiedDataStorage()       
+        this.verifiedDataStorage()        
     }
 
     verifiedDataStorage(){
@@ -46,6 +46,12 @@ export class ServiceNotes{
         this.notes.splice(pos,1)
         this.updateStorage();
     }
+
+    getCategories(){
+        return JSON.parse(localStorage.getItem("categories")); 
+    }
+
+
  
 
 

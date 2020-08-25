@@ -27,19 +27,23 @@ export class NoteComponent implements OnInit {
     title: '',
     date: new Date(),
     description: null,
-    color: 'medium'
+    color: 'medium',
+    categorie: "Sin categoría"
   };
-
+  private categorie: string;
+  private categories:any;
   public colorPred:string = "medium"
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.categories = this.serv.getCategories()
+  }
 
   async closeModalAdd(){
     timer(100).subscribe(()=>this.modalCloseAdd.dismiss())
   }
 
   createNew(){
-
+   
     if (this.itemAdd.title  !== ''){
       
        this.serv.addNew(this.itemAdd)
