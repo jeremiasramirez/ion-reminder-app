@@ -8,7 +8,7 @@ export class ServiceNotes{
   
     constructor(){
         this.verifiedDataStorage()    
-        this.setCategories([{name:"Work"}])
+        if (!localStorage.getItem("categories")) this.setCategories([{name:"Work"}])
     }
 
     verifiedDataStorage(){

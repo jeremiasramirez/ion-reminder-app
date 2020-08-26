@@ -10,12 +10,12 @@ import { timer } from 'rxjs';
 })
 export class CategoriesComponent implements OnInit {
   private categories:any;
-  private valueCategorie:string|number="";
+  private valueCategorie:string;
 
   constructor(
     private modal:ModalController,
     private service:ServiceNotes)  { }
-
+    
   ngOnInit() {
     
     this.categories= this.service.getCategories()
@@ -27,13 +27,14 @@ export class CategoriesComponent implements OnInit {
   }
 
 
-  add(data){
-    if (data != ""){ 
+  add(data:any){
+    
+    if (data.length >= 2){ 
        
       this.categories.unshift({name:data})
-      timer(1000).subscribe(()=>data = null)
+       
       this.service.setCategories(this.categories)
-
+     
     }
   }
 

@@ -8,14 +8,15 @@ import { SettingsPageRoutingModule } from './settings-routing.module';
 
 import { SettingsPage } from './settings.page';
 import { SearchPipe } from 'src/app/pipes/search.pipe';
+import { ComponentModule } from 'src/app/components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    SettingsPageRoutingModule
+    SettingsPageRoutingModule,ComponentModule
   ],
-  declarations: [SettingsPage, SearchPipe]
+  declarations: [SettingsPage ]
 })
 export class SettingsPageModule {}

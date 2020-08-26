@@ -22,7 +22,7 @@
 
     <ion-item *ngFor="let conf of configs | searchB:searchValue" detail color="tertiary" [routerLink]="conf.router" mode="md"> 
       <ion-icon slot="start" [name]="conf.icon"></ion-icon> 
-      <ion-label class="fadeIn"> {{conf.title}}
+      <ion-label   class="fadeIn"> {{conf.title}}
        <p>{{conf.subname}}</p>
       </ion-label> 
     </ion-item>
