@@ -24,10 +24,11 @@ export class AppComponent {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private dark:DarkMode
+    
   ) {
     this.initializeApp();
  
- 
+   
 
    this.checkedDark = this.dark.existDark()
     this.setterNums()
