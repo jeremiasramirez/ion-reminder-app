@@ -15,24 +15,33 @@
 
   <ion-img class="animIcon iconSettings"   src="../../../assets/img-clean/config.svg"></ion-img>
   
+  <ion-searchbar mode="ios" color="light" [(ngModel)]="searchValue"></ion-searchbar>
+
   <ion-list color="tertiary" >
  
 
-    <ion-item *ngFor="let conf of configs" detail color="tertiary" [routerLink]="conf.router" mode="md"> 
+    <ion-item *ngFor="let conf of configs | searchB:searchValue" detail color="tertiary" [routerLink]="conf.router" mode="md"> 
       <ion-icon slot="start" [name]="conf.icon"></ion-icon> 
-      <ion-label class="fadeIn"> {{conf.name}}
+      <ion-label class="fadeIn"> {{conf.title}}
        <p>{{conf.subname}}</p>
       </ion-label> 
     </ion-item>
 
-    <ion-item *ngFor="let conf of configsClick" detail color="tertiary"  (click)="conf.func" mode="md"> 
-      <ion-icon slot="start" [name]="conf.icon"></ion-icon> 
-      <ion-label class="fadeIn"> {{conf.name}}
-       <p>{{conf.subname}}</p>
+    <ion-item   detail color="tertiary"  (click)="changeTheme()" mode="md"> 
+      <ion-icon slot="start" name="moon"></ion-icon> 
+      <ion-label class="fadeIn"> Tema
+       <p>Dark, Light</p>
       </ion-label> 
     </ion-item>
 
-
+   
+    <ion-item   detail color="tertiary"  (click)="resetSettings()" mode="md"> 
+      <ion-icon slot="start" name="reload"></ion-icon> 
+      <ion-label class="fadeIn"> Reset
+       <p>Tema, Notificaciones, Pin</p>
+      </ion-label> 
+    </ion-item>
+   
   </ion-list>
 
 </ion-content>

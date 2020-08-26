@@ -9,9 +9,12 @@ export class SearchPipe implements PipeTransform{
     
     transform(arr,data:any){
 
-        return arr.filter((resp:modelNotes)=>{
+        return arr.filter((resp)=>{
             if (data !== ""){
                 return resp.title.toString().toLocaleLowerCase().includes(data.toLocaleLowerCase())
+            }
+            else{
+                return resp
             }
              
 
