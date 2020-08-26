@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { LicencePageRoutingModule } from './licence-routing.module';
 
 import { LicencePage } from './licence.page';
+import { SettingHeaderComponent } from 'src/app/components/setting-header/setting-header.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { LicencePage } from './licence.page';
     IonicModule,
     LicencePageRoutingModule
   ],
-  declarations: [LicencePage]
+  declarations: [LicencePage, SettingHeaderComponent]
 })
 export class LicencePageModule {}

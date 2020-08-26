@@ -37,14 +37,14 @@ export const settings =  [
       name: "Reportar",
       subname: " Fallos, Agregar mejoras",
       router:"/home/settings/report",
-      icon: "notifications"
+      icon: "chatbubble"
     },
   
     {
       name: "Licence",
       subname: "Información legal",
       router:"/home/settings/licence",
-      icon: "document"
+      icon: "code-download"
     },
     {
       name: "Glosario de iconos",

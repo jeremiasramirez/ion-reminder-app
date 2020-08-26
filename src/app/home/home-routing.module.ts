@@ -21,9 +21,14 @@ const routes: Routes = [
         path: 'home/settings/trash',
         loadChildren: () => import('../pages/trash/trash.module').then( m => m.TrashPageModule)
       },
- /*     {
-        path: 'settings/trash',
-        component: TrashPage
+      {
+        path: 'home/settings/licence',
+        loadChildren: () => import('../pages/licence/licence.module').then( m => m.LicencePageModule)
+      },
+     /* {
+        path: 'trash',
+        loadChildren: () => import('../pages/trash/trash.module').then( m => m.TrashPageModule)
+     
       },*/
       {
         path: 'settings',

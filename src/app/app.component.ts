@@ -40,19 +40,10 @@ export class AppComponent {
       this.numTrash = JSON.parse(localStorage.getItem("completed")).length
     },2000)
   }
-
-  darks(){
-    document.body.classList.toggle("dark")
-    if (this.checkedDark == false) this.checkedDark=true; else this.checkedDark = false
-      
-    if (this.checkedDark){
-      this.dark.setDark()
-    }
-    else{
-      this.dark.quitDark()
-    }
-   
+  getdarks(){
+    this.dark.darks()
   }
+  
 
   initializeApp() {
     this.platform.ready().then(() => {

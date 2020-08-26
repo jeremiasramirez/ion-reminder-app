@@ -70,7 +70,11 @@ const routes: Routes = [
   {
     path: 'home/settings/notification',
     loadChildren: () => import('./pages/notification/notification.module').then( m => m.NotificationPageModule)
-  }, 
+  },  
+    {
+    path: 'home/settings/licence',
+    loadChildren: () => import('./pages/licence/licence.module').then( m => m.LicencePageModule)
+  },
   {
     path: 'sign',
     loadChildren: () => import('./pages/sign/sign.module').then( m => m.SignPageModule)

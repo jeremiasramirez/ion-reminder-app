@@ -13,7 +13,7 @@ import {LockGuard} from "./guard/lock.guard"
 
 import { ServiceLock } from './services/service.lock';
 import { ServiceNotes } from './services/service.notes';
- 
+import { Device } from '@ionic-native/device/ngx';
 @NgModule({
   declarations: [AppComponent, ColorPaletteComponent ],
   entryComponents: [],
@@ -21,7 +21,7 @@ import { ServiceNotes } from './services/service.notes';
   providers: [
     StatusBar,
     SplashScreen,ServiceNotes,
-    LockGuard,
+    LockGuard,Device,
     AndroidFullScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },ServiceLock 
   ],

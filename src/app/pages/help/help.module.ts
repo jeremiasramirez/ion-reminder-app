@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { HelpPageRoutingModule } from './help-routing.module';
 
 import { HelpPage } from './help.page';
+import { SettingHeaderComponent } from 'src/app/components/setting-header/setting-header.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { HelpPage } from './help.page';
     IonicModule,
     HelpPageRoutingModule
   ],
-  declarations: [HelpPage]
+  declarations: [HelpPage,SettingHeaderComponent]
 })
 export class HelpPageModule {}

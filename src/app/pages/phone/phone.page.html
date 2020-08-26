@@ -6,9 +6,61 @@
   <ion-img src="../../../assets/img-clean/info.svg" class="animIcon iconSettings" style="transform:scale(.5)" ></ion-img>
  
    <ion-list >
-     <ion-item>
-       <ion-label>1</ion-label>
+     <ion-list-header>
+       <strong>Model</strong>
+     </ion-list-header>
+
+     <ion-item detail>
+      <ion-icon slot="start" name="chevron-forward"></ion-icon>
+       <ion-label>{{ MODEL }}</ion-label>
      </ion-item>
+
+     <ion-list-header>
+      <strong>Platform</strong>
+    </ion-list-header>
+    
+     <ion-item detail>
+      <ion-icon slot="start" name="chevron-forward"></ion-icon>
+      <ion-label>{{ PLATFORM}}</ion-label>
+    </ion-item>
+
+    <ion-list-header>
+      <strong>UUID</strong>
+    </ion-list-header>
+
+    <ion-item detail>
+      <ion-icon slot="start" name="chevron-forward"></ion-icon>
+     <ion-label>{{ UUID}}</ion-label>
+   </ion-item>
+
+   <ion-list-header>
+    <strong>Version</strong>
+  </ion-list-header>
+
+  <ion-item detail>
+    <ion-icon slot="start" name="chevron-forward"></ion-icon>
+   <ion-label>{{ VERSION}}</ion-label>
+ </ion-item>
+
+  <ion-list-header>
+    <strong>Manufacturer</strong>
+  </ion-list-header>
+
+  <ion-item detail>
+    <ion-icon slot="start" name="chevron-forward"></ion-icon>
+    <ion-label>{{ MANUFACTURER}}</ion-label>
+  </ion-item>
+
+  <ion-list-header>
+    <strong>Serial</strong>
+  </ion-list-header>
+
+  <ion-item detail>
+    <ion-icon slot="start" name="chevron-forward"></ion-icon>
+    <ion-label>{{ SERIAL}}</ion-label>
+  </ion-item>
+    
+ 
   
    </ion-list>
 </ion-content>
