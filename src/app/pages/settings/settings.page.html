@@ -17,10 +17,10 @@
   
   <ion-searchbar placeholder="Buscar en configuración" mode="ios" color="light" [(ngModel)]="searchValue"></ion-searchbar>
 
-  <ion-list color="tertiary" >
+  <ion-list mode="ios" >
  
 
-    <ion-item *ngFor="let conf of configs | searchB:searchValue" detail color="tertiary" [routerLink]="conf.router" mode="md"> 
+    <ion-item  *ngFor="let conf of configs | searchB:searchValue" detail color="tertiary" [routerLink]="conf.router" mode="md"> 
       <ion-icon slot="start" [name]="conf.icon"></ion-icon> 
       <ion-label   class="fadeIn"> {{conf.title}}
        <p>{{conf.subname}}</p>

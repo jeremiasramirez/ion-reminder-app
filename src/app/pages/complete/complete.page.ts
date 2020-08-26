@@ -17,7 +17,11 @@ import { ShownoteComponent } from 'src/app/components/shownote/shownote.componen
   ]
 })
 export class CompletePage implements OnInit {
- 
-  ngOnInit(){}
+  private showSkeleton:boolean;
+
+
+  ngOnInit(){
+    timer(700).subscribe(()=>this.showSkeleton=true)
+  }
 
 }
