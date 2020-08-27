@@ -25,7 +25,7 @@ export class NotesPage   {
   private endValue:number=10
   private searchData : any = ""
   private searchShow:boolean=true;
-
+  private show:boolean;
   constructor(
     private status:StatusBar,
     private service:ServiceNotes,private serviceCompl:ServiceCompleted,
@@ -49,6 +49,9 @@ export class NotesPage   {
       },3000)
   */
 
+  }
+  ngOnInit(){
+    timer(3000).subscribe(()=>this.show=true)
   }
  
   async openAdd(){
