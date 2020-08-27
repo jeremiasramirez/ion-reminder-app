@@ -7,7 +7,7 @@ import { DarkMode } from 'src/app/services/service.dark';
 @Component({
   selector: 'app-settings',
   templateUrl: './settings.page.html',
-  styleUrls: ['./settings.page.scss']
+  styleUrls: ['./settings.page.scss','../face/face.page.scss']
 })
 export class SettingsPage implements OnInit {
   private configs:any;
