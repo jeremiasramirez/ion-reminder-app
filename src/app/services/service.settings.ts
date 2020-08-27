@@ -28,7 +28,7 @@ export const settings =  [
   
     {
      title: "Help",
-      subname: "Ayuda, Que pasa si olvido el PIN",
+      subname: "Ayuda, Encuentra cualquier duda acerca de Reminder",
       router:"/home/settings/help",
       icon: "help-outline"
     },

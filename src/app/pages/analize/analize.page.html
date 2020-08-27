@@ -35,6 +35,17 @@
     <ion-item>
 
       <ion-spinner slot="end" mode="ios" color="tertiary" *ngIf="cleanImg.spinner"></ion-spinner>
+      <ion-label>Favoritos
+        <p>Caché</p>
+      
+      </ion-label>
+      <p *ngIf="!cleanImg.spinner" slot="end">{{ cleanImg.trash}} </p>
+  
+    </ion-item>
+
+    <ion-item>
+
+      <ion-spinner slot="end" mode="ios" color="tertiary" *ngIf="cleanImg.spinner"></ion-spinner>
       <ion-label>Otras
         <p>Caché</p>
       
