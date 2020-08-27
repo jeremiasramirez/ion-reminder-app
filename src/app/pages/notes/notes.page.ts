@@ -8,6 +8,7 @@ import { FeatureService } from 'src/app/services/service.feature';
  
 import { StatusBar } from '@ionic-native/status-bar/ngx'; 
 import { CategoriesComponent } from 'src/app/components/categories/categories.component';
+import { timer } from 'rxjs';
  
  
 
@@ -20,15 +21,15 @@ import { CategoriesComponent } from 'src/app/components/categories/categories.co
 
 })
 export class NotesPage   {
-  public allNotes;
-  
-  public searchData : any = ""
-  public searchShow:boolean=true;
+  private allNotes;
+  private endValue:number=10
+  private searchData : any = ""
+  private searchShow:boolean=true;
 
   constructor(
     private status:StatusBar,
-    public service:ServiceNotes,public serviceCompl:ServiceCompleted,
-    public feature:FeatureService, public modalAdd:ModalController,
+    private service:ServiceNotes,private serviceCompl:ServiceCompleted,
+    private feature:FeatureService, private modalAdd:ModalController,
     private action:ActionSheetController,
     private categorieModal:ModalController
     ) { 
@@ -105,5 +106,15 @@ export class NotesPage   {
       component: CategoriesComponent
     })
     cat.present()
+  }
+
+
+  moreItem(e:any){
+
+    timer(500).subscribe(()=>{
+      e.target.complete()
+      this.endValue+=10
+    })
+
   }
 }

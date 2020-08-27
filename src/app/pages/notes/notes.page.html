@@ -28,7 +28,7 @@
   <ion-list *ngIf="!searchData">
      
    
-    <ion-item-sliding *ngFor="let note of allNotes; let pos=index " >
+    <ion-item-sliding *ngFor="let note of allNotes | slice:0:endValue; let pos=index " >
 
 
       <ion-item class="addAnimation" (click)="openNote(note,pos)" detail>
@@ -117,4 +117,9 @@
       <ion-icon name="add"></ion-icon>
     </ion-fab-button> 
   </ion-fab>
+
+
+  <ion-infinite-scroll threshold="100px" position="bottom"  (ionInfinite)="moreItem($event)" >
+    <ion-infinite-scroll-content ></ion-infinite-scroll-content>
+  </ion-infinite-scroll >
 </ion-content>

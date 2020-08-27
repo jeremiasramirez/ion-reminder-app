@@ -18,11 +18,14 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 })
 export class TrashPage implements OnInit {
 
-  public completeItems:modelNotes[];
-  public show :boolean= false
+  private completeItems:modelNotes[];
+  private show :boolean= false;
+  private startValue:0;
+  private endValue:number=10;
+
   constructor(private status:StatusBar,
-    public feature:FeatureService,public modalAddFromTrash:ModalController,
-    public completedNot:ServiceCompleted ) {
+    private feature:FeatureService,private modalAddFromTrash:ModalController,
+    private completedNot:ServiceCompleted ) {
       
       this.status.backgroundColorByHexString("#eb445a")
       
@@ -32,7 +35,7 @@ export class TrashPage implements OnInit {
   }
 
   ngOnInit() {
-    timer(400).subscribe(()=>this.show=true)
+    timer(100).subscribe(()=>this.show=true)
   }
   ngOnDestroy(){
     this.status.backgroundColorByHexString('#5260ff');
@@ -62,11 +65,20 @@ export class TrashPage implements OnInit {
   refresh(e:MouseEvent){
     this.completeItems = []
     this.show=false
-      timer(800).subscribe(()=>{
+      timer(100).subscribe(()=>{
         this.completeItems = JSON.parse(localStorage.getItem("completed")) 
        // e.target.complete()
         this.show=true
       })
+    
+  }
+
+  moreItem(e:any){
+    
+    timer(600).subscribe(()=>{
+      e.target.complete();
+      this.endValue+=10
+    })
     
   }
    

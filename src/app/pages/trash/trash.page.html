@@ -7,7 +7,7 @@
   <ion-list *ngIf="show">
      
    
-    <ion-item-sliding *ngFor="let note of completeItems; let pos=index" >
+    <ion-item-sliding *ngFor="let note of completeItems  | slice:0:endValue; let pos=index;" >
 
 
       <ion-item class="addAnimation" (click)="openNote(note,pos)" detail>
@@ -54,4 +54,9 @@
   </ion-item>
 </ion-list>
  
+
+  <ion-infinite-scroll threshold="100px" position="bottom"  (ionInfinite)="moreItem($event)" >
+    <ion-infinite-scroll-content ></ion-infinite-scroll-content>
+  </ion-infinite-scroll >
+
 </ion-content>
