@@ -46,7 +46,9 @@
   <ion-button mode="ios" (click)="nine($event)" color="tertiary">9</ion-button>
   <ion-button  mode="ios" (click)="resetPin()" color="tertiary"><ion-icon  name="backspace-outline"></ion-icon></ion-button>
   <ion-button mode="ios" (click)="zero($event)"  color="tertiary">0</ion-button>
-  <ion-button color="tertiary"><ion-icon name="settings-outline"></ion-icon></ion-button>
+  <ion-button mode="ios" color="tertiary"  (click)="recoveredSheet()">
+    <ion-icon name="settings-outline"></ion-icon>
+  </ion-button>
   
 </div>
 

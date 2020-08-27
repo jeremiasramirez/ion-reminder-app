@@ -3,6 +3,8 @@ import { ServiceLock } from 'src/app/services/service.lock';
 import { Router } from '@angular/router'; 
 import { timer, interval } from 'rxjs';
 import { LockGuard } from 'src/app/guard/lock.guard';
+import { ActionSheetController, ModalController } from '@ionic/angular';
+import { RecoveredComponent } from 'src/app/components/recovered/recovered.component';
 
 @Component({
   selector: 'app-sign',
@@ -26,9 +28,40 @@ export class SignPage  {
     text:'Lock'
   }
 
-constructor(private lockService:ServiceLock, private router:Router, public guard:LockGuard) {  }
+constructor(
+  private action:ActionSheetController,
+  private lockService:ServiceLock,
+  private router:Router, 
+  private recoveredModal:ModalController,
+  private guard:LockGuard) {  }
   
-  
+ private async recovered(){
+    
+  const modRecovered = await this.recoveredModal.create({
+    component: RecoveredComponent
+  })
+
+  modRecovered.present()
+
+ }
+ 
+ 
+
+ private async recoveredSheet(){
+
+    const action = await this.action.create({
+      header: "Opciones de PIN",
+      backdropDismiss:false,
+      buttons: [
+        {text: "Olvidé mi pin", handler: ()=> {timer(300).subscribe(()=>this.recovered())} },
+        {text: "Cancelar", role:"cancel"}
+      ]
+
+    })
+    action.present()
+ }
+
+
  private open(){
 
  
@@ -38,7 +71,6 @@ constructor(private lockService:ServiceLock, private router:Router, public guard
     history.replaceState(null, "Reminder","/home/notes")
     this.router.navigate(["home/notes"])
   
-    
   }
 
   private resetPin(){
@@ -73,10 +105,7 @@ constructor(private lockService:ServiceLock, private router:Router, public guard
       this.unlock()
     }
     
-   
-    
-    
-
+  
 
   }
   private one(e:any){
