@@ -1,9 +1,37 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>face</ion-title>
-  </ion-toolbar>
-</ion-header>
+ 
 
 <ion-content>
 
+  <ion-slides pager="true" style="height: 400px;">
+
+    <ion-slide class="scaleImg">
+      <ion-img  src="../../../assets/img-clean/pin.svg" class="animIcon iconSettings" style="transform:scale(.5)" ></ion-img>
+    </ion-slide>
+
+    <ion-slide class="scaleImg">
+      <ion-img  src="../../../assets/img-clean/clock.svg" class="animIcon iconSettings" style="transform:scale(.5)" ></ion-img>
+    </ion-slide>
+
+  </ion-slides>
+
+  <ion-list >
+    <ion-radio-group> 
+
+      <ion-item disabled="true">
+        <ion-label>Icono</ion-label>
+          <ion-radio mode="ios" slot="end" color="success"></ion-radio>
+      </ion-item>
+
+      <ion-item  disabled="true">
+        <ion-label>Relog</ion-label>
+          <ion-radio mode="ios" slot="end"  color="success"></ion-radio>
+      </ion-item>
+      
+      <ion-item >
+        <ion-label>Ninguno</ion-label>
+          <ion-radio mode="ios" slot="end" color="success"></ion-radio>
+      </ion-item>
+   </ion-radio-group>
+
+  </ion-list>
 </ion-content>

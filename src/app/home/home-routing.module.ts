@@ -22,6 +22,10 @@ const routes: Routes = [
         loadChildren: () => import('../pages/trash/trash.module').then( m => m.TrashPageModule)
       },
       {
+        path: 'settings/lock/face',
+        loadChildren: () => import('../pages/face/face.module').then( m => m.FacePageModule)
+      },
+      {
         path: 'home/settings/licence',
         loadChildren: () => import('../pages/licence/licence.module').then( m => m.LicencePageModule)
       },

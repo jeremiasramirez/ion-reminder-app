@@ -26,8 +26,7 @@ export class TrashPage implements OnInit {
   constructor(private status:StatusBar,
     private feature:FeatureService,private modalAddFromTrash:ModalController,
     private completedNot:ServiceCompleted ) {
-      
-      this.status.backgroundColorByHexString("#eb445a")
+   
       
       this.completeItems = this.completedNot.completed
       this.completeItems = JSON.parse(localStorage.getItem("completed")) 
@@ -36,6 +35,8 @@ export class TrashPage implements OnInit {
 
   ngOnInit() {
     timer(100).subscribe(()=>this.show=true)
+       
+    this.status.backgroundColorByHexString("#eb445a")
   }
   ngOnDestroy(){
     this.status.backgroundColorByHexString('#5260ff');
