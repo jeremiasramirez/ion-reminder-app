@@ -34,7 +34,7 @@ export class TrashPage implements OnInit {
   }
 
   ngOnInit() {
-    timer(100).subscribe(()=>this.show=true)
+    timer(400).subscribe(()=>this.show=true)
        
     this.status.backgroundColorByHexString("#eb445a")
   }
@@ -66,7 +66,7 @@ export class TrashPage implements OnInit {
   refresh(e:MouseEvent){
     this.completeItems = []
     this.show=false
-      timer(100).subscribe(()=>{
+      timer(400).subscribe(()=>{
         this.completeItems = JSON.parse(localStorage.getItem("completed")) 
        // e.target.complete()
         this.show=true
