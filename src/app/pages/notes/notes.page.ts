@@ -51,7 +51,7 @@ export class NotesPage   {
 
   }
   ngOnInit(){
-    timer(3000).subscribe(()=>this.show=true)
+    timer(1000).subscribe(()=>this.show=true)
   }
  
   async openAdd(){
@@ -89,7 +89,7 @@ export class NotesPage   {
   } 
 
   public deleteItem(note,pos:number){
-    this.feature.createToast("Delete", note.title+" Ha sido borrada", "danger");
+    this.feature.createToast("Delete", "Borrada correctamente", "danger");
     this.serviceCompl.addNewComplete(note); 
     this.service.deleteItem(pos)
   }
