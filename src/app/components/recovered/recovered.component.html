@@ -1,7 +1,7 @@
 <ion-header class="ion-no-border" mode="ios" >
   <ion-toolbar>
     <ion-buttons  slot="end">
-      <ion-button mode="md">
+      <ion-button mode="md" (click)="closeModal()">
         <ion-icon color="danger" name="close"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -10,3 +10,52 @@
 </ion-header>
 
 
+<ion-content class="animatePin">
+
+  <ion-list *ngIf="!finded"  >
+    <ion-list-header>
+      <strong>Buscar email</strong>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-input type="email" [(ngModel)]="email" expand="block" mode="ios" placeholder="Email de recuperación"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-checkbox [checked]="checked" [(ngModel)]="checked" mode="ios" color="tertiary" slot="start"></ion-checkbox>
+      <ion-label>No soy un robot</ion-label>
+    </ion-item>
+
+  </ion-list>
+  <br>
+  <ion-button  *ngIf="!finded" [disabled]="!checked" expand="block"  mode="ios" (click)="searchEmail()">Buscar email
+    <ion-ripple-effect></ion-ripple-effect>
+  </ion-button>
+
+
+  <ion-list *ngIf="finded"  >
+    <ion-list-header>
+      <strong>Nuevo PIN</strong>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-input type="number" placeholder="0000" [(ngModel)]="newPin"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="number" placeholder="0000" [(ngModel)]="newPinConfirm"></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+  <ion-button  *ngIf="finded" color="danger"  expand="block"  mode="ios" (click)="changePin()">Cambiar PIN
+    <ion-ripple-effect></ion-ripple-effect>
+  </ion-button>
+
+
+  <br>
+  <div  style=" text-align: center; " *ngIf="showSpinner"> 
+    <ion-spinner color="danger" name="crescent"></ion-spinner>
+  </div>
+
+</ion-content>

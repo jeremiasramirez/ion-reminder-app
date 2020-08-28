@@ -1,0 +1,15 @@
+.animatePin{
+    animation : animPin .5s ease-in-out;
+    transition: 1s;
+}
+
+@keyframes animPin{
+    from{
+        transform: scale(0);
+        opacity: 0;
+    }
+    to{
+        transform: scale(1);
+        opacity: 1;
+    }
+}

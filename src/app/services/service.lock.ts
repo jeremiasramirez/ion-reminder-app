@@ -46,13 +46,14 @@ export class ServiceLock{
         }
     }
 
-    private async toastLock(msj:string, try_:boolean=false){
+    public async toastLock(msj:string, try_:boolean=false, color:string="tertiary",mode:any="md"){
        
         if (!try_){
             const toasts = await this.toast.create({
                 message: msj,
                 duration: 2000,
-                color: "tertiary",
+                color: color,
+                mode: mode,
                 position: "top",
                 buttons: [
                     {text: "Ok", role:"cancel"}
@@ -97,6 +98,16 @@ export class ServiceLock{
 
     verifiedPass(pass:any){
         if (pass === this.getPassword()[0].pass){
+            return true
+        }
+        else{
+            return false
+        }
+    }
+
+
+    verifiedEmail(email:string){
+        if (email === this.getPassword()[0].email){
             return true
         }
         else{
