@@ -5,8 +5,6 @@
   <ion-img src="../../../assets/img-clean/pin.svg" class="animIcon iconSettings" style="transform:scale(.5)" ></ion-img>
 
 
-
-
   <!-- add pin -->
   <ion-list color="light" *ngIf="showPin " class="show__add__pin {{hideForm}}" [formGroup]="formGroups">
     
@@ -34,10 +32,15 @@
     </ion-item>
     <br>
     <ion-button color="tertiary" mode="ios"
-    [disabled]="!formGroups.controls.email.valid || !formGroups.controls.pin.valid || !formGroups.controls.pinConfirm.valid"
-    expand="block" (click)="addPin()">Agregar pin</ion-button>
+        [disabled]="!formGroups.controls.email.valid || !formGroups.controls.pin.valid || !formGroups.controls.pinConfirm.valid"
+        expand="block" (click)="addPin()">
+    Agregar pin
+    <ion-ripple-effect></ion-ripple-effect>
+  </ion-button>
+
     <ion-button  expand="block" color="light" mode="ios" (click)="cancelPin()">
       Cancelar
+      <ion-ripple-effect></ion-ripple-effect>
     </ion-button> 
 
   </ion-list>
@@ -72,9 +75,13 @@
     <br>
     <ion-button color="tertiary"
     [disabled]="!formGroups.controls.email.valid || !formGroups.controls.pin.valid || !formGroups.controls.pinConfirm.valid"
-    expand="block" mode="ios" (click)="updatePin()">Actualizar pin</ion-button>
+    expand="block" mode="ios" (click)="updatePin()">Actualizar pin
+    <ion-ripple-effect></ion-ripple-effect>
+  </ion-button>
+
     <ion-button  expand="block" color="light" mode="ios" (click)="cancelPin()">
       Cancelar
+      <ion-ripple-effect></ion-ripple-effect>
     </ion-button> 
 
   </ion-list>

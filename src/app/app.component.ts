@@ -42,7 +42,7 @@ export class AppComponent {
     },2000)
   }
   getdarks(){
-    this.dark.darks()
+     this.dark.lightOrDark()
   }
   
 

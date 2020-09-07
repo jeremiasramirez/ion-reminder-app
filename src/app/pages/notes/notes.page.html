@@ -1,5 +1,5 @@
 <ion-header class="ion-no-border" mode="ios">
-  <ion-toolbar color="tertiary">
+  <ion-toolbar>
     <ion-buttons slot="start">
       <ion-menu-button   mode="md"></ion-menu-button>
     </ion-buttons>
@@ -7,29 +7,29 @@
     <ion-title>Notes</ion-title>
 
     <ion-buttons slot="end" mode="md">
-      <ion-button color="light" routerLink="/home/settings">
-        <ion-icon  color="light" slot="icon-only" name="settings-outline"></ion-icon>
+      <ion-button routerLink="/home/settings">
+        <ion-icon  slot="icon-only" name="settings-outline"></ion-icon>
       </ion-button>
     </ion-buttons> 
 
   </ion-toolbar>
 </ion-header>
 
-<ion-toolbar mode="ios" color="tertiary">
-  <ion-searchbar animated color="light" class="searchbarFade" [(ngModel)]="searchData" type="search" placeholder='Search'></ion-searchbar>
+<ion-toolbar mode="ios" >
+
+  <ion-searchbar animated class="searchbarFade" [(ngModel)]="searchData" type="search" placeholder='Search'></ion-searchbar>
+  <ion-chip (click)="newCategorie()" color="danger" mode="md">
+    <ion-label> Categorías</ion-label>
+  </ion-chip>
 </ion-toolbar>
 
 <ion-content> 
   
-  <ion-chip (click)="newCategorie()" color="tertiary" mode="md">
-    <ion-label> Categorías</ion-label>
-  </ion-chip>
+
 
   <ion-list *ngIf="!searchData && show">
      
-   
     <ion-item-sliding *ngFor="let note of allNotes | slice:0:endValue; let pos=index " >
-
 
       <ion-item class="addAnimation" (click)="openNote(note,pos)" detail>
  
@@ -111,17 +111,8 @@
 
 </ion-list>
 
-<ion-list *ngIf="!show">
-  <ion-item *ngFor="let falsy of [1,1,1,1,1,1,1,1,1]">
-    <ion-label>
-
-      <ion-skeleton-text style="width: 70%;"></ion-skeleton-text>
-      <p><ion-skeleton-text style="width: 40%;"></ion-skeleton-text></p>
-      <p><ion-skeleton-text style="width: 15%;"></ion-skeleton-text></p>
-
-    </ion-label>
-  </ion-item>
-</ion-list>
+  
+<app-skeleton [show]="show"></app-skeleton>
 
 
   <ion-fab vertical="bottom" mode="ios" color="tertiary" horizontal="end"  slot="fixed">

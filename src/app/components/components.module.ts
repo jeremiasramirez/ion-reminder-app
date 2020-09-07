@@ -10,21 +10,15 @@ import { LicenceInfoComponent } from './licence-info/licence-info.component';
 @NgModule({
   imports:[
     CommonModule
-  ],
+  ],  
   declarations: [
     SettingHeaderComponent,
     PhoneInfoComponent,
-    NoteComponent, 
-    CategoriesComponent,
-    ShownoteComponent,
     LicenceInfoComponent
   ],
   exports: [
     SettingHeaderComponent,
     PhoneInfoComponent,
-    NoteComponent, 
-    CategoriesComponent,
-    ShownoteComponent,
     LicenceInfoComponent
   ] 
  

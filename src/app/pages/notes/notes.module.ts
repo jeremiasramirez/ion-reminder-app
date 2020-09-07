@@ -11,8 +11,8 @@ import { NotesPage } from './notes.page';
  
 import { ShownoteComponent } from 'src/app/components/shownote/shownote.component';
 import { CategoriesComponent } from 'src/app/components/categories/categories.component';
-import { ComponentModule } from 'src/app/components/components.module';
 import { PipesModule } from 'src/app/pipes/pipes.module';
+import { SkeletonModule } from 'src/app/components/skeleton/skeleton.module';
 
 @NgModule({
   imports: [
@@ -20,11 +20,15 @@ import { PipesModule } from 'src/app/pipes/pipes.module';
     FormsModule,
     IonicModule,
     NotesPageRoutingModule,
-    ComponentModule,
-    PipesModule
+    //ComponentModule,
+    PipesModule,
+    SkeletonModule
   ],
   declarations: [
-    NotesPage
+    NotesPage,
+    NoteComponent, 
+    CategoriesComponent,
+    ShownoteComponent
   ]
 })
 export class NotesPageModule {}

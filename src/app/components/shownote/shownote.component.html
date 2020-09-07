@@ -1,10 +1,6 @@
 <ion-header class="ion-no-border">
   <ion-toolbar color="tertiary">
  
-    <ion-buttons slot="start" > 
-      <ion-icon   slot="icon-only" name="create-outline"></ion-icon>
-  
-    </ion-buttons>
     
     <ion-title> {{ data.title }}</ion-title>
 
@@ -18,21 +14,6 @@
   <ion-toolbar mode="md" color="tertiary">
     <ion-buttons>
 
-   
-<!--
-      <ion-button>
-        <ion-icon name="scan-outline"></ion-icon>
-      </ion-button>  
-
-      <ion-button>
-        <ion-icon name="expand-outline"></ion-icon>
-      </ion-button> 
-
-            <ion-button>
-        <ion-icon name="remove-outline"></ion-icon>
-      </ion-button> 
-
---->
       <ion-button>
         <ion-icon name="color-palette-outline"></ion-icon>
       </ion-button>
@@ -60,8 +41,12 @@
 <ion-content>
   <br>
   <br>
-  <ion-textarea [value]="data.description" class="content"
+  <ion-textarea 
+    [value]="data.description" 
+    class="content"
     (keyup)="saveChange()"
-    [(ngModel)]="data.description" placeholder="Description" rows="30" 
+    [(ngModel)]="data.description"
+    placeholder="Description" rows="30" 
     ></ion-textarea>
+    
 </ion-content>

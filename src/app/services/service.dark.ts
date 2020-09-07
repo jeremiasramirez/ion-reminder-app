@@ -30,6 +30,15 @@ export class DarkMode {
         if (this.checkedDark) this.setDark()
       }
 
+      lightOrDark(){
+        
+          document.body.classList.toggle("dark")
+          if (this.checkedDark == false) this.checkedDark=true; else this.checkedDark = false
+          if (this.checkedDark) this.setDark()
+          else this.quitDark()
+        
+      }
+
     light(){
         document.body.classList.remove("dark")
         if (this.checkedDark == false) this.checkedDark=true; else this.checkedDark = false

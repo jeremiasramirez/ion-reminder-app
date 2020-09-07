@@ -18,11 +18,15 @@
         <ion-item>
         <ion-textarea placeholder="Comment"></ion-textarea>
         </ion-item>
-        <p class="checkRobot">
-           <ion-checkbox color="success" mode="ios"></ion-checkbox> No soy un robot.
-       
-        </p>
-         <ion-button mode="ios" color="primary" expand="block">Send report</ion-button> 
+        <ion-item>
+          <ion-label >No soy un robot</ion-label>
+          <ion-checkbox slot="start" color="success" mode="ios"></ion-checkbox>
+        </ion-item>
+          
+        
+         <ion-button mode="ios" color="primary" expand="block">Send report
+           <ion-ripple-effect></ion-ripple-effect>
+         </ion-button> 
   </ion-list>
     
   

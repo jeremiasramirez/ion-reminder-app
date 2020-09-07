@@ -193,7 +193,10 @@ body.dark {
   .iconSettings{
     transform:scale(.7); height: 170px;
   }
-
+  .list-md {
+    padding-top:0;
+    padding-bottom:0;
+}
 
   .noteTitle{
     font-size: 18px
