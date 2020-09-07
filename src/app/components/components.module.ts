@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
 import  {  CommonModule} from "@angular/common"
 import { SettingHeaderComponent } from './setting-header/setting-header.component';
-import { SearchPipe } from '../pipes/search.pipe';
 import { PhoneInfoComponent } from './phone-info/phone-info.component';
+import { NoteComponent } from './note/note.component';
+import { CategoriesComponent } from './categories/categories.component';
+import { ShownoteComponent } from './shownote/shownote.component';
+import { LicenceInfoComponent } from './licence-info/licence-info.component';
  
 @NgModule({
   imports:[
@@ -10,13 +13,19 @@ import { PhoneInfoComponent } from './phone-info/phone-info.component';
   ],
   declarations: [
     SettingHeaderComponent,
-    SearchPipe,
-    PhoneInfoComponent
+    PhoneInfoComponent,
+    NoteComponent, 
+    CategoriesComponent,
+    ShownoteComponent,
+    LicenceInfoComponent
   ],
   exports: [
     SettingHeaderComponent,
-    SearchPipe,
-    PhoneInfoComponent
+    PhoneInfoComponent,
+    NoteComponent, 
+    CategoriesComponent,
+    ShownoteComponent,
+    LicenceInfoComponent
   ] 
  
 })

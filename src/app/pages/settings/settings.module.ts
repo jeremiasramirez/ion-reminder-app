@@ -7,15 +7,17 @@ import { IonicModule } from '@ionic/angular';
 import { SettingsPageRoutingModule } from './settings-routing.module';
 
 import { SettingsPage } from './settings.page';
-import { SearchPipe } from 'src/app/pipes/search.pipe';
 import { ComponentModule } from 'src/app/components/components.module';
+import { PipesModule } from 'src/app/pipes/pipes.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    SettingsPageRoutingModule,ComponentModule
+    SettingsPageRoutingModule,
+    ComponentModule,
+    PipesModule
   ],
   declarations: [SettingsPage ]
 })
