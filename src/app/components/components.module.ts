@@ -6,6 +6,9 @@ import { NoteComponent } from './note/note.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { ShownoteComponent } from './shownote/shownote.component';
 import { LicenceInfoComponent } from './licence-info/licence-info.component';
+import { FontComponent } from './font/font.component';
+import { SizesComponent } from './sizes/sizes.component';
+import { ColorPaletteComponent } from './color-palette/color-palette.component';
  
 @NgModule({
   imports:[
@@ -14,12 +17,16 @@ import { LicenceInfoComponent } from './licence-info/licence-info.component';
   declarations: [
     SettingHeaderComponent,
     PhoneInfoComponent,
-    LicenceInfoComponent
+    LicenceInfoComponent,
+    FontComponent,
+    SizesComponent,ColorPaletteComponent
   ],
   exports: [
     SettingHeaderComponent,
     PhoneInfoComponent,
-    LicenceInfoComponent
+    LicenceInfoComponent,
+    FontComponent,
+    SizesComponent,ColorPaletteComponent
   ] 
  
 })

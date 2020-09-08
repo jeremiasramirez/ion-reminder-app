@@ -1,40 +1,37 @@
 <ion-header class="ion-no-border">
   <ion-toolbar color="tertiary">
  
+    <ion-buttons slot="start" > 
+      <ion-icon (click)="closeMod()" slot="icon-only" name="close"></ion-icon>
+    </ion-buttons>
     
     <ion-title> {{ data.title }}</ion-title>
 
-    <ion-buttons slot="end" > 
-      <ion-icon (click)="closeMod()" slot="icon-only" name="close"></ion-icon>
-  
+    <ion-buttons slot="end" mode="md"> 
+      <ion-button (click)="toolbar()"> <ion-icon name="chevron-down-outline" slot="icon-only"></ion-icon></ion-button>
     </ion-buttons>
-
+    
   </ion-toolbar>
 
-  <ion-toolbar mode="md" color="tertiary">
+  <ion-toolbar class="addAnimation" mode="md" color="tertiary" *ngIf="showToolbar">
     <ion-buttons>
 
-      <ion-button>
+      <ion-button (click)="openColor($event)">
         <ion-icon name="color-palette-outline"></ion-icon>
       </ion-button>
 
-      <ion-button mode="ios">
-        <ion-badge color="tertiary">18px</ion-badge>
+      <ion-button mode="ios" (click)="openSize($event)">
+        <ion-badge color="tertiary">{{valueSizeFont}}px</ion-badge>
         <ion-icon name="chevron-down-outline"></ion-icon>
       </ion-button> 
 
-      <ion-button>
+      <ion-button (click)="openFont($event)">
         <ion-icon name="code-working-outline"></ion-icon>
       </ion-button> 
-
-
-     
+    
     </ion-buttons>
   </ion-toolbar>
-
-
-
-
+ 
 </ion-header>
  
  
@@ -42,9 +39,12 @@
   <br>
   <br>
   <ion-textarea 
+    [color]="valueColor"
     [value]="data.description" 
     class="content"
-    (keyup)="saveChange()"
+    [ngStyle]="{'font-size': valueSizeFont+'px'}"
+    [ngStyle]="{'font-family': valueFontFamily}"
+    (keyup)="saveChange()" 
     [(ngModel)]="data.description"
     placeholder="Description" rows="30" 
     ></ion-textarea>

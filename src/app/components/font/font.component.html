@@ -1,3 +1,11 @@
-<p>
-  font works!
-</p>
+
+<ion-list>
+  <ion-radio-group > 
+
+    <ion-item *ngFor="let font of fonts">
+      <ion-label [ngStyle]="{'font-family': font.test}">{{font.name}}</ion-label>
+      <ion-radio [value]="font.name" color="tertiary" (click)="changeFont(font.name)"></ion-radio>
+    </ion-item> 
+</ion-radio-group>
+</ion-list>
+ 
