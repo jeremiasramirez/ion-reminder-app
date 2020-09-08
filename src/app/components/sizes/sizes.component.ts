@@ -9,13 +9,14 @@ import { PopoverController } from '@ionic/angular';
 export class SizesComponent implements OnInit {
   
   private sizes = [
-    {name: 'eight', value:8},
-    {name: 'ten', value:10},
-    {name: 'twelve', value:12},
-    {name: 'fourtheen', value:14},
-    {name: 'sixteen', value:16},
-    {name: 'eighteen', value:18},
-    {name: 'twenty', value:20}
+    {name: 'letter8', value:8},
+    {name: 'letter10', value:10},
+    {name: 'letter12', value:12},
+    {name: 'letter14', value:14},
+    {name: 'letter16', value:16},
+    {name: 'letter18', value:18},
+    {name: 'letter20', value:20},
+    {name: 'letter22', value:22}
   ]
   constructor(
     private closeSize:PopoverController

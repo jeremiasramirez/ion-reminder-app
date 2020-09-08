@@ -8,32 +8,51 @@
     <ion-title> {{ data.title }}</ion-title>
 
     <ion-buttons slot="end" mode="md"> 
-      <ion-button (click)="toolbar()"> <ion-icon name="chevron-down-outline" slot="icon-only"></ion-icon></ion-button>
+      <ion-button  *ngIf="showToolbar" (click)="toolbar()"> <ion-icon name="chevron-up-outline" slot="icon-only"></ion-icon></ion-button>
+      <ion-button  *ngIf="!showToolbar" (click)="toolbar()"> <ion-icon name="chevron-down-outline" slot="icon-only"></ion-icon></ion-button>
     </ion-buttons>
     
   </ion-toolbar>
 
-  <ion-toolbar class="addAnimation" mode="md" color="tertiary" *ngIf="showToolbar">
+  <ion-toolbar class="addAnimation toolbarRadius" mode="md" color="tertiary" *ngIf="showToolbar">
     <ion-buttons>
 
-      <ion-button (click)="openColor($event)">
-        <ion-icon name="color-palette-outline"></ion-icon>
-      </ion-button>
+      <ion-button (click)="openFont($event)">
+        <small>{{valueFontFamily|slice:0:5}}</small>
+      </ion-button> 
+
+
 
       <ion-button mode="ios" (click)="openSize($event)">
-        <ion-badge color="tertiary">{{valueSizeFont}}px</ion-badge>
+        <ion-badge color="tertiary">{{valueSizeFont}}</ion-badge>
         <ion-icon name="chevron-down-outline"></ion-icon>
       </ion-button> 
 
-      <ion-button (click)="openFont($event)">
-        <ion-icon name="code-working-outline"></ion-icon>
+      <ion-button (click)="openFontBold()">
+        <strong style="font-weight: 700;">B</strong>
       </ion-button> 
-    
+
+      <ion-button (click)="openColor($event)">
+        <ion-icon name="brush-outline"></ion-icon>
+      </ion-button>
+
+      <ion-button (click)="openFontItalic()">
+        <ion-label style="font-style:italic">i</ion-label>
+      </ion-button> 
+
+      <ion-button (click)="openAlignment($event)">
+        <ion-icon name="reorder-three-outline"></ion-icon>
+        <ion-icon name="chevron-down-outline"></ion-icon>
+      </ion-button> 
+
+      
     </ion-buttons>
   </ion-toolbar>
  
 </ion-header>
- 
+<style>
+
+</style>
  
 <ion-content>
   <br>
@@ -42,8 +61,11 @@
     [color]="valueColor"
     [value]="data.description" 
     class="content"
-    [ngStyle]="{'font-size': valueSizeFont+'px'}"
-    [ngStyle]="{'font-family': valueFontFamily}"
+    [ngStyle]="{'font-size':valueSizeFont+'px',
+                'font-family':valueFontFamily,
+                'font-style':valueFontItalic,
+                'font-weight':valueFontBold,
+                'text-align':valueAligment}"
     (keyup)="saveChange()" 
     [(ngModel)]="data.description"
     placeholder="Description" rows="30" 

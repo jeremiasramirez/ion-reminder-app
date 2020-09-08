@@ -9,6 +9,7 @@ import { LicenceInfoComponent } from './licence-info/licence-info.component';
 import { FontComponent } from './font/font.component';
 import { SizesComponent } from './sizes/sizes.component';
 import { ColorPaletteComponent } from './color-palette/color-palette.component';
+import { AlignmentComponent } from './alignment/alignment.component';
  
 @NgModule({
   imports:[
@@ -19,14 +20,18 @@ import { ColorPaletteComponent } from './color-palette/color-palette.component';
     PhoneInfoComponent,
     LicenceInfoComponent,
     FontComponent,
-    SizesComponent,ColorPaletteComponent
+    SizesComponent,
+    ColorPaletteComponent,
+    AlignmentComponent
   ],
   exports: [
     SettingHeaderComponent,
     PhoneInfoComponent,
     LicenceInfoComponent,
     FontComponent,
-    SizesComponent,ColorPaletteComponent
+    SizesComponent,
+    ColorPaletteComponent,
+    AlignmentComponent
   ] 
  
 })

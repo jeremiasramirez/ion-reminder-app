@@ -4,7 +4,7 @@ import { Platform, MenuController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx'; 
 import { DarkMode } from './services/service.dark';
-import { timer } from 'rxjs';
+import { timer, interval } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -29,8 +29,8 @@ export class AppComponent {
     this.initializeApp();
  
    
-
-   this.checkedDark = this.dark.existDark()
+    this.checkedDark = this.dark.existDark()
+    
     this.setterNums()
   }
 

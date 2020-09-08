@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core"
 import { ActionSheetController } from '@ionic/angular'
+import { interval } from 'rxjs'
 
 @Injectable()
 
@@ -8,6 +9,7 @@ export class DarkMode {
     constructor(private action:ActionSheetController){
        this.existDark()
        this.checkedDark = this.existDark()
+       
     }
 
     setDark(){

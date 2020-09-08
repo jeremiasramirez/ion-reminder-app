@@ -1,0 +1,11 @@
+
+<ion-list>
+  <ion-radio-group > 
+
+    <ion-item *ngFor="let arrAlign of arrAligns">
+      <ion-label>{{arrAlign.name}}</ion-label>
+        <ion-radio  color="tertiary" (click)="align(arrAlign.value)"></ion-radio>
+    </ion-item> 
+</ion-radio-group>
+</ion-list>
+ 
