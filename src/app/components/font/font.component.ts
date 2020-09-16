@@ -16,7 +16,10 @@ export class FontComponent implements OnInit {
     {name: 'Helvetica', test:'Helvetica'},
     {name: 'Impact', test:'Impact'},
     {name: 'Arial Narrow Bold', test:'Arial Narrow Bold'},
-    {name: 'Haettenschweiler', test:'Haettenschweiler'}
+    {name: 'Haettenschweiler', test:'Haettenschweiler'},
+    {name: 'Courier new', test:'Courier new'},
+    {name: 'Arial Narrow', test:'Arial Narrow'}
+    
     
   ]
   constructor(

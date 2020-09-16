@@ -28,7 +28,15 @@ export class NoteComponent implements OnInit {
     date: new Date(),
     description: null,
     color: 'medium',
-    categorie: "Sin categoría"
+    categorie: "Sin categoría",
+    size:  15,
+    font:"arial",
+    colorFont:"dark",
+    fontBold:400,
+    italic:"normal",
+    alignment: "normal",
+    spaced:17
+
   };
   private categorie: string;
   private categories:any;

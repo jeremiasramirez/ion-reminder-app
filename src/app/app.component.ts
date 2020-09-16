@@ -36,9 +36,11 @@ export class AppComponent {
 
 
   setterNums(){
-       setInterval(()=>{
+    setInterval(()=>{
+      
       this.numNotes = JSON.parse(localStorage.getItem("notes")).length
       this.numTrash = JSON.parse(localStorage.getItem("completed")).length
+      
     },2000)
   }
   getdarks(){

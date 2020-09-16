@@ -4,5 +4,14 @@ import { Injectable} from "@angular/core"
 
 
 export class PersonalizeStyle{
+    
+    styleNotes =  []
+
     constructor(){}
+
+    updateStyle(){}
+
+    newStyle(){
+
+    }
 } 

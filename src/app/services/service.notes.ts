@@ -5,7 +5,7 @@ import { modelNotes } from '../model/model.notes'
 
 export class ServiceNotes{
     public notes  :modelNotes[]=[];
-  
+   
     constructor(){
         this.verifiedDataStorage()    
         if (!localStorage.getItem("categories")) this.setCategories([{name:"Work"}])
@@ -15,19 +15,13 @@ export class ServiceNotes{
         
         if (localStorage.getItem("notes"))
             this.notes= JSON.parse(localStorage.getItem("notes")) 
-          
-         
-       
     }
 
     addNew( data:any ){
         
         this.notes.unshift(data)
-       
-        this.getLocalItem()
+        this.getLocalItem();
       
-       
-
     }
     getLocalItem(){
         localStorage.setItem("notes",JSON.stringify(this.notes))
@@ -55,13 +49,7 @@ export class ServiceNotes{
         localStorage.setItem("categories", JSON.stringify(categ))
     }
     
-
- 
-
-
-
-    
-
+  
 }
 
  

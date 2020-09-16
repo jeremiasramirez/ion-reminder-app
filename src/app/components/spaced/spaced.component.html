@@ -1,0 +1,10 @@
+
+<ion-list>
+  <ion-radio-group > 
+
+    <ion-item *ngFor="let space of spacesAvailable">
+      <ion-label>{{space.value}}</ion-label>
+        <ion-radio  mode="md" color="tertiary" (click)="spaceds(space.value)"></ion-radio>
+    </ion-item> 
+</ion-radio-group>
+</ion-list>

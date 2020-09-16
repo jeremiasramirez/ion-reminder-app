@@ -6,6 +6,13 @@ export interface modelNotes{
     description: any;
     color: any;
     categorie: string|number;
+   
+    size:  number;
+    font: string;
+    colorFont:string;
+    fontBold:number;
+    italic:string;
+    alignment: string;
+    spaced:number;
 }
 
- 

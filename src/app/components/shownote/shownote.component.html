@@ -2,8 +2,8 @@
   <ion-toolbar color="tertiary">
  
     <ion-buttons slot="start" mode="md"> 
-      <ion-button>
-        <ion-icon (click)="closeMod()" slot="icon-only" name="close"></ion-icon>
+      <ion-button (click)="closeMod()">
+        <ion-icon  slot="icon-only" name="close"></ion-icon>
       </ion-button>
     </ion-buttons>
     
@@ -22,13 +22,13 @@
 
   <ion-toolbar class="addAnimation toolbarRadius" mode="md" color="tertiary" *ngIf="showToolbar">
     <ion-buttons>
-
+  
       <ion-button (click)="openFont($event)">
-        <small>{{valueFontFamily|slice:0:5}}</small>
+        <small>{{stylesFromNotes.font|slice:0:5}}</small>
       </ion-button> 
 
       <ion-button mode="ios" (click)="openSize($event)">
-        <ion-badge color="tertiary">{{valueSizeFont}}</ion-badge>
+        <ion-badge color="tertiary">{{stylesFromNotes.size}}</ion-badge>
         <ion-icon name="chevron-down-outline"></ion-icon>
       </ion-button> 
 
@@ -49,6 +49,11 @@
         <ion-icon name="chevron-down-outline"></ion-icon>
       </ion-button> 
 
+      <ion-button (click)="openFontSpaced($event)">
+        <ion-icon name="filter-outline"></ion-icon>
+        <ion-icon name="chevron-down-outline"></ion-icon>
+      </ion-button> 
+
       
     </ion-buttons>
   </ion-toolbar>
@@ -62,14 +67,15 @@
   <br>
   <br>
   <ion-textarea 
-    [color]="valueColor"
+    [color]="stylesFromNotes.color"
     [value]="data.description" 
     class="content"
-    [ngStyle]="{'font-size':valueSizeFont+'px',
-                'font-family':valueFontFamily,
-                'font-style':valueFontItalic,
-                'font-weight':valueFontBold,
-                'text-align':valueAligment}"
+    [ngStyle]="{'font-size':stylesFromNotes.size+'px',
+                'font-family':stylesFromNotes.font,
+                'font-style':stylesFromNotes.italic,
+                'font-weight':stylesFromNotes.fontBold,
+                'line-height': stylesFromNotes.spaced+'px',
+                'text-align':stylesFromNotes.alignment}"
     (keyup)="saveChange()" 
     [(ngModel)]="data.description"
     placeholder="Description" rows="30" 
