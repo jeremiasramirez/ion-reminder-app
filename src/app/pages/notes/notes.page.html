@@ -57,7 +57,7 @@
           <ion-icon   slot="icon-only"  name="trash"></ion-icon>
         </ion-item-option>
 
-        <ion-item-option color="primary" (click)="openSheetMore()">
+        <ion-item-option color="primary" (click)="openSheetMore(note,pos)">
           <ion-icon slot="icon-only"  name="ellipsis-horizontal-outline"></ion-icon>
         </ion-item-option>
  
@@ -115,9 +115,10 @@
 <app-skeleton [show]="show"></app-skeleton>
 
 
-  <ion-fab vertical="bottom" mode="ios" color="tertiary" horizontal="end"  slot="fixed">
-    <ion-fab-button color="tertiary" (click)="openAdd()">
-      <ion-icon name="add"></ion-icon>
+  <ion-fab vertical="bottom" mode="ios"  horizontal="end"  slot="fixed">
+    <ion-fab-button color="light" (click)="openAdd()">
+      <ion-icon color="tertiary" name="add"></ion-icon>
+      <ion-ripple-effect></ion-ripple-effect>
     </ion-fab-button> 
   </ion-fab>
 

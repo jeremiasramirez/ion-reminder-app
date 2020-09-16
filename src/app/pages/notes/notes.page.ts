@@ -1,6 +1,6 @@
 import { Component  } from '@angular/core'; 
 import { ServiceNotes,modelNotes } from 'src/app/services/service.notes';
-import { ModalController, ActionSheetController } from '@ionic/angular';
+import { ModalController, ActionSheetController, AlertController } from '@ionic/angular';
 import { NoteComponent } from '../../components/note/note.component'; 
 import { ShownoteComponent } from 'src/app/components/shownote/shownote.component';
 import { ServiceCompleted } from 'src/app/services/service.completed';
@@ -31,7 +31,8 @@ export class NotesPage   {
     private service:ServiceNotes,private serviceCompl:ServiceCompleted,
     private feature:FeatureService, private modalAdd:ModalController,
     private action:ActionSheetController,
-    private categorieModal:ModalController
+    private categorieModal:ModalController,
+    private detail:AlertController
     ) { 
     this.allNotes=  this.service.notes;
     this.status.backgroundColorByHexString('#5260ff');
@@ -55,12 +56,17 @@ export class NotesPage   {
   }
  
   async openAdd(){
+   
     const modalAdds = await this.modalAdd.create({
       component: NoteComponent
     })
     modalAdds.present()
   }
- 
+  
+  private getDates(data:any):any{
+    data=data.substring(0,10)
+    return new Date(data)  
+  }
   async openNote(note:modelNotes, positionEl:number){
     const openNotes = await this.modalAdd.create({
       component: ShownoteComponent,
@@ -70,15 +76,28 @@ export class NotesPage   {
     openNotes.present()
   }
 
-  async openSheetMore(){
+  private async detailNote(note:any){
+    console.log(note)
+    const details =await this.detail.create({
+      header: "Creación",
+      subHeader: "Fecha de creación",
+      message: this.getDates(`${note.date}`),
+      buttons:[
+        {text:"Entendido",role: "cancel"}
+      ]
+    })
+    details.present()
+  }
 
+  async openSheetMore(note){
+    
     const actions = await this.action.create({
       header: "Opciones",
       mode:"ios",
       buttons:  [
         
         {text: "Agregar a favoritos"},
-        {text: "Detalles"},
+        {text: "Detalles", handler: ()=>this.detailNote(note)},
         {text: "Cancel", role:"cancel"}
 
       ]
