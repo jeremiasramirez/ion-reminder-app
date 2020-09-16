@@ -6,6 +6,7 @@ import { FontComponent } from '../font/font.component';
 import { ColorPaletteComponent } from '../color-palette/color-palette.component';
 import { AlignmentComponent } from '../alignment/alignment.component';
 import { SpacedComponent } from '../spaced/spaced.component';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 @Component({
   selector: 'app-shownote',
@@ -38,6 +39,7 @@ export class ShownoteComponent  {
     
    
   constructor(
+    private status:StatusBar,
     private popoverSize:PopoverController,
     private spacePopover:PopoverController,
     private serv:ServiceNotes,
@@ -45,9 +47,9 @@ export class ShownoteComponent  {
     private alignsPopover:PopoverController,
     private colorFont:PopoverController,
     private closeModalOpn:ModalController) { 
-      
+      this.status.hide()
   } 
-
+  ngOnDestroy(){this.status.show()}
   ngOnInit(){
 
     

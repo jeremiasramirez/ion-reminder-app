@@ -9,6 +9,7 @@ import { FeatureService } from 'src/app/services/service.feature';
 import { StatusBar } from '@ionic-native/status-bar/ngx'; 
 import { CategoriesComponent } from 'src/app/components/categories/categories.component';
 import { timer } from 'rxjs';
+import { ServiceFavorite } from 'src/app/services/service.favorite';
  
  
 
@@ -17,7 +18,7 @@ import { timer } from 'rxjs';
   selector: 'app-notes',
   templateUrl: './notes.page.html',
   styleUrls: ['./notes.page.scss'],
-  providers: [ServiceCompleted,FeatureService]
+  providers: [ServiceCompleted,FeatureService,ServiceFavorite]
 
 })
 export class NotesPage   {
@@ -27,6 +28,7 @@ export class NotesPage   {
   private searchShow:boolean=true;
   private show:boolean;
   constructor(
+    private favorite:ServiceFavorite,
     private status:StatusBar,
     private service:ServiceNotes,private serviceCompl:ServiceCompleted,
     private feature:FeatureService, private modalAdd:ModalController,
@@ -67,6 +69,8 @@ export class NotesPage   {
     data=data.substring(0,10)
     return new Date(data)  
   }
+
+
   async openNote(note:modelNotes, positionEl:number){
     const openNotes = await this.modalAdd.create({
       component: ShownoteComponent,
@@ -89,14 +93,14 @@ export class NotesPage   {
     details.present()
   }
 
-  async openSheetMore(note){
+  async openSheetMore(note,pos){
     
     const actions = await this.action.create({
       header: "Opciones",
       mode:"ios",
       buttons:  [
         
-        {text: "Agregar a favoritos"},
+        {text: "Agregar a favoritos", handler: ()=>this.setFavorite(note,pos)},
         {text: "Detalles", handler: ()=>this.detailNote(note)},
         {text: "Cancel", role:"cancel"}
 
@@ -113,15 +117,13 @@ export class NotesPage   {
     this.service.deleteItem(pos)
   }
 
-   /*
-  public completed(note,pos:number){
-    this.feature.createToast("Completed", note.title+" Ha sido completada", "success");
-    this.serviceCompl.addNewComplete(note); 
+   
+  public setFavorite(note,pos:number){
+    this.feature.createToast("Favorite", " " +" Agregada a favoritos", "success");
+    this.favorite.addNew(note); 
     this.service.deleteItem(pos)
-     
-
   }
-*/
+ 
 
   async newCategorie(){
     const cat = await this.categorieModal.create({
