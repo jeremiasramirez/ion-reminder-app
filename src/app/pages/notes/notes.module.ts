@@ -13,6 +13,7 @@ import { ShownoteComponent } from 'src/app/components/shownote/shownote.componen
 import { CategoriesComponent } from 'src/app/components/categories/categories.component';
 import { PipesModule } from 'src/app/pipes/pipes.module';
 import { SkeletonModule } from 'src/app/components/skeleton/skeleton.module';
+import { ComponentModule } from 'src/app/components/components.module';
 
 @NgModule({
   imports: [
@@ -20,7 +21,7 @@ import { SkeletonModule } from 'src/app/components/skeleton/skeleton.module';
     FormsModule,
     IonicModule,
     NotesPageRoutingModule,
-    //ComponentModule,
+   // ComponentModule,
     PipesModule,
     SkeletonModule
   ],

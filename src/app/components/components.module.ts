@@ -11,6 +11,7 @@ import { SizesComponent } from './sizes/sizes.component';
 import { ColorPaletteComponent } from './color-palette/color-palette.component';
 import { AlignmentComponent } from './alignment/alignment.component';
 import { SpacedComponent } from './spaced/spaced.component';
+
  
 @NgModule({
   imports:[
@@ -25,6 +26,7 @@ import { SpacedComponent } from './spaced/spaced.component';
     ColorPaletteComponent,
     AlignmentComponent,
     SpacedComponent
+
   ],
   exports: [
     SettingHeaderComponent,
@@ -32,6 +34,7 @@ import { SpacedComponent } from './spaced/spaced.component';
     LicenceInfoComponent,
     FontComponent,
     SizesComponent,
+
     ColorPaletteComponent,
     AlignmentComponent,
     SpacedComponent

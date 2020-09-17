@@ -6,13 +6,12 @@ import { Component,Input } from '@angular/core';
   styleUrls: ['./phone-info.component.scss'],
 })
 export class PhoneInfoComponent   {
-  @Input() model:string;
-  @Input() platform:string;
-  @Input() uuid:string|number;
-  @Input() version:number;
-  @Input() manufacturer:string|number;
-  @Input() serial:string|number;
-  
+  @Input() MODEL:any;
+  @Input() PLATFORM:any;
+  @Input() UUID:any;
+  @Input() VERSION:any;
+  @Input() MANUFACTURER:any;
+  @Input() SERIAL:any;
   constructor() { }
  
 

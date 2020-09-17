@@ -15,9 +15,6 @@ export class SettingHeaderComponent implements OnInit {
 
   ngOnInit() {}
  
-  back(){
-    this.router.navigate([this.routing])
-  }
   private returnBack(route:any){
     this.router.navigate([route])
   }

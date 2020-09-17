@@ -19,14 +19,18 @@ import { ServiceFavorite } from 'src/app/services/service.favorite';
 })
 export class CompletePage implements OnInit {
   private showSkeleton:boolean;
-  private notesFav;
+  private notesFav:modelNotes[]= [];
   constructor(private service:ServiceFavorite){  }
 
   ngOnInit(){
+    this.getFavoriteNotes();
+  }
+
+  private async getFavoriteNotes(){
     timer(800).subscribe(()=>{
       this.showSkeleton=true;
       this.notesFav=this.service.favorite;
     })
-  }
+  } 
 
 }

@@ -7,15 +7,18 @@ import { ServiceCompleted } from 'src/app/services/service.completed';
 import { CompletePageRoutingModule } from './complete-routing.module';
 
 import { CompletePage } from './complete.page';
+import { ItemsFavoriteComponent } from 'src/app/components/items-favorite/items-favorite.component';
+import { ComponentModule } from 'src/app/components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    ComponentModule,
     CompletePageRoutingModule
   ],
-  declarations: [CompletePage],
+  declarations: [CompletePage,ItemsFavoriteComponent],
   providers: [
     ServiceCompleted
   ]
