@@ -16,6 +16,9 @@
         <ion-button  *ngIf="!showToolbar" (click)="toolbar()">   
           <ion-icon name="chevron-down-outline" slot="icon-only">  </ion-icon>
       </ion-button>
+      <ion-button (click)="hideBar()">
+        <ion-icon name="expand-outline"></ion-icon>
+      </ion-button> 
     </ion-buttons>
     
   </ion-toolbar>
@@ -24,7 +27,7 @@
     <ion-buttons>
   
       <ion-button (click)="openFont($event)">
-        <small>{{stylesFromNotes.font|slice:0:5}}</small>
+        <small>{{stylesFromNotes.font|slice:0:8}}</small>
       </ion-button> 
 
       <ion-button mode="ios" (click)="openSize($event)">
@@ -53,6 +56,8 @@
         <ion-icon name="filter-outline"></ion-icon>
         <ion-icon name="chevron-down-outline"></ion-icon>
       </ion-button> 
+
+
 
       
     </ion-buttons>

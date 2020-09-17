@@ -17,7 +17,7 @@ export class ShownoteComponent  {
 
   @Input() data: modelNotes;
   @Input() posEl:number;
-  private showToolbar:boolean=false;
+  private showToolbar:boolean=true;
   private valueSizeFont:number=15;
   private valueFontFamily: string="arial"
   private valueColor:string="dark"
@@ -47,9 +47,14 @@ export class ShownoteComponent  {
     private alignsPopover:PopoverController,
     private colorFont:PopoverController,
     private closeModalOpn:ModalController) { 
-      this.status.hide()
+      
   } 
   ngOnDestroy(){this.status.show()}
+
+  private hideBar(){
+    this.status.hide();
+    this.showToolbar=false
+  }
   ngOnInit(){
 
     

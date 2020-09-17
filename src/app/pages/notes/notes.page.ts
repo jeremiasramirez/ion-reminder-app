@@ -30,28 +30,16 @@ export class NotesPage   {
   constructor(
     private favorite:ServiceFavorite,
     private status:StatusBar,
-    private service:ServiceNotes,private serviceCompl:ServiceCompleted,
-    private feature:FeatureService, private modalAdd:ModalController,
+    private service:ServiceNotes,
+    private serviceCompl:ServiceCompleted,
+    private feature:FeatureService, 
+    private modalAdd:ModalController,
     private action:ActionSheetController,
     private categorieModal:ModalController,
     private detail:AlertController
     ) { 
-    this.allNotes=  this.service.notes;
-    this.status.backgroundColorByHexString('#5260ff');
-  
-  /*  console.log(new Date("Thu Jul 30 2020 18:08:02"))
-    timer(new Date("Thu Jul 30 2020 18:08:02")).subscribe(()=>{
-      console.log("hola")
-    })*/
-  /*
-      setTimeout(()=>{
-          let x = {id: 3, title: 'Carro',
-          date: null,
-          description: null}
-          this.service.notes.push(x)
-      },3000)
-  */
-
+      this.allNotes = this.service.notes;
+      this.status.backgroundColorByHexString('#5260ff');
   }
   ngOnInit(){
     timer(1000).subscribe(()=>this.show=true)
@@ -80,8 +68,8 @@ export class NotesPage   {
     openNotes.present()
   }
 
-  private async detailNote(note:any){
-    console.log(note)
+  private async detailNote(note:modelNotes){
+ 
     const details =await this.detail.create({
       header: "Creación",
       subHeader: "Fecha de creación",
@@ -93,7 +81,7 @@ export class NotesPage   {
     details.present()
   }
 
-  async openSheetMore(note,pos){
+  async openSheetMore(note:modelNotes,pos){
     
     const actions = await this.action.create({
       header: "Opciones",
@@ -112,7 +100,7 @@ export class NotesPage   {
   } 
 
   public deleteItem(note,pos:number){
-    this.feature.createToast("Delete", "Borrada correctamente", "danger");
+    this.feature.createToast("Delete", "Borrada correctamente", "success");
     this.serviceCompl.addNewComplete(note); 
     this.service.deleteItem(pos)
   }
