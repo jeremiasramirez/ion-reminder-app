@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FeatureService } from 'src/app/services/service.feature';
-import { ModalController } from '@ionic/angular';
+import { AlertController, ModalController } from '@ionic/angular';
 import { modelNotes } from 'src/app/model/model.notes';
 import { ServiceNotes } from 'src/app/services/service.notes';
 import { ServiceCompleted } from 'src/app/services/service.completed';
@@ -24,7 +24,9 @@ export class TrashPage implements OnInit {
   private endValue:number=10;
 
   constructor(private status:StatusBar,
-    private feature:FeatureService,private modalAddFromTrash:ModalController,
+    private feature:FeatureService,
+    private modalAddFromTrash:ModalController,
+    private confirmDelete:AlertController,
     private completedNot:ServiceCompleted ) {
    
       
@@ -41,17 +43,29 @@ export class TrashPage implements OnInit {
   ngOnDestroy(){
     this.status.backgroundColorByHexString('#5260ff');
   }
-
-  deleteItem(note,pos){
-    this.feature.createToast("Delete",note.title+" ha sido borrada", "danger");
+  private deleted(note,pos){
     this.completedNot.deleteNoteComplete(pos)
     this.completeItems.splice(pos,1)
+    this.feature.createToast("Delete",note.title+" ha sido borrada", "danger");
   }
-  restore(note, pos){
+  private async deleteItem(note,pos){
+    
+    const confirm= await this.confirmDelete.create({
+      header: "Eliminar",
+      subHeader: "Eliminar de manera permanente",
+      message: "Deseas continuar ?",
+      buttons: [
+        { text: "Eliminar",  handler:()=>{ this.deleted(note,pos) }},
+        { text: "Cancelar", role:"cancel"}
+      ]
+    })
+    confirm.present();
+  }
+ /* restore(note, pos){
     this.feature.createToast("Restore",note.title+" Ha sido restaurada", "success");
     this.completedNot.deleteNoteComplete(pos)
    // this.noteServ.addNew(note)
-  }
+  }*/
 
   async openNote(note:modelNotes, positionEl:number){
     const openNotes = await this.modalAddFromTrash.create({
@@ -63,7 +77,7 @@ export class TrashPage implements OnInit {
   }
 
 
-  refresh(e:MouseEvent){
+ private refresh(e:MouseEvent){
     this.completeItems = []
     this.show=false
       timer(400).subscribe(()=>{
@@ -74,7 +88,7 @@ export class TrashPage implements OnInit {
     
   }
 
-  moreItem(e:any){
+  private moreItem(e:any){
     
     timer(600).subscribe(()=>{
       e.target.complete();

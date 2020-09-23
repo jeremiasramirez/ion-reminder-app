@@ -6,26 +6,19 @@
 
     <ion-title>Notes</ion-title>
 
-    <ion-buttons slot="end" mode="md">
-      <ion-button routerLink="/home/settings">
-        <ion-icon  slot="icon-only" name="settings-outline"></ion-icon>
-      </ion-button>
+    <ion-buttons class="animIcon" slot="end" mode="md" *ngIf="syncing==true">
+      <ion-label color="medium">Sync.. </ion-label>
+      <ion-spinner color="success"></ion-spinner>
     </ion-buttons> 
 
   </ion-toolbar>
 </ion-header>
 
 <ion-toolbar mode="ios" >
-
   <ion-searchbar animated class="searchbarFade" [(ngModel)]="searchData" type="search" placeholder='Search'></ion-searchbar>
-  <ion-chip (click)="newCategorie()" color="danger" mode="md">
-    <ion-label> Categorías</ion-label>
-  </ion-chip>
 </ion-toolbar>
 
 <ion-content> 
-  
-
 
   <ion-list *ngIf="!searchData && show">
      

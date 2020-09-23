@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController, PopoverController } from '@ionic/angular';
- 
+import { CategoriesComponent } from 'src/app/components/categories/categories.component';
 import { ServiceNotes,modelNotes } from 'src/app/services/service.notes';
 import { ColorPaletteComponent } from '../color-palette/color-palette.component';
 import { timer } from 'rxjs';
@@ -18,11 +18,14 @@ import { Router } from '@angular/router';
 export class NoteComponent implements OnInit {
   
   constructor(
-    public popoverColor:PopoverController,public compl:ServiceCompleted,
-    public router:Router,
-    public serv:ServiceNotes,public modalCloseAdd:ModalController) { }
+    private popoverColor:PopoverController,
+    private compl:ServiceCompleted,
+    private router:Router,
+    private serv:ServiceNotes,
+    private categorieModal:ModalController,
+    private modalCloseAdd:ModalController) { }
    
-  public itemAdd  = {
+  private itemAdd  = {
     id:0,
     title: '',
     date: new Date(),
@@ -40,17 +43,20 @@ export class NoteComponent implements OnInit {
   };
   private categorie: string;
   private categories:any;
-  public colorPred:string = "medium"
+  public colorPred:string = "success"
 
   ngOnInit() {
     this.categories = this.serv.getCategories()
   }
 
+  private openCategories(){
+    this.categories = this.serv.getCategories()
+  }
   async closeModalAdd(){
     timer(100).subscribe(()=>this.modalCloseAdd.dismiss())
   }
 
-  createNew(){
+  private createNew(){
    
     if (this.itemAdd.title  !== ''){
       
@@ -79,6 +85,15 @@ export class NoteComponent implements OnInit {
     popColor.present();
     this.colorPred= (await popColor.onDidDismiss()).data.colorToNote  
     this.itemAdd.color = this.colorPred 
+  }
+
+
+  async newCategorie(){
+    
+    const cat = await this.categorieModal.create({
+      component: CategoriesComponent
+    })
+    cat.present()
   }
 
 }

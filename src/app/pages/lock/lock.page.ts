@@ -20,11 +20,12 @@ export class LockPage implements OnInit {
   public existLock : boolean;
   
 
-  changeTruthy : boolean;
-  hideForm = null
-  showPin:boolean;
-  hideForm2 = null
-  showPin2:boolean;
+  private changeTruthy : boolean;
+  private hideForm = null
+  private showPin:boolean;
+  private hideForm2 = null
+  private showPin2:boolean;
+
   constructor(
     private lock:ServiceLock,
     private toast:ToastController
@@ -32,31 +33,31 @@ export class LockPage implements OnInit {
     this.initValidation()
   }
 
-   initValidation(){
-    let validationArray = [
-      this.validators.required,
-      this.validators.maxLength(4),
-      this.validators.minLength(4)
-    ];
+  private initValidation(){
 
-    let validationArrayEmail = [
-      this.validators.email,
-      this.validators.required,
-      this.validators.maxLength(30),
-      this.validators.minLength(8)
-    ]
+      let validationArray = [
+        this.validators.required,
+        this.validators.maxLength(4),
+        this.validators.minLength(4)
+      ];
 
+      let validationArrayEmail = [
+        this.validators.email,
+        this.validators.required,
+        this.validators.maxLength(30),
+        this.validators.minLength(8)
+      ]
 
-    this.formGroups= new FormGroup({
-      
-      email: new FormControl(null, validationArrayEmail),
-      pin: new FormControl(null,  validationArray),
-      pinConfirm: new FormControl(null, validationArray)
+      this.formGroups= new FormGroup({
+        
+        email: new FormControl(null, validationArrayEmail),
+        pin: new FormControl(null,  validationArray),
+        pinConfirm: new FormControl(null, validationArray)
 
-    })
-
+      })
 
   }
+
   ngOnInit() {
     this.existLock = this.lock.existPassword()
     interval(1000).subscribe(()=> this.existLock = this.lock.existPassword())
@@ -67,8 +68,7 @@ export class LockPage implements OnInit {
     this.showPin2=false
   }
 
-
-  async changeToast(message:string){
+  private async changeToast(message:string){
    
     const toasts = await this.toast.create({
 
@@ -89,12 +89,11 @@ export class LockPage implements OnInit {
     this.formGroups.value.pinConfirm = null 
     this.formGroups.value.email = null 
   }
-  addPin(){
+  private addPin(){
    
-    if (this.formGroups.controls.email.valid && this.formGroups.controls.pin.valid && this.formGroups.controls.pinConfirm.valid){
+    if ( (this.formGroups.controls.email.valid) && (this.formGroups.controls.pin.valid) && (this.formGroups.controls.pinConfirm.valid)){
       
       if(this.formGroups.value.pin === this.formGroups.value.pinConfirm){
-
 
           let data = {
             pass: this.formGroups.controls.pin.value,
@@ -118,7 +117,7 @@ export class LockPage implements OnInit {
     
   }
 
-  showAddPin(){
+  private showAddPin(){
     if (this.showPin === true){
       this.hideForm="hideFormPin";
       timer(400).subscribe(()=>this.showPin = false);
@@ -126,7 +125,7 @@ export class LockPage implements OnInit {
     else{ this.showPin = true; this.hideForm="";} 
   }
 
-  showUpdatePin(){
+  private showUpdatePin(){
     if (this.showPin2 === true){
       this.hideForm2="hideFormPin";
       timer(400).subscribe(()=>this.showPin2 = false);
@@ -134,11 +133,11 @@ export class LockPage implements OnInit {
     else{ this.showPin2 = true; this.hideForm2="";} 
   }
   
-  changePin(){
+  private changePin(){
     this.showUpdatePin()
   }
-  updatePin(){
-    if (this.formGroups.controls.email.valid && this.formGroups.controls.pin.valid && this.formGroups.controls.pinConfirm.valid){
+  private  updatePin(){
+    if (  (this.formGroups.controls.email.valid) && (this.formGroups.controls.pin.valid) && (this.formGroups.controls.pinConfirm.valid) ){
       
       if((this.formGroups.value.pin == this.lock.getPassword()[0].pass) && this.formGroups.value.pinConfirm){
 
@@ -172,7 +171,7 @@ export class LockPage implements OnInit {
  
   }
 
-  public cancelPin(){
+  private cancelPin(){
     this.showPin=false;
     this.showPin2=false
   }

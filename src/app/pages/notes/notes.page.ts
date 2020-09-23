@@ -7,8 +7,8 @@ import { ServiceCompleted } from 'src/app/services/service.completed';
 import { FeatureService } from 'src/app/services/service.feature';
  
 import { StatusBar } from '@ionic-native/status-bar/ngx'; 
-import { CategoriesComponent } from 'src/app/components/categories/categories.component';
-import { timer } from 'rxjs';
+
+import { interval, timer } from 'rxjs';
 import { ServiceFavorite } from 'src/app/services/service.favorite';
  
  
@@ -27,6 +27,7 @@ export class NotesPage   {
   private searchData : any = ""
   private searchShow:boolean=true;
   private show:boolean;
+  private syncing:boolean=false;
   constructor(
     private favorite:ServiceFavorite,
     private status:StatusBar,
@@ -35,17 +36,18 @@ export class NotesPage   {
     private feature:FeatureService, 
     private modalAdd:ModalController,
     private action:ActionSheetController,
-    private categorieModal:ModalController,
+
     private detail:AlertController
     ) { 
       this.allNotes = this.service.notes;
       this.status.backgroundColorByHexString('#5260ff');
   }
   ngOnInit(){
-    timer(1000).subscribe(()=>this.show=true)
+    timer(1000).subscribe(()=>this.show=true);
+    interval(30000).subscribe(()=>this.sync());
   }
  
-  async openAdd(){
+  private async openAdd(){
    
     const modalAdds = await this.modalAdd.create({
       component: NoteComponent
@@ -58,8 +60,13 @@ export class NotesPage   {
     return new Date(data)  
   }
 
+   private async sync(){
+    this.syncing=true;
+    timer(4000).subscribe(()=>{ this.syncing=false  })  
+  }
 
-  async openNote(note:modelNotes, positionEl:number){
+
+  private async openNote(note:modelNotes, positionEl:number){
     const openNotes = await this.modalAdd.create({
       component: ShownoteComponent,
       mode: "ios",
@@ -81,7 +88,7 @@ export class NotesPage   {
     details.present()
   }
 
-  async openSheetMore(note:modelNotes,pos){
+ private async openSheetMore(note:modelNotes,pos:number){
     
     const actions = await this.action.create({
       header: "Opciones",
@@ -99,29 +106,23 @@ export class NotesPage   {
 
   } 
 
-  public deleteItem(note,pos:number){
-    this.feature.createToast("Delete", "Borrada correctamente", "success");
+  private deleteItem(note,pos:number){
+    this.feature.createToast("Delete", "Enviada a papelera", "success");
     this.serviceCompl.addNewComplete(note); 
     this.service.deleteItem(pos)
   }
 
    
-  public setFavorite(note,pos:number){
+  private setFavorite(note,pos:number){
     this.feature.createToast("Favorite", " " +" Agregada a favoritos", "success");
     this.favorite.addNew(note); 
     this.service.deleteItem(pos)
   }
  
 
-  async newCategorie(){
-    const cat = await this.categorieModal.create({
-      component: CategoriesComponent
-    })
-    cat.present()
-  }
 
 
-  moreItem(e:any){
+  private moreItem(e:any){
 
     timer(500).subscribe(()=>{
       e.target.complete()
