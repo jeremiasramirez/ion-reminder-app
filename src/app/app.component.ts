@@ -17,6 +17,7 @@ import { timer, interval } from 'rxjs';
 export class AppComponent {
   public numTrash : number=0;
   public numNotes : number=0;
+  public numFavs:  number=0;
   public checkedDark : boolean =  false;
   constructor(
     private menu:MenuController, 
@@ -37,7 +38,7 @@ export class AppComponent {
 
   setterNums(){
     setInterval(()=>{
-      
+       this.numFavs = JSON.parse(localStorage.getItem("favorite")).length
       this.numNotes = JSON.parse(localStorage.getItem("notes")).length
       this.numTrash = JSON.parse(localStorage.getItem("completed")).length
       

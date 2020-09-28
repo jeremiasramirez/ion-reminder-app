@@ -22,24 +22,22 @@ export class CategoriesComponent implements OnInit {
      
   }
  
-  closeModal(){
+  private async closeModal(){
     this.modal.dismiss()
   }
 
 
-  add(data:any){
+ private add(data:any){
     
     if (data.length >= 2){ 
-       
-      this.categories.unshift({name:data})
-       
+      this.categories.unshift({name:data}) 
       this.service.setCategories(this.categories)
-     
     }
   }
 
 
-  removeCateg(pos:number){
+  private removeCateg(pos:number){
+    
     if (this.categories.length > 1){
       this.categories.splice(pos,1)
       this.service.setCategories(this.categories)

@@ -1,7 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 import { modelNotes } from 'src/app/model/model.notes';
 import { ServiceCompleted } from 'src/app/services/service.completed';
 import { ServiceFavorite } from 'src/app/services/service.favorite';
+import { ShownoteComponent } from '../shownote/shownote.component';
 
 @Component({
   selector: 'app-items-favorite',
@@ -16,12 +18,22 @@ export class ItemsFavoriteComponent implements OnInit {
   @Input() showSkeleton:boolean;
   @Input() notesFav;
   
-  constructor(private service:ServiceFavorite,private serviceCompl:ServiceCompleted) { }
+  constructor(
+    private modalAdd:ModalController,
+    private service:ServiceFavorite,
+    private serviceCompl:ServiceCompleted) { }
 
   ngOnInit() {
   
   }
-
+  private async openNote(note:modelNotes, positionEl:number){
+    const openNotes = await this.modalAdd.create({
+      component: ShownoteComponent,
+      mode: "ios",
+      componentProps:  {data: note, posEl:positionEl}
+    })
+    openNotes.present()
+  }
 
   private deleteItem(note:modelNotes,pos:number){
   

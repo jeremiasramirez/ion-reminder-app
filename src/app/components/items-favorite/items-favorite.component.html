@@ -4,7 +4,7 @@
     <ion-item-sliding *ngFor="let note of notesFav" >
 
       <ion-item class="addAnimation" (click)="openNote(note,pos)" detail>
- 
+   
         <ion-label>{{ note.title }} 
           <p>
             <small style="font-size:14px; font-weight: 500;">{{ note.description }} </small>
@@ -42,7 +42,7 @@
 
 
 <ion-list *ngIf="!showSkeleton">
-  <ion-item *ngFor="let falsy of [1,1,1,1,1,1,1,1,1]">
+  <ion-item *ngFor="let falsy of [1,1,1,1,1]">
     <ion-label>
 
       <ion-skeleton-text style="width: 70%;"></ion-skeleton-text>

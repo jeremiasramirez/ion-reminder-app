@@ -45,7 +45,7 @@
 
 
       <ion-item  (click)="closeMenu()" routerLink="home/settings/complete" mode="md"> 
-        <ion-badge slot="end" color="success">0</ion-badge>
+        <ion-badge slot="end" color="warning">{{ numFavs }}</ion-badge>
         <ion-icon slot="start" name="star"></ion-icon> 
         <ion-label class="fadeIn"> Favoritos
          <p>Todas las notas marcada en favorito</p>
@@ -62,26 +62,7 @@
       </ion-item>
 
  
-  
-      <ion-item detail (click)="closeMenu()" routerLink="/home/settings/analize" mode="md">   
-        <ion-icon slot="start" name="speedometer"></ion-icon>
-        <ion-label class="fadeIn"> 
-          Vacear notas
-          <p >Analizar, Vacear papelera </p>
-         </ion-label> 
-      </ion-item> 
-  
-  
-      <ion-item detail (click)="closeMenu()" routerLink="/home/settings/notification" mode="md">
-        <ion-icon name="notifications" slot="start" ></ion-icon>
-        <ion-label class="fadeIn"> 
-          Notificación
-          <p>Activar, Preferencias de notificaciones</p>
-         </ion-label>
-         <ion-buttons slot="end">
-          <ion-label color="medium">Activada</ion-label> 
-         </ion-buttons> 
-      </ion-item> 
+   
   
   
  
