@@ -44,7 +44,16 @@ export class NotesPage   {
   }
   ngOnInit(){
     timer(1000).subscribe(()=>this.show=true);
-    interval(30000).subscribe(()=>this.sync());
+    interval(30000).subscribe(()=>{
+      this.sync()
+
+      if (localStorage.getItem("notes")==null ){
+        this.service.notes=[]
+        this.allNotes=[]
+      }
+    });
+ 
+  
   }
  
   private async openAdd(){

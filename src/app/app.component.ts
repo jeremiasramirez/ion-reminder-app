@@ -30,14 +30,20 @@ export class AppComponent {
     this.initializeApp();
  
    
-    this.checkedDark = this.dark.existDark()
     
+   
     this.setterNums()
   }
 
+  ngOnInit():void{
+    this.checkedDark = this.dark.existDark()
+     
+
+  }
 
   setterNums(){
     setInterval(()=>{
+       
        this.numFavs = JSON.parse(localStorage.getItem("favorite")).length
       this.numNotes = JSON.parse(localStorage.getItem("notes")).length
       this.numTrash = JSON.parse(localStorage.getItem("completed")).length
@@ -45,7 +51,7 @@ export class AppComponent {
     },2000)
   }
   getdarks(){
-     this.dark.lightOrDark()
+       this.dark.lightOrDark()
   }
   
 

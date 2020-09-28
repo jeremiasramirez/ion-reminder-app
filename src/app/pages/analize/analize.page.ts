@@ -3,6 +3,8 @@ import { ServiceLock } from 'src/app/services/service.lock';
 import { timer } from 'rxjs';
 import { ServiceCompleted } from 'src/app/services/service.completed';
 import { AlertController } from '@ionic/angular';
+import { ServiceFavorite } from 'src/app/services/service.favorite';
+import { ServiceNotes } from 'src/app/services/service.notes';
 
 @Component({
   selector: 'app-analize',
@@ -10,7 +12,9 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['./analize.page.scss'],
   providers:[
     ServiceLock,
-    ServiceCompleted
+    ServiceCompleted,
+    ServiceNotes,
+    ServiceFavorite
   ]
 })
 export class AnalizePage implements OnInit {
@@ -20,11 +24,17 @@ export class AnalizePage implements OnInit {
     activatedButton: true, 
     spinner: true,
     note:0,
-    trash:0
+    trash:0,
+    favorites:0
   }
  
-  constructor(public alert:AlertController,
-    public locks:ServiceLock, public rem:ServiceCompleted) { }
+  constructor(
+    private alert:AlertController,
+    private confirmDel:AlertController,
+    private locks:ServiceLock, 
+    private notesServ:ServiceNotes,
+    private favs:ServiceFavorite,
+    private rem:ServiceCompleted) { }
 
   ngOnInit() {
 
@@ -33,8 +43,9 @@ export class AnalizePage implements OnInit {
       this.cleanImg.spinner = false;
       this.cleanImg.title = "Analizado"
       this.cleanImg.activatedButton = false
-      this.cleanImg.trash=this.rem.getAll().length
-
+      this.cleanImg.trash=this.rem.getAll().length;
+      this.cleanImg.favorites= this.favs.favorite.length
+      this.cleanImg.note= this.notesServ.notes.length
     })
 
   }
@@ -53,6 +64,15 @@ export class AnalizePage implements OnInit {
       this.cleanImg.activatedButton = true
       this.cleanImg.trash =  0
       this.cleanImg.note =  0
+      this.cleanImg.favorites =  0
+
+       this.notesServ.notes = [];
+       this.favs.favorite = []
+       this.rem.completed=[]
+       localStorage.removeItem("notes");
+       localStorage.removeItem("favorite");
+       localStorage.removeItem("completed");
+        
     })
 
   }
@@ -85,9 +105,8 @@ export class AnalizePage implements OnInit {
       buttons: [
         {text: "Confirmar",  handler: (e)=>{
         
-          console.log(e)
           if (this.locks.getPassword()[0].pass == parseInt(e.pass)){
-            console.log(this.locks.getPassword())
+            this.confirmDelete()
             
           }
           else{
@@ -111,14 +130,23 @@ export class AnalizePage implements OnInit {
       else{
     
       timer(300).subscribe(()=>{
-        this.cleaning()
+        this.confirmDelete()
       }) 
 
     }
     
 
   }
-
-
-
+  
+  private async confirmDelete(){
+    const del = await this.confirmDel.create({
+      header: "Delete",
+      message: "Realmente quieres vacear las notas ?",
+      buttons: [
+        {text: "Seguro", handler:()=>this.cleaning()},
+        {text: "Cancelar", role:"cancel"}
+      ]
+    })
+    del.present()
+  }
 }
