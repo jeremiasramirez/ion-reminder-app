@@ -1,24 +1,12 @@
-<ion-header class="ion-no-border" color="tertiary" mode="ios">
-  <ion-toolbar color="tertiary">
- 
-
-     <ion-title> {{ openLock.text }} </ion-title>
-
-     <ion-buttons  slot="end">
-      <ion-icon  *ngIf="!openLock.on" class="addAnimation" slot="icon-only" name="lock-closed"></ion-icon>
-      <ion-icon  *ngIf="openLock.on" class="addAnimation"  slot="icon-only" name="lock-open"></ion-icon>
-     </ion-buttons>
- 
-    
+<ion-header class="ion-no-border" mode="ios">
+  <ion-toolbar >
+    <ion-title> {{ openLock.text }} </ion-title>
   </ion-toolbar>
-
 </ion-header >
  
+<ion-content >
 
-<ion-content   color="tertiary">
-  <!-- spaces -->
   <br> 
-
 
   <!-- img lock -->
   <ion-img class="showImage" style="height: 100px;" src="../../assets/icon/favicon.png"></ion-img>
@@ -27,26 +15,27 @@
  
  <section class="pins" *ngIf="!openLock.on">
 
-    <ion-button  disabled color="tertiary" > {{ pinOne}}</ion-button>
-    <ion-button  disabled color="tertiary" >{{ pinTwo}}</ion-button>
-    <ion-button  disabled color="tertiary" >{{ pinThre}}</ion-button>
-    <ion-button  disabled color="tertiary" >{{pinFour }}</ion-button>
+    <ion-button  disabled  color="light" > {{ pinOne}}</ion-button>
+    <ion-button  disabled  color="light">{{ pinTwo}}</ion-button>
+    <ion-button  disabled  color="light">{{ pinThre}}</ion-button>
+    <ion-button  disabled  color="light">{{pinFour }}</ion-button>
  </section>
 
  <br><br>
  <div class="gridButtonPin" *ngIf="!openLock.on">
-  <ion-button mode="ios" (click)="one($event)" color="tertiary">1</ion-button>
-  <ion-button mode="ios" (click)="two($event)" color="tertiary">2</ion-button>
-  <ion-button mode="ios" (click)="thre($event)" color="tertiary">3</ion-button>
-  <ion-button mode="ios" (click)="four($event)" color="tertiary">4</ion-button>
-  <ion-button mode="ios" (click)="five($event)" color="tertiary">5</ion-button>
-  <ion-button mode="ios" (click)="six($event)" color="tertiary">6</ion-button>
-  <ion-button mode="ios" (click)="seven($event)" color="tertiary">7</ion-button>
-  <ion-button mode="ios" (click)="eight($event)" color="tertiary">8</ion-button>
-  <ion-button mode="ios" (click)="nine($event)" color="tertiary">9</ion-button>
-  <ion-button  mode="ios" (click)="resetPin()" color="tertiary"><ion-icon  name="backspace-outline"></ion-icon></ion-button>
-  <ion-button mode="ios" (click)="zero($event)"  color="tertiary">0</ion-button>
-  <ion-button mode="ios" color="tertiary"  (click)="recoveredSheet()">
+  <ion-button mode="ios" (click)="one($event)" color="light">1</ion-button>
+  <ion-button mode="ios" (click)="two($event)" color="light">2</ion-button>
+  <ion-button mode="ios" (click)="thre($event)" color="light">3</ion-button>
+  <ion-button mode="ios" (click)="four($event)" color="light">4</ion-button>
+  <ion-button mode="ios" (click)="five($event)" color="light">5</ion-button>
+  <ion-button mode="ios" (click)="six($event)" color="light">6</ion-button>
+  <ion-button mode="ios" (click)="seven($event)" color="light">7</ion-button>
+  <ion-button mode="ios" (click)="eight($event)" color="light">8</ion-button>
+  <ion-button mode="ios" (click)="nine($event)" color="light">9</ion-button>
+  <ion-button  mode="ios" (click)="resetPin()" color="light"><ion-icon  name="backspace-outline"></ion-icon></ion-button>
+  <ion-button mode="ios" (click)="zero($event)"  color="light">0</ion-button>
+  
+  <ion-button mode="ios" color="light"  (click)="recoveredSheet()">
     <ion-icon name="settings-outline"></ion-icon>
   </ion-button>
   
@@ -55,7 +44,9 @@
 
  
  <ion-toolbar style="text-align:center" *ngIf="openLock.on" mode="ios" color="tertiary" >
-   <ion-button expand="block" color="primary" routerLink="/home/notes">Continuar</ion-button>
+   <ion-button expand="block" color="primary" routerLink="/home/notes">Continuar
+  <ion-ripple-effect></ion-ripple-effect>
+</ion-button>
  </ion-toolbar>
  
    
