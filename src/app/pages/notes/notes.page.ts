@@ -103,6 +103,17 @@ export class NotesPage   {
     details.present()
   }
 
+  private async aboutNotWrite(){
+    const about =await this.detail.create({
+      header: "Info de notas",
+      subHeader: "Edición de notas",
+      message: "Las notas en Favoritos y en papelera no pueden ser editadas.",
+      buttons:[
+        {text:"OK",role: "cancel"}
+      ]
+    })
+    about.present()
+  }
  private async openSheetMore(note:modelNotes,pos:number){
     
     const actions = await this.action.create({
@@ -112,6 +123,7 @@ export class NotesPage   {
         
         {text: "Agregar a favoritos", handler: ()=>this.setFavorite(note,pos)},
         {text: "Detalles", handler: ()=>this.detailNote(note)},
+        {text: "Acerca de", handler: ()=>this.aboutNotWrite()},
         {text: "Cancel", role:"cancel"}
 
       ]
