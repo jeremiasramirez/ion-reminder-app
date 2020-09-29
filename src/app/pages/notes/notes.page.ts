@@ -24,10 +24,18 @@ import { ServiceFavorite } from 'src/app/services/service.favorite';
 export class NotesPage   {
   private allNotes;
   private endValue:number=10
-  private searchData : any = ""
+  private searchData:string = ""
   private searchShow:boolean=true;
   private show:boolean;
   private syncing:boolean=false;
+
+
+  //timings
+  private timingShow:any;
+  private timingVerifiedNotesDeletes:any;
+  private timingSync:any;
+  private timingMore:any;
+
   constructor(
     private favorite:ServiceFavorite,
     private status:StatusBar,
@@ -42,15 +50,13 @@ export class NotesPage   {
       this.allNotes = this.service.notes;
       this.status.backgroundColorByHexString('#5260ff');
   }
+ 
   ngOnInit(){
-    timer(1000).subscribe(()=>this.show=true);
-    interval(30000).subscribe(()=>{
-      this.sync()
+   this.timingShow= timer(1000).subscribe(()=>this.show=true);
 
-      if (localStorage.getItem("notes")==null ){
-        this.service.notes=[]
-        this.allNotes=[]
-      }
+   this.timingVerifiedNotesDeletes= interval(30000).subscribe(()=>{
+      this.sync()
+ 
     });
  
   
@@ -71,7 +77,7 @@ export class NotesPage   {
 
    private async sync(){
     this.syncing=true;
-    timer(4000).subscribe(()=>{ this.syncing=false  })  
+    this.timingSync=  timer(4000).subscribe(()=>{ this.syncing=false  })  
   }
 
 
@@ -133,7 +139,7 @@ export class NotesPage   {
 
   private moreItem(e:any){
 
-    timer(500).subscribe(()=>{
+    this.timingMore = timer(500).subscribe(()=>{
       e.target.complete()
       this.endValue+=10
     })

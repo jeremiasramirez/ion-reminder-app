@@ -1,6 +1,5 @@
 import { Injectable } from "@angular/core"
 import { ActionSheetController } from '@ionic/angular'
-import { interval } from 'rxjs'
 
 @Injectable()
 

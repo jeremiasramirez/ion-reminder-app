@@ -31,6 +31,7 @@ export class AnalizePage implements OnInit {
   constructor(
     private alert:AlertController,
     private confirmDel:AlertController,
+    private reboot:AlertController,
     private locks:ServiceLock, 
     private notesServ:ServiceNotes,
     private favs:ServiceFavorite,
@@ -72,13 +73,22 @@ export class AnalizePage implements OnInit {
        localStorage.removeItem("notes");
        localStorage.removeItem("favorite");
        localStorage.removeItem("completed");
+
+       this.rebootApp()
         
     })
 
   }
 
-  clean_(){
-
+   
+  private async rebootApp(){
+    const reboots = await this.reboot.create({
+      header: "Reminder",
+      backdropDismiss:false,
+      subHeader: "Cierre y abra la app",
+      message: "Debes cerrar la app para completar cambios."
+    })
+    reboots.present();
   }
 
   async failedPin(){

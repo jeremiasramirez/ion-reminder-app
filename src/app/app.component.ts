@@ -44,10 +44,16 @@ export class AppComponent {
   setterNums(){
     setInterval(()=>{
        
-       this.numFavs = JSON.parse(localStorage.getItem("favorite")).length
-      this.numNotes = JSON.parse(localStorage.getItem("notes")).length
-      this.numTrash = JSON.parse(localStorage.getItem("completed")).length
-      
+      if(JSON.parse(localStorage.getItem("favorite"))) {
+        this.numFavs = JSON.parse(localStorage.getItem("favorite")).length
+      }
+      if(JSON.parse(localStorage.getItem("notes"))){
+        this.numNotes = JSON.parse(localStorage.getItem("notes")).length
+      }
+      if(JSON.parse(localStorage.getItem("completed"))){
+        this.numTrash = JSON.parse(localStorage.getItem("completed")).length
+      }
+  
     },2000)
   }
   getdarks(){

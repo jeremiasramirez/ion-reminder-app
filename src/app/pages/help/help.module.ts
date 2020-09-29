@@ -7,15 +7,17 @@ import { IonicModule } from '@ionic/angular';
 import { HelpPageRoutingModule } from './help-routing.module';
 
 import { HelpPage } from './help.page';
-import { SettingHeaderComponent } from 'src/app/components/setting-header/setting-header.component';
+
+import { ComponentModule } from 'src/app/components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    HelpPageRoutingModule
+    HelpPageRoutingModule,
+    ComponentModule
   ],
-  declarations: [HelpPage,SettingHeaderComponent]
+  declarations: [HelpPage]
 })
 export class HelpPageModule {}

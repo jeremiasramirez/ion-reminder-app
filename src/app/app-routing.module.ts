@@ -44,7 +44,8 @@ const routes: Routes = [
   },*/
    {
     path: 'home/settings/complete',
-    loadChildren: () => import('./pages/complete/complete.module').then( m => m.CompletePageModule)
+    loadChildren: () => import('./pages/complete/complete.module').then( m => m.CompletePageModule),
+    canActivate: [LockGuard] 
   }, 
   {
     path: 'home/settings/phone',
