@@ -21,10 +21,7 @@ const routes: Routes = [
         path: 'home/settings/trash',
         loadChildren: () => import('../pages/trash/trash.module').then( m => m.TrashPageModule)
       },
-      {
-        path: 'settings/lock/face',
-        loadChildren: () => import('../pages/face/face.module').then( m => m.FacePageModule)
-      },
+ 
       {
         path: 'home/settings/licence',
         loadChildren: () => import('../pages/licence/licence.module').then( m => m.LicencePageModule)
@@ -46,11 +43,7 @@ const routes: Routes = [
         path: 'settings/analize',
         loadChildren: () => import('../pages/analize/analize.module').then( m => m.AnalizePageModule)
       },
-
-      {
-        path: 'settings/plan',
-        loadChildren: () => import('../pages/plan/plan.module').then( m => m.PlanPageModule)
-      },
+ 
       {
         path: 'settings/report',
         loadChildren: () => import('../pages/report/report.module').then( m => m.ReportPageModule)
@@ -62,10 +55,6 @@ const routes: Routes = [
             {
         path: 'settings/help',
         loadChildren: () => import('../pages/help/help.module').then( m => m.HelpPageModule)
-      },
-      {
-        path: 'settings/notification',
-        loadChildren: () => import('../pages/notification/notification.module').then( m => m.NotificationPageModule)
       },
       {
         path: 'complete',

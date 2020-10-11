@@ -7,13 +7,12 @@ import { ActionSheetController } from '@ionic/angular';
 @Component({
   selector: 'app-settings',
   templateUrl: './settings.page.html',
-  styleUrls: ['./settings.page.scss','../face/face.page.scss']
+  styleUrls: ['./settings.page.scss']
 })
 export class SettingsPage implements OnInit {
   private configs:any;
   private searchValue:string|number = "";
-  constructor( 
-    private resets: ActionSheetController,
+  constructor(  
     private status:StatusBar,
     private them:DarkMode) { 
     this.status.backgroundColorByHexString('#5260ff');
@@ -28,14 +27,6 @@ export class SettingsPage implements OnInit {
     this.them.changeTheme()
   }
 
- 
-  private async resetSettings(){
-    const reset = await this.resets.create({
-      header: "Restablecer",
-      buttons: [
-        {text: "Pin", handler: ()=>{}}
-      ]
-    })
-  }
+  
 }
 

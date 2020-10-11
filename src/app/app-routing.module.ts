@@ -64,15 +64,9 @@ const routes: Routes = [
     path: 'home/settings/report',
     loadChildren: () => import('./pages/report/report.module').then( m => m.ReportPageModule)
   },
+ 
+
   {
-    path: 'home/settings/plan',
-    loadChildren: () => import('./pages/plan/plan.module').then( m => m.PlanPageModule)
-  },
-  {
-    path: 'home/settings/notification',
-    loadChildren: () => import('./pages/notification/notification.module').then( m => m.NotificationPageModule)
-  },  
-    {
     path: 'home/settings/licence',
     loadChildren: () => import('./pages/licence/licence.module').then( m => m.LicencePageModule)
   },
@@ -84,18 +78,12 @@ const routes: Routes = [
     path: 'help',
     loadChildren: () => import('./pages/help/help.module').then( m => m.HelpPageModule)
   },
-  {
-    path: 'glosario',
-    loadChildren: () => import('./pages/glosario/glosario.module').then( m => m.GlosarioPageModule)
-  },
+ 
   {
     path: 'licence',
     loadChildren: () => import('./pages/licence/licence.module').then( m => m.LicencePageModule)
-  },
-  {
-    path: 'face',
-    loadChildren: () => import('./pages/face/face.module').then( m => m.FacePageModule)
-  },
+  } 
+ 
  
 ];
 

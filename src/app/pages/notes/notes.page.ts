@@ -121,7 +121,7 @@ export class NotesPage   {
       mode:"ios",
       buttons:  [
         
-        {text: "Agregar a favoritos", handler: ()=>this.setFavorite(note,pos)},
+        {text: "",icon:'heart-outline', handler: ()=>this.setFavorite(note,pos)},
         {text: "Detalles", handler: ()=>this.detailNote(note)},
         {text: "Acerca de", handler: ()=>this.aboutNotWrite()},
         {text: "Cancel", role:"cancel"}
@@ -132,11 +132,21 @@ export class NotesPage   {
     actions.present()
 
   } 
-
-  private deleteItem(note,pos:number){
+  private acceptRemove(note,pos:number){
     this.feature.createToast("Delete", "Enviada a papelera", "success");
     this.serviceCompl.addNewComplete(note); 
     this.service.deleteItem(pos)
+  }
+  private async deleteItem(note,pos:number){
+    const removeItem = await this.detail.create({
+      header: "Mover a papelera",
+      message: "Realmente quieres remover este elemento?",
+      buttons: [
+        {text: "Remover", handler: ()=>this.acceptRemove(note,pos)},
+        {text: "Cancelar", role:"cancel"}
+      ]
+    })
+    removeItem.present();
   }
 
    
