@@ -14,11 +14,13 @@ import {LockGuard} from "./guard/lock.guard"
 import { ServiceLock } from './services/service.lock';
 import { ServiceNotes } from './services/service.notes';
 import { Device } from '@ionic-native/device/ngx';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
  
 @NgModule({
   declarations: [AppComponent ],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })],
   providers: [
     StatusBar,
     SplashScreen,ServiceNotes,
