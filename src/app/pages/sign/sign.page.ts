@@ -3,7 +3,7 @@ import { ServiceLock } from 'src/app/services/service.lock';
 import { Router } from '@angular/router'; 
 import { timer, interval } from 'rxjs';
 import { LockGuard } from 'src/app/guard/lock.guard';
-import { ActionSheetController, ModalController } from '@ionic/angular';
+import { ActionSheetController, ModalController, ToastController } from '@ionic/angular';
 import { RecoveredComponent } from 'src/app/components/recovered/recovered.component';
 
 @Component({
@@ -29,6 +29,7 @@ export class SignPage  {
   }
 
 constructor(
+  private toast:ToastController,
   private action:ActionSheetController,
   private lockService:ServiceLock,
   private router:Router, 
@@ -73,12 +74,27 @@ constructor(
   
   }
 
+  async errorPassMsj(){
+    const toastMsj = await this.toast.create({
+         message: "PIN failed",
+         duration:2000,
+         color: 'danger',
+         animated:true,
+         mode:"ios"
+       }
+    )
+
+    toastMsj.present();
+  } 
+
   private resetPin(){
     this.pinOne  = null;
     this.pinTwo = null;
     this.pinThre = null;
     this.pinFour = null;
-    this.passToString = null
+    this.passToString = null;
+    this.errorPassMsj();
+
   }
   private unlock(){
    
